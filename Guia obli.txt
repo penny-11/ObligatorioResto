@@ -1,0 +1,19 @@
+-Diagrama conceptual
+-Interfaces
+-Diagrama de disenio 
+-Cargar datos de prueba
+-Seguir programando
+(Utilizar ese orden)
+
+
+-Usuario:
+*Mozo
+*Admin
+-Mesa
+-UnidadProcesadora
+*Bar
+*Cocina
+*Mostrador
+-Producto
+-Cliente
+
