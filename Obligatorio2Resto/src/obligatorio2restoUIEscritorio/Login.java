@@ -8,7 +8,7 @@ package obligatorio2restoUIEscritorio;
  *
  * @author tomas
  */
-public class Login extends javax.swing.JFrame {
+public abstract class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login

@@ -19,6 +19,7 @@ public class ProblemaSensor {
         s.agregarEscuchador(new AlarmaSilenciosa());
         s.agregarEscuchador(new MecanismoTrampa());
         s.activa();
+        s.desactiva();
         
 
     }
