@@ -4,10 +4,48 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
  */
 public class Mozo extends Usuario{
+    
+    private String telefono;
+    private ArrayList<Mesa> mesas;
+
+    public Mozo(String usuario, String password, String nombreCompleto,String telefono) {
+        super(usuario, password, nombreCompleto);
+        this.telefono = telefono;
+        this.mesas=new ArrayList(5);
+    }
+    
+    @Override
+    public String getUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getPassword() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String getNombreCompleto() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public ArrayList<Mesa> getMesas() {
+        return mesas;
+    }
+    
+    public void addMesa(Mesa unaMesa){
+        this.mesas.add(unaMesa);
+    }
     
 }

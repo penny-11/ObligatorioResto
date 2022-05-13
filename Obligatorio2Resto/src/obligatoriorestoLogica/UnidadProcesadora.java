@@ -10,4 +10,12 @@ package obligatoriorestoLogica;
  */
 public abstract class UnidadProcesadora {
     
+    protected String nombre;
+
+    public UnidadProcesadora(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public abstract String getNombre();
+    
 }

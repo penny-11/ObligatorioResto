@@ -10,4 +10,45 @@ package obligatoriorestoLogica;
  */
 public class Item {
     
+    private Producto producto;
+    private int cantidad;
+    private String descripcion;
+
+    public Item(Producto producto, int cantidad, String descripcion) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.descripcion = descripcion;
+    }
+    
+    public Item(){
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    
+    
+    
+    
 }
