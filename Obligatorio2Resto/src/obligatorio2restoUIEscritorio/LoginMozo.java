@@ -4,10 +4,18 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import obligatoriorestoLogica.Fachada;
+import obligatoriorestoLogica.Usuario;
+
 /**
  *
  * @author tomas
  */
 public class LoginMozo extends Login{
+    
+    @Override
+    public Usuario Logear(String u, String pwd) {
+       return Fachada.getInstancia().loginMozo(u, pwd);
+    }
     
 }

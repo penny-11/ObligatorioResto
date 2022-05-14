@@ -4,10 +4,17 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import obligatoriorestoLogica.Fachada;
+import obligatoriorestoLogica.Usuario;
+
 /**
  *
  * @author tomas
  */
 public class LoginGestor extends Login{
     
+    @Override
+    public Usuario Logear(String usuario, String pwd) {
+        return Fachada.getInstancia().loginGestor(usuario, pwd);
+    }
 }

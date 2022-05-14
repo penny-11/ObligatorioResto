@@ -4,6 +4,9 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import javax.swing.JOptionPane;
+import obligatoriorestoLogica.Usuario;
+
 /**
  *
  * @author tomas
@@ -27,11 +30,11 @@ public abstract class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextUsuario = new javax.swing.JTextField();
-        jTextPassword = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButtonLogin = new javax.swing.JButton();
+        jPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,18 +61,18 @@ public abstract class Login extends javax.swing.JFrame {
                     .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(77, 77, 77)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextUsuario)
-                                .addComponent(jTextPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))
-                        .addGroup(layout.createSequentialGroup()
                             .addGap(51, 51, 51)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
                                 .addComponent(jLabel1)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel3))))
+                            .addComponent(jLabel3))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(77, 77, 77)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextUsuario)
+                                .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -83,9 +86,9 @@ public abstract class Login extends javax.swing.JFrame {
                 .addComponent(jTextUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jButtonLogin)
                 .addGap(33, 33, 33))
         );
@@ -100,14 +103,26 @@ public abstract class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextPassword;
+    private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jTextUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void login() {
+        String usuario = jTextUsuario.getText();
+        String password = new String(jPassword.getPassword());
+        Usuario u = Logear(usuario, password);
+        if (u == null) {
+            JOptionPane.showMessageDialog(this, "Acceso denegado");
+        } else {
+            dispose();
+        }
+    }
+
+    public abstract Usuario Logear(String nombre, String pwd);
 }
