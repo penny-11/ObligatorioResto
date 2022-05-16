@@ -4,8 +4,11 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import obligatoriorestoLogica.Usuario;
+import obligatoriorestoLogica.UsuarioException;
 
 /**
  *
@@ -116,13 +119,19 @@ public abstract class Login extends javax.swing.JFrame {
     private void login() {
         String usuario = jTextUsuario.getText();
         String password = new String(jPassword.getPassword());
-        Usuario u = Logear(usuario, password);
-        if (u == null) {
-            JOptionPane.showMessageDialog(this, "Acceso denegado");
+        Usuario u;
+        try {
+            u = Logear(usuario, password);
+            if (u != null) {
+            proxCasoUso(u);
         } else {
             dispose();
         }
+        } catch (UsuarioException ex) {
+           
+        }
     }
 
-    public abstract Usuario Logear(String nombre, String pwd);
+    public abstract Usuario Logear(String nombre, String pwd) throws UsuarioException;
+    public abstract void proxCasoUso(Object obj);
 }

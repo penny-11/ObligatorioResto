@@ -4,10 +4,23 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
  */
 public class ControlMesas {
+
+    private ArrayList<Mesa> mesas = new ArrayList();
+
+    public void asignarMesas(Mozo mozo) {
+        for (Mesa me : mesas) {
+            if (mozo.getMesas().isEmpty()) {
+                mozo.addMesa(me);
+            }
+        }
+    }
+    
     
 }

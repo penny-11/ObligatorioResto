@@ -4,17 +4,22 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import obligatoriorestoLogica.Mozo;
+
 /**
  *
  * @author tomas
  */
 public class VistaMozo extends javax.swing.JFrame {
+    
+    private Mozo mozo;
 
     /**
      * Creates new form VistaMozo
      */
-    public VistaMozo() {
+    public VistaMozo(Mozo mo) {
         initComponents();
+        mozo=mo;
     }
 
     /**

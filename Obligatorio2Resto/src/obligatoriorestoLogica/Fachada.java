@@ -23,7 +23,7 @@ public class Fachada {
    private Fachada() {
    }
    
-   public Mozo loginMozo(String u, String p) {
+   public Mozo loginMozo(String u, String p) throws UsuarioException {
         return cu.loginMozo(u, p);
    }
    

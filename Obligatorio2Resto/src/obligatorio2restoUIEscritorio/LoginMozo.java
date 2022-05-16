@@ -5,7 +5,9 @@
 package obligatorio2restoUIEscritorio;
 
 import obligatoriorestoLogica.Fachada;
+import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Usuario;
+import obligatoriorestoLogica.UsuarioException;
 
 /**
  *
@@ -14,8 +16,13 @@ import obligatoriorestoLogica.Usuario;
 public class LoginMozo extends Login{
     
     @Override
-    public Usuario Logear(String u, String pwd) {
+    public Usuario Logear(String u, String pwd) throws UsuarioException{
        return Fachada.getInstancia().loginMozo(u, pwd);
+    }
+
+    @Override
+    public void proxCasoUso(Object obj) {
+        new VistaMozo((Mozo)obj).setVisible(true);
     }
     
 }
