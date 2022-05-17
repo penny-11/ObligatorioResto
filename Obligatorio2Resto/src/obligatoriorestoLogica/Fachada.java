@@ -5,12 +5,15 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author admin
  */
 public class Fachada {
     private ControlUsuarios cu = new ControlUsuarios();
+    private ControlStock cs=new ControlStock();
     
     
    private static Fachada instancia = new Fachada();
@@ -30,7 +33,17 @@ public class Fachada {
     public Gestor loginGestor(String u, String p) {
         return cu.loginGestor(u, p);
     }
+
+    public boolean agregar(Producto unProducto) {
+        return cs.agregar(unProducto);
+    }
+
+    public ArrayList<Producto> getProductos() {
+        return cs.getProductos();
+    }
      
+    
+    
      
     
     
