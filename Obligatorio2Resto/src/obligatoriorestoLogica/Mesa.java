@@ -13,9 +13,11 @@ public class Mesa {
     private int numeroMesa;
     private Mozo mozoAsignado;
     private Cliente clienteMesa;
+    private boolean estadoMesa;
 
     public Mesa(int numeroMesa) {
         this.numeroMesa = numeroMesa;
+        this.estadoMesa=false;
     }
     
     public Mesa(){
@@ -35,6 +37,14 @@ public class Mesa {
     
     public void addCliente(Cliente unCliente){
         this.clienteMesa=unCliente;
+    }
+    
+    public boolean abrirMesa(){
+        boolean result=false;
+        if(!this.estadoMesa){
+           result=true; 
+        }
+        return result;
     }
     
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author tomas
  */
-public class ControlMesas {
+public class ControlServicio {
 
     private ArrayList<Mesa> mesas = new ArrayList();
 

@@ -4,6 +4,8 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
@@ -14,8 +16,7 @@ public class Pedido {
     private Mesa mesa;
     private Mozo mozoAtencion;
 
-    public Pedido(Item item, Mesa mesa, Mozo mozoAtencion) {
-        this.item = item;
+    public Pedido(Mesa mesa, Mozo mozoAtencion) {
         this.mesa = mesa;
         this.mozoAtencion = mozoAtencion;
     }
@@ -23,12 +24,12 @@ public class Pedido {
     public Pedido(){
     }
 
-    public Item getItem() {
+    public Item getItems() {
         return item;
     }
 
     public void setItem(Item item) {
-        this.item = item;
+        this.item=item;
     }
 
     public Mesa getMesa() {
