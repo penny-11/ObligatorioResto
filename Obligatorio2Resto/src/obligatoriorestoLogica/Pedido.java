@@ -4,49 +4,50 @@
  */
 package obligatoriorestoLogica;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author tomas
  */
 public class Pedido {
     
-    private Item item;
-    private Mesa mesa;
-    private Mozo mozoAtencion;
+    private Producto producto;
+    private int cantidad;
+    private String descripcion;
 
-    public Pedido(Mesa mesa, Mozo mozoAtencion) {
-        this.mesa = mesa;
-        this.mozoAtencion = mozoAtencion;
+    public Pedido(Producto producto, int cantidad, String descripcion) {
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.descripcion = descripcion;
     }
     
     public Pedido(){
     }
 
-    public Item getItems() {
-        return item;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setItem(Item item) {
-        this.item=item;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
-    public Mesa getMesa() {
-        return mesa;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public Mozo getMozoAtencion() {
-        return mozoAtencion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setMozoAtencion(Mozo mozoAtencion) {
-        this.mozoAtencion = mozoAtencion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
+    
+    
     
     
     
