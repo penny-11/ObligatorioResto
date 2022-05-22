@@ -51,8 +51,8 @@ public class Fachada {
         cser.abrirMesa(unaMesa);
     }
 
-    public void cerrarMesa(Mesa unaMesa) throws MesaException{
-        cser.cerrarMesa(unaMesa);
+    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) throws MesaException{
+        cser.cerrarMesa(unaMesa,unCliente);
     }
      
     
