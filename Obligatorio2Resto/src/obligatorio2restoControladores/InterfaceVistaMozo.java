@@ -4,6 +4,7 @@
  */
 package obligatorio2restoControladores;
 
+import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Producto;
@@ -20,7 +21,7 @@ public interface InterfaceVistaMozo {
     
     public void abrirMesa(Mesa unaMesa);
     
-    public void cerrarMesa(Mesa unaMesa);
+    public void cerrarMesa(Mesa unaMesa,Cliente unCliente);
     
     public void transferirMesa();
     

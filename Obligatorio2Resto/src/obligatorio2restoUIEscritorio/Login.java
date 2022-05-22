@@ -122,13 +122,9 @@ public abstract class Login extends javax.swing.JFrame {
         Usuario u;
         try {
             u = Logear(usuario, password);
-            if (u != null) {
             proxCasoUso(u);
-        } else {
-            dispose();
-        }
         } catch (UsuarioException ex) {
-           
+           JOptionPane.showMessageDialog(this, ex);
         }
     }
 

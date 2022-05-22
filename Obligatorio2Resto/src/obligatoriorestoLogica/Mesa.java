@@ -40,22 +40,14 @@ public class Mesa {
         this.clienteMesa = unCliente;
     }
 
-    public boolean abrirMesa() {
-        boolean result = false;
-        if (!this.estadoMesa) {
-            this.estadoMesa = true;
-            result = true;
-        }
-        return result;
+    public boolean isEstadoMesa() {
+        return estadoMesa;
     }
 
-    public boolean cerrarMesa() {
-        boolean result = false;
-        if (this.estadoMesa) {
-            this.estadoMesa = false;
-            result = true;
-        }
-        return result;
+    public void setEstadoMesa(boolean estadoMesa) {
+        this.estadoMesa = estadoMesa;
     }
+
+    
 
 }

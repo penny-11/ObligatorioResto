@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Fachada {
     private ControlUsuarios cu = new ControlUsuarios();
     private ControlStock cs=new ControlStock();
+    private ControlServicio cser=new ControlServicio();
     
     
    private static Fachada instancia = new Fachada();
@@ -41,7 +42,21 @@ public class Fachada {
     public ArrayList<Producto> getProductos() {
         return cs.getProductos();
     }
+
+    public void asignarMesas(Mozo mozo) {
+        cser.asignarMesas(mozo);
+    }
+
+    public void abrirMesa(Mesa unaMesa) throws MesaException{
+        cser.abrirMesa(unaMesa);
+    }
+
+    public void cerrarMesa(Mesa unaMesa) throws MesaException{
+        cser.cerrarMesa(unaMesa);
+    }
      
+    
+    
     
     
      

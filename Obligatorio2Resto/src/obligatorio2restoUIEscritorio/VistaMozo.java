@@ -4,8 +4,12 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import javax.swing.JOptionPane;
+import obligatorio2restoControladores.ControladorVistaMozo;
 import obligatorio2restoControladores.InterfaceVistaMozo;
+import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
+import obligatoriorestoLogica.MesaException;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Producto;
 
@@ -13,9 +17,11 @@ import obligatoriorestoLogica.Producto;
  *
  * @author tomas
  */
-public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo{
+public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo {
 
     private Mozo mozo;
+    private ControladorVistaMozo controlador;
+    private Cliente cliente;
 
     /**
      * Creates new form VistaMozo
@@ -23,6 +29,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo{
     public VistaMozo(Mozo mo) {
         initComponents();
         mozo = mo;
+        controlador = new ControladorVistaMozo(this, mo);
     }
 
     /**
@@ -251,7 +258,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo{
         for (Mesa me : unMozo.getMesas()) {
             jComboBoxMesas.addItem("Mesa" + me.getNumeroMesa());
         }
-        
+
         jLabelMesa1.setText("Mesa - " + unMozo.getMesas().get(0).getNumeroMesa());
         jLabelMesa2.setText("Mesa - " + unMozo.getMesas().get(1).getNumeroMesa());
         jLabelMesa3.setText("Mesa - " + unMozo.getMesas().get(2).getNumeroMesa());
@@ -267,12 +274,20 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo{
 
     @Override
     public void abrirMesa(Mesa unaMesa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            controlador.abrirMesa(unaMesa);
+        } catch (MesaException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }
 
     @Override
-    public void cerrarMesa(Mesa unaMesa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) {
+        try {
+            controlador.cerrarMesa(unaMesa,unCliente);
+        } catch (MesaException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }
 
     @Override
@@ -289,6 +304,5 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo{
     public void salirSistema() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
-    
+
 }
