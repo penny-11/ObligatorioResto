@@ -8,6 +8,10 @@ package obligatoriorestoLogica;
  *
  * @author tomas
  */
-public class ControlMesas {
+public class UsuarioException extends Exception{
+    
+    public UsuarioException(String message){
+        super(message);
+    }
     
 }

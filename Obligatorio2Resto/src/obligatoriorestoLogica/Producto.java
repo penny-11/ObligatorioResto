@@ -66,5 +66,24 @@ public class Producto {
         this.unidadProcesadora = unidadProcesadora;
     }
     
+    public boolean validar() {
+        return validarNombre(nombre) && validarPrecio(precio) && validarUnidades(stock);
+    }
     
+    private boolean validarUnidades(int unidades) {
+        return unidades>0;
+    }
+
+    private boolean validarPrecio(float precio) {
+        return precio>0;
+       
+    }
+
+    private boolean validarNombre(String nombre) {
+        return nombre!=null && !nombre.trim().equals("");
+     }
+
+    protected void modificarStock(int cantidad) {
+        stock+=cantidad;
+    }
 }

@@ -14,11 +14,13 @@ public class Mozo extends Usuario{
     
     private String telefono;
     private ArrayList<Mesa> mesas;
+    private boolean conectado;
 
     public Mozo(String usuario, String password, String nombreCompleto,String telefono) {
         super(usuario, password, nombreCompleto);
         this.telefono = telefono;
         this.mesas=new ArrayList(5);
+        this.conectado=false;
     }
     
     @Override
@@ -46,6 +48,14 @@ public class Mozo extends Usuario{
     
     public void addMesa(Mesa unaMesa){
         this.mesas.add(unaMesa);
+    }
+    
+    public void setConexion(){
+        this.conectado=true;
+    }
+    
+    public boolean getConexion(){
+        return conectado;
     }
     
 }
