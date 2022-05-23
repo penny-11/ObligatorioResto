@@ -47,12 +47,13 @@ public class Fachada {
         cser.asignarMesas(mozo);
     }
 
-    public void abrirMesa(Mesa unaMesa) throws MesaException{
-        cser.abrirMesa(unaMesa);
+    public void abrirMesa(Mesa unaMesa, Mozo unMozo) throws MesaException{
+        unMozo.abrirMesa(unaMesa);
+       
     }
 
-    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) throws MesaException{
-        cser.cerrarMesa(unaMesa,unCliente);
+    public void cerrarMesa(Mesa unaMesa,Cliente unCliente,Mozo unMozo) throws MesaException{
+       unMozo.cerrarMesa(unaMesa, unCliente);
     }
      
     
