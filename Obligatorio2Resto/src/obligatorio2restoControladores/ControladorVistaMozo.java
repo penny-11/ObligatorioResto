@@ -4,6 +4,8 @@
  */
 package obligatorio2restoControladores;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import obligatorio2Observador.Observable;
 import obligatorio2Observador.Observador;
 import obligatoriorestoLogica.Cliente;
@@ -36,12 +38,20 @@ public class ControladorVistaMozo implements Observador{
         vistaMozo.cargarMesas(mozo);
     }
     
-    public void abrirMesa(Mesa unaMesa) throws MesaException{
-        sistema.abrirMesa(unaMesa);
+    public void abrirMesa(Mesa unaMesa){
+        try {
+            mozo.abrirMesa(unaMesa);
+        } catch (MesaException ex) {
+            vistaMozo.mostrarMensaje("Mesa ya esta abierta.");
+        }
     }
     
-    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) throws MesaException{
-        sistema.cerrarMesa(unaMesa,unCliente);
+    public void cerrarMesa(Mesa unaMesa,Cliente unCliente){
+        try {
+            mozo.cerrarMesa(unaMesa,unCliente);
+        } catch (MesaException ex) {
+            vistaMozo.mostrarMensaje("Mesa no esta abierta.");
+        }
     }
     
     

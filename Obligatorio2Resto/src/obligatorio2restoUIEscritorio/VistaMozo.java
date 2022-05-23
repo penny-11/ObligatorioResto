@@ -274,20 +274,12 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void abrirMesa(Mesa unaMesa) {
-        try {
-            controlador.abrirMesa(unaMesa);
-        } catch (MesaException ex) {
-            JOptionPane.showMessageDialog(this, ex);
-        }
+            controlador.abrirMesa(unaMesa);  
     }
 
     @Override
     public void cerrarMesa(Mesa unaMesa,Cliente unCliente) {
-        try {
             controlador.cerrarMesa(unaMesa,unCliente);
-        } catch (MesaException ex) {
-            JOptionPane.showMessageDialog(this, ex);
-        }
     }
 
     @Override
@@ -303,6 +295,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     @Override
     public void salirSistema() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    @Override
+    public void mostrarMensaje(String mensaje){
+        JOptionPane.showMessageDialog(this,mensaje);
     }
 
 }
