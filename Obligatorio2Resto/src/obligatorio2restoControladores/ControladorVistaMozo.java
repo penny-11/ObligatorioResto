@@ -37,11 +37,11 @@ public class ControladorVistaMozo implements Observador{
     }
     
     public void abrirMesa(Mesa unaMesa) throws MesaException{
-        sistema.abrirMesa(unaMesa);
+        sistema.abrirMesa(unaMesa,mozo);
     }
     
     public void cerrarMesa(Mesa unaMesa,Cliente unCliente) throws MesaException{
-        sistema.cerrarMesa(unaMesa,unCliente);
+        sistema.cerrarMesa(unaMesa,unCliente,mozo);
     }
     
     

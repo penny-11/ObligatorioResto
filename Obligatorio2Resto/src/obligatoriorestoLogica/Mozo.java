@@ -57,5 +57,33 @@ public class Mozo extends Usuario{
     public boolean getConexion(){
         return conectado;
     }
+    public void abrirMesa(Mesa unaMesa) throws MesaException{
+        Mesa mesaAux = buscarMesa(unaMesa.getNumeroMesa());
+        if (!mesaAux.isEstadoMesa()) {
+            mesaAux.setEstadoMesa(true);
+        }else{
+            throw new MesaException("La Mesa ya esta abierta.");
+        }
+    }
+
+    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) throws MesaException{
+        if (unaMesa.isEstadoMesa()) {
+            if(unCliente!=null){
+                unaMesa.addCliente(unCliente);
+                unaMesa.setEstadoMesa(false);
+            }
+        }else{
+            throw new MesaException("La Mesa no esta abierta");
+        }
+    }
+    
+    public Mesa buscarMesa(int numeroMesa){
+        for(Mesa m : mesas){
+            if(m.getNumeroMesa() == numeroMesa){
+                return m;
+            }
+        }
+       return null; 
+    }
     
 }
