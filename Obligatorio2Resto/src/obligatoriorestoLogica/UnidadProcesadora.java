@@ -4,6 +4,8 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
@@ -11,9 +13,11 @@ package obligatoriorestoLogica;
 public abstract class UnidadProcesadora {
     
     protected String nombre;
+    protected ArrayList<Pedido> pedidos;
 
     public UnidadProcesadora(String nombre) {
         this.nombre = nombre;
+        this.pedidos=new ArrayList();
     }
     
     public abstract String getNombre();
