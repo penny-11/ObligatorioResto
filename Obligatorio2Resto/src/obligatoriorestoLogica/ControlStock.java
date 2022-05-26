@@ -15,6 +15,7 @@ public class ControlStock {
     private int proxIdProd = 1;
 
     private ArrayList<Producto> productos = new ArrayList();
+    private ArrayList <UnidadProcesadora> unidadesProcesadoras=new ArrayList();
     
     public boolean agregar(Producto unProducto) {
         if (!unProducto.validar()) {
@@ -28,6 +29,12 @@ public class ControlStock {
     
     public ArrayList<Producto> getProductos() {
         return productos;
+    }
+    
+    public void agregarUnidadProcesadora(){
+        unidadesProcesadoras.add(new Bar("Barra Bar"));
+        unidadesProcesadoras.add(new Cocina("Barra Cocina"));
+        
     }
 
     

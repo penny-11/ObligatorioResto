@@ -35,6 +35,10 @@ public class Mesa {
     public void addMozo(Mozo unMozo) {
         this.mozoAsignado = unMozo;
     }
+    
+    public Mozo getMozo(){
+        return mozoAsignado;
+    }
 
     public void addCliente(Cliente unCliente) {
         this.clienteMesa = unCliente;
@@ -47,6 +51,13 @@ public class Mesa {
     public void setEstadoMesa(boolean estadoMesa) {
         this.estadoMesa = estadoMesa;
     }
+
+    @Override
+    public String toString() {
+        return "Mesa"+ numeroMesa;
+    }
+    
+    
 
     
 

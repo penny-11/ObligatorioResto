@@ -22,6 +22,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private Mozo mozo;
     private ControladorVistaMozo controlador;
     private Cliente cliente;
+    private Mesa mesa;
 
     /**
      * Creates new form VistaMozo
@@ -86,6 +87,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jButtonSalir.setText("Salir del Sistema");
 
         jButtonAbrirMesa.setText("Abrir Mesa");
+        jButtonAbrirMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAbrirMesaActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Productos");
 
@@ -94,9 +100,20 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabel8.setText("Descripcion");
 
         jButton4.setText("Agregar Producto");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel9.setText("Manejo de Clientes en Resto");
+
+        jComboBoxMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxMesasActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Seleccionar Mesa:");
 
@@ -223,6 +240,23 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesasActionPerformed
+        mesa=(Mesa) jComboBoxMesas.getSelectedItem();
+        mostrarPedidosMesa(mesa);
+    }//GEN-LAST:event_jComboBoxMesasActionPerformed
+
+    private void jButtonAbrirMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAbrirMesaActionPerformed
+        mesa=(Mesa) jComboBoxMesas.getSelectedItem();
+        abrirMesa(mesa);
+    }//GEN-LAST:event_jButtonAbrirMesaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Producto prod=(Producto)jComboBoxProductos.getSelectedItem();
+        int cantidad=(Integer)jSpinnerCantidad.getValue();
+        String descripcion=jTextFieldDescripcion.getText();
+        hacerPedido(prod,cantidad,descripcion,mesa);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,7 +290,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     public void cargarMesas(Mozo unMozo) {
 
         for (Mesa me : unMozo.getMesas()) {
-            jComboBoxMesas.addItem("Mesa" + me.getNumeroMesa());
+            jComboBoxMesas.addItem(me+"");
         }
 
         jLabelMesa1.setText("Mesa - " + unMozo.getMesas().get(0).getNumeroMesa());
@@ -289,7 +323,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        controlador.hacerPedido(unProducto,cantidad,descripcion,unaMesa);
     }
 
     @Override

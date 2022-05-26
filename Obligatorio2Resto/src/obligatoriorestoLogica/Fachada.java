@@ -42,10 +42,48 @@ public class Fachada {
     public ArrayList<Producto> getProductos() {
         return cs.getProductos();
     }
+    
+    public void agregarUnidadProcesadora() {
+        cs.agregarUnidadProcesadora();
+    }
+    
+    public void agregarCliente(Cliente unCliente) {
+        cser.agregarCliente(unCliente);
+    }
 
     public void asignarMesas(Mozo mozo) {
         cser.asignarMesas(mozo);
     }
+    
+    public void agregarMesa(Mesa unaMesa) {
+        cser.agregarMesa(unaMesa);
+    }
+
+    public void agregarServicio(Mesa unaMesa) {
+        cser.agregarServicio(unaMesa);
+    }
+
+    public Servicio buscarServicio(Mesa unaMesa) {
+        return cser.buscarServicio(unaMesa);
+    }
+   
+    public ArrayList<Mozo> getMozos() {
+        return cu.getMozos();
+    }
+
+    public ArrayList<Gestor> getGestores() {
+        return cu.getGestores();
+    }
+
+    
+
+    
+    
+    
+
+    
+    
+    
      
     
     

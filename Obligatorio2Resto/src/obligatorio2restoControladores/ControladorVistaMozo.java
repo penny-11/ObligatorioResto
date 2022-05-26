@@ -13,6 +13,8 @@ import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.MesaException;
 import obligatoriorestoLogica.Mozo;
+import obligatoriorestoLogica.Producto;
+import obligatoriorestoLogica.Servicio;
 
 /**
  *
@@ -41,6 +43,7 @@ public class ControladorVistaMozo implements Observador{
     public void abrirMesa(Mesa unaMesa){
         try {
             mozo.abrirMesa(unaMesa);
+            sistema.agregarServicio(unaMesa);
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje("Mesa ya esta abierta.");
         }
@@ -52,6 +55,11 @@ public class ControladorVistaMozo implements Observador{
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje("Mesa no esta abierta.");
         }
+    }
+
+    public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa) {
+        Servicio serv=sistema.buscarServicio(unaMesa);
+        serv.hacerPedido(unProducto, cantidad, descripcion);
     }
     
     

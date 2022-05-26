@@ -48,6 +48,9 @@ public class Servicio {
         this.mozoAtencion = mozoAtencion;
     }
     
-    
+    public void hacerPedido(Producto unProducto, int cantidad, String descripcion){
+        Pedido pedido=new Pedido(unProducto,cantidad,descripcion);
+        items.add(pedido);
+    }
     
 }

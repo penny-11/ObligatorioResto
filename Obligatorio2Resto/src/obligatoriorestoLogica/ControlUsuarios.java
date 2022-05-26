@@ -50,5 +50,13 @@ public class ControlUsuarios {
         usuariosGestores.add(new Gestor(us, pwd, nomCom));
         return true;
     }
+    
+    public ArrayList<Mozo> getMozos(){
+        return usuariosMozo;
+    }
+    
+    public ArrayList<Gestor> getGestores(){
+        return usuariosGestores;
+    }
 
 }
