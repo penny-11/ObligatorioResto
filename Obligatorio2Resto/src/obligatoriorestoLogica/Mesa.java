@@ -51,6 +51,10 @@ public class Mesa {
     public void setEstadoMesa(boolean estadoMesa) {
         this.estadoMesa = estadoMesa;
     }
+    
+    public Servicio getServicio(){
+        return servicio;
+    }
 
     @Override
     public String toString() {

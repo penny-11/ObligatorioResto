@@ -5,12 +5,14 @@
 package obligatorio2restoUIEscritorio;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import obligatorio2restoControladores.ControladorVistaMozo;
 import obligatorio2restoControladores.InterfaceVistaMozo;
 import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.MesaException;
 import obligatoriorestoLogica.Mozo;
+import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.Producto;
 
 /**
@@ -48,7 +50,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabelMesa5 = new javax.swing.JLabel();
         jLabelMesa3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableServicio = new javax.swing.JTable();
         jButtonCerrarMesa = new javax.swing.JButton();
         jButtonTransferir = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
@@ -67,7 +69,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableServicio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -78,7 +80,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableServicio);
 
         jButtonCerrarMesa.setText("Cerrar Mesa");
 
@@ -254,6 +256,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         Producto prod=(Producto)jComboBoxProductos.getSelectedItem();
         int cantidad=(Integer)jSpinnerCantidad.getValue();
         String descripcion=jTextFieldDescripcion.getText();
+        controlador.verificarMesa(mesa);
         hacerPedido(prod,cantidad,descripcion,mesa);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -282,7 +285,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private javax.swing.JLabel jLabelMesa5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner jSpinnerCantidad;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableServicio;
     private javax.swing.JTextField jTextFieldDescripcion;
     // End of variables declaration//GEN-END:variables
 
@@ -303,7 +306,26 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void mostrarPedidosMesa(Mesa unaMesa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        DefaultTableModel lista = new DefaultTableModel();
+        
+        lista.addColumn("Nombre Producto");
+        lista.addColumn("Cantidad");
+        lista.addColumn("Precio unitario");
+        lista.addColumn("Subtotal");
+        lista.addColumn("Estado");
+        
+        int fila = 0;
+            lista.setNumRows(unaMesa.getServicio().getItems().size());
+            
+            for(Pedido p:unaMesa.getServicio().getItems()){
+                lista.setValueAt(p.getProducto().getNombre(), fila, 0);
+                lista.setValueAt(p.getCantidad(), fila, 1);
+                lista.setValueAt(p.getProducto().getPrecio(), fila, 2);
+                lista.setValueAt(p.subTotal(), fila, 3);
+                lista.setValueAt(p.getEstado(), fila, 4);
+                fila++;
+            }
+            jTableServicio.setModel(lista);
     }
 
     @Override
@@ -324,6 +346,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     @Override
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa) {
         controlador.hacerPedido(unProducto,cantidad,descripcion,unaMesa);
+        mostrarPedidosMesa(unaMesa);
     }
 
     @Override

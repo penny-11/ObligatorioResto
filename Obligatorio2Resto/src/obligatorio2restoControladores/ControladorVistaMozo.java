@@ -15,6 +15,7 @@ import obligatoriorestoLogica.MesaException;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Producto;
 import obligatoriorestoLogica.Servicio;
+import obligatoriorestoLogica.ServicioException;
 
 /**
  *
@@ -45,7 +46,7 @@ public class ControladorVistaMozo implements Observador{
             mozo.abrirMesa(unaMesa);
             sistema.agregarServicio(unaMesa);
         } catch (MesaException ex) {
-            vistaMozo.mostrarMensaje("Mesa ya esta abierta.");
+            vistaMozo.mostrarMensaje(ex.getMessage());
         }
     }
     
@@ -53,13 +54,28 @@ public class ControladorVistaMozo implements Observador{
         try {
             mozo.cerrarMesa(unaMesa,unCliente);
         } catch (MesaException ex) {
-            vistaMozo.mostrarMensaje("Mesa no esta abierta.");
+            vistaMozo.mostrarMensaje(ex.getMessage());
         }
     }
 
-    public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa) {
+    public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa){
         Servicio serv=sistema.buscarServicio(unaMesa);
-        serv.hacerPedido(unProducto, cantidad, descripcion);
+        try{
+            if(serv!=null){
+            serv.hacerPedido(unProducto, cantidad, descripcion);
+        }else{
+            vistaMozo.mostrarMensaje("Servicio no existe");
+        }
+        }catch(ServicioException ex){
+            vistaMozo.mostrarMensaje(ex.getMessage());
+        }
+        
+    }
+    
+    public void verificarMesa(Mesa unaMesa){
+        if(!unaMesa.isEstadoMesa()){
+            vistaMozo.mostrarMensaje("La mesa esta cerrada");
+        }
     }
     
     

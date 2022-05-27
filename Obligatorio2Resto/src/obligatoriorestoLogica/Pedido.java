@@ -13,6 +13,7 @@ public class Pedido {
     private Producto producto;
     private int cantidad;
     private String descripcion;
+    private String estado;
 
     public Pedido(Producto producto, int cantidad, String descripcion) {
         this.producto = producto;
@@ -47,8 +48,21 @@ public class Pedido {
         this.descripcion = descripcion;
     }
     
+    public void enviarPedido(){
+        producto.getUnidadProcesadora().recibirPedido(this);
+    }
     
-    
+    public float subTotal(){
+        return producto.getPrecio()*cantidad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
     
 }
