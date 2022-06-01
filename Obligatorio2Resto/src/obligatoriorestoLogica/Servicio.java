@@ -48,6 +48,15 @@ public class Servicio {
         this.mozoAtencion = mozoAtencion;
     }
     
+    public float total(){
+            float total = 0;
+            for(Pedido p:items){
+            total += p.total();
+        }
+            
+        return total;
+    }
+   
     
     
 }

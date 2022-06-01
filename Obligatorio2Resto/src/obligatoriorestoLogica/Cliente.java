@@ -8,10 +8,10 @@ package obligatoriorestoLogica;
  *
  * @author tomas
  */
-public class Cliente {
+public abstract class Cliente {
     
     private int clienteId;
-    private String email;
+    String email;
     private String nombre;
 
     public Cliente(String email, String nombre) {

@@ -47,6 +47,10 @@ public class Pedido {
         this.descripcion = descripcion;
     }
     
+    public float total (){
+        return this.getCantidad()* this.getProducto().getPrecio();
+    }
+    
     
     
     
