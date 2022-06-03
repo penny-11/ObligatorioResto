@@ -13,6 +13,7 @@ public class Transferencia {
     private Mozo mozoOrigen;
     private Mozo mozoDestino;
     private Mesa mesa;
+    private boolean estado;
 
     public Transferencia(Mozo mozoOrigen, Mozo mozoDestino, Mesa mesa) {
         this.mozoOrigen = mozoOrigen;
@@ -43,6 +44,15 @@ public class Transferencia {
     public void setMesa(Mesa mesa) {
         this.mesa = mesa;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
     
     
     

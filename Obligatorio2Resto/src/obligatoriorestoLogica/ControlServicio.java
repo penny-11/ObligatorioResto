@@ -5,12 +5,14 @@
 package obligatoriorestoLogica;
 
 import java.util.ArrayList;
+import obligatorio2Observador.Observable;
+import obligatorio2Observador.Observador;
 
 /**
  *
  * @author tomas
  */
-public class ControlServicio {
+public class ControlServicio{
 
     private ArrayList<Mesa> mesasSinAsignar = new ArrayList();
     private ArrayList<Cliente> clientes=new ArrayList();
