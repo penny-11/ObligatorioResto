@@ -83,6 +83,10 @@ public class Fachada extends Observable {
     public ArrayList<Gestor> getGestores() {
         return cu.getGestores();
     }
+    
+    public ArrayList<Servicio> getServicios() {
+        return cser.getServicios();
+    }
 
     
 

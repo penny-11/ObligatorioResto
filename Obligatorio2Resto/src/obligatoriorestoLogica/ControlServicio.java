@@ -18,6 +18,14 @@ public class ControlServicio{
     private ArrayList<Cliente> clientes=new ArrayList();
     private ArrayList<Servicio> servicios=new ArrayList();
 
+    public ArrayList<Servicio> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(ArrayList<Servicio> servicios) {
+        this.servicios = servicios;
+    }
+
     public void asignarMesas(Mozo mozo) {
         for (Mesa me : mesasSinAsignar) {
             if (mozo.getMesas().isEmpty()) {
