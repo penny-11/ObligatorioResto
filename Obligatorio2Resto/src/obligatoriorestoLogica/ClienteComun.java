@@ -55,9 +55,7 @@ public class ClienteComun extends Cliente{
     public int calculoTotalServicio(Servicio servicio) {
         int total = 0;
         for(Pedido s: servicio.getItems()){
-            if(s.getProducto().equals("Agua")){
-                total = total;
-            }else{
+            if(!s.getProducto().getNombre().contains("Agua")){
                 total += s.total();
             }
         }
