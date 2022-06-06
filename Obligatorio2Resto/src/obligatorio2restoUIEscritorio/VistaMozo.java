@@ -14,6 +14,7 @@ import obligatoriorestoLogica.MesaException;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.Producto;
+import obligatoriorestoLogica.Transferencia;
 
 /**
  *
@@ -33,6 +34,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         initComponents();
         mozo = mo;
         controlador = new ControladorVistaMozo(this, mo);
+        
     }
 
     /**
@@ -373,6 +375,12 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     @Override
     public void mostrarMensaje(String mensaje){
         JOptionPane.showMessageDialog(this,mensaje);
+    }
+
+    @Override
+    public void opcionTransferencia(Transferencia trans) {
+        DecisionTransferencia tran=new DecisionTransferencia(this,false,trans);
+        tran.setVisible(true);
     }
 
 }

@@ -16,6 +16,7 @@ import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Producto;
 import obligatoriorestoLogica.Servicio;
 import obligatoriorestoLogica.ServicioException;
+import obligatoriorestoLogica.Transferencia;
 
 /**
  *
@@ -26,15 +27,23 @@ public class ControladorVistaMozo implements Observador{
     private InterfaceVistaMozo vistaMozo;
     private Fachada sistema=Fachada.getInstancia();
     private Mozo mozo;
+    private Transferencia transferencia;
 
     public ControladorVistaMozo(InterfaceVistaMozo vista,Mozo mo) {
         this.vistaMozo=vista;
         this.mozo = mo;
+        mozo.agregar(this);
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(evento.equals(Mesa.eventos.transferenciaMesa)){
+           vistaMozo.opcionTransferencia(transferencia);
+       }else if(evento.equals(Mozo.eventos.aceptarTransferencia)){
+           vistaMozo.mostrarMensaje("Transferencia confirmada!");
+       }else if(evento.equals(Mozo.eventos.rechazarTransferencia)){
+           vistaMozo.mostrarMensaje("Transferencia rechazada");
+       }
     }
     
     public void mostrarMesas(){
@@ -79,5 +88,9 @@ public class ControladorVistaMozo implements Observador{
         }
     }
     
+    public void transferirMesa(Mesa mesaTransferir,Mozo mozoDestino){
+        transferencia=new Transferencia(mozo,mozoDestino,mesaTransferir);
+        mesaTransferir.transferirMesa(mozoDestino);
+    }
     
 }

@@ -4,11 +4,13 @@
  */
 package obligatoriorestoLogica;
 
+import obligatorio2Observador.Observable;
+
 /**
  *
  * @author tomas
  */
-public abstract class Usuario {
+public abstract class Usuario extends Observable{
     
     protected String usuario;
     protected String password;

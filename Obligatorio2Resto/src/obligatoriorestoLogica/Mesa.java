@@ -4,11 +4,13 @@
  */
 package obligatoriorestoLogica;
 
+import obligatorio2Observador.Observable;
+
 /**
  *
  * @author tomas
  */
-public class Mesa {
+public class Mesa extends Observable{
 
     private int numeroMesa;
     private Mozo mozoAsignado;
@@ -24,6 +26,8 @@ public class Mesa {
     private boolean estadoMesa;
     private Servicio servicio;
 
+    public enum eventos{transferenciaMesa}
+    
     public Mesa(int numeroMesa) {
         this.numeroMesa = numeroMesa;
         this.estadoMesa = false;
@@ -43,8 +47,8 @@ public class Mesa {
     public void addMozo(Mozo unMozo) {
         this.mozoAsignado = unMozo;
     }
-    
-    public Mozo getMozo(){
+
+    public Mozo getMozo() {
         return mozoAsignado;
     }
 
@@ -59,15 +63,21 @@ public class Mesa {
     public void setEstadoMesa(boolean estadoMesa) {
         this.estadoMesa = estadoMesa;
     }
-    
-    public Servicio getServicio(){
+
+    public Servicio getServicio() {
         return servicio;
     }
+    
+    public void transferirMesa(Mozo mozoDestino){
+        avisar(eventos.transferenciaMesa);
+    }
+
 
     @Override
     public String toString() {
-        return "Mesa"+ numeroMesa;
+        return "Mesa" + numeroMesa;
     }
+<<<<<<< HEAD
     
     
     
@@ -75,5 +85,7 @@ public class Mesa {
     
 
     
+=======
+>>>>>>> f14242c0ced0059b3a06a2a044612a4e2404a51d
 
 }
