@@ -84,21 +84,8 @@ public class Fachada extends Observable {
         return cu.getGestores();
     }
 
-    
-
-    
-    
-    
-
-    
-    
-    
-     
-    
-    
-    
-    
-     
-    
+    public ArrayList<Mozo> getMozosConectados() {
+        return cu.getMozosConectados();
+    }
     
 }

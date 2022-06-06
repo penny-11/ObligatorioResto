@@ -83,6 +83,9 @@
               <Table columnCount="0" rowCount="4"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableMozosConectadosMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -95,6 +98,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Transferir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTransferirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

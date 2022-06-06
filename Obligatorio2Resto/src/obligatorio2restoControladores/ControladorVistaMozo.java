@@ -4,6 +4,7 @@
  */
 package obligatorio2restoControladores;
 
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import obligatorio2Observador.Observable;
@@ -91,6 +92,10 @@ public class ControladorVistaMozo implements Observador{
     public void transferirMesa(Mesa mesaTransferir,Mozo mozoDestino){
         transferencia=new Transferencia(mozo,mozoDestino,mesaTransferir);
         mesaTransferir.transferirMesa(mozoDestino);
+    }
+    
+    public ArrayList<Mozo> mozosConectados(){
+        return sistema.getMozosConectados();
     }
     
 }
