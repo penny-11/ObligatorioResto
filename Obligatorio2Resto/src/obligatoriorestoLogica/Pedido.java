@@ -72,5 +72,11 @@ public class Pedido extends Observable{
         this.estado = estado;
     }
     
+    public boolean pedidoPendiente(){
+        if(this.estado == "pendiente"){
+            return true;
+        }return false;
+    }
+    
     
 }

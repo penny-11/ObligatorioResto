@@ -4,9 +4,10 @@
  */
 package obligatorio2restoControladores;
 
+import java.util.ArrayList;
 import obligatorio2Observador.Observable;
 import obligatorio2Observador.Observador;
-import obligatorio2restoUIEscritorio.MonitorPedidos;
+import obligatorio2restoUIEscritorio.VistaMonitorPedidos;
 import obligatoriorestoLogica.Fachada;
 
 /**
@@ -15,10 +16,18 @@ import obligatoriorestoLogica.Fachada;
  */
 public class ControladorMonitoreo implements Observador {
     
-     private MonitorPedidos vista;
+     private VistaMonitorPedidos vista;
     private Fachada modelo = Fachada.getInstancia();
 
-    public ControladorMonitoreo() {
+    public ControladorMonitoreo(VistaMonitorPedidos vista) {
+        this.vista = vista;
+        ArrayList resultado = new ArrayList();
+        modelo.agregar(this);
+        for (int i = 0; i < modelo.getServicios().size(); i++) {
+            resultado.add(modelo.getServicios().get(i).getItems());
+        }
+        vista.mostrarPedidos(resultado);
+        
     }
 
     @Override

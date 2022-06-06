@@ -78,4 +78,3 @@ public class Mesa extends Observable{
         return "Mesa" + numeroMesa;
     }
 
-}

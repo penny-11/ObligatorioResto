@@ -51,10 +51,8 @@ public class ClientePreferencial extends Cliente{
     public int calculoTotalServicio(Servicio servicio) {
           int total = 0;
         for(Pedido s: servicio.getItems()){
-            if(s.getProducto().equals("Cafe")){
-                total = total;
-            }else{
-                total += s.total();
+            if(!s.getProducto().getNombre().contains("Cafe")){
+                 total += s.total();
             }
         }
 
