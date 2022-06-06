@@ -27,15 +27,21 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                              <Component id="jLabelMesa4" min="-2" pref="111" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabelMesa5" min="-2" pref="111" max="-2" attributes="0"/>
+                              <Component id="jComboBoxMesas" min="-2" pref="148" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                      <Component id="jLabelMesa4" min="-2" pref="111" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                      <Component id="jLabelMesa5" min="-2" pref="111" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jComboBoxProductos" min="-2" pref="142" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
@@ -43,18 +49,12 @@
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabelMesa1" min="-2" pref="111" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="jLabelMesa2" min="-2" pref="111" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabelMesa3" min="-2" pref="111" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBoxMesas" min="-2" pref="148" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -62,13 +62,15 @@
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="jTextFieldDescripcion" min="-2" pref="177" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                              <Component id="jButton4" pref="133" max="32767" attributes="0"/>
+                              <Component id="jButton4" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButtonSalir" min="-2" pref="256" max="-2" attributes="0"/>
                                   <Component id="jButtonTransferir" min="-2" pref="256" max="-2" attributes="0"/>
+                                  <Component id="jButtonCerrarMesa" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+                                  <Component id="jButtonAbrirMesa" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -77,14 +79,6 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="820" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButtonCerrarMesa" min="-2" pref="256" max="-2" attributes="0"/>
-                          <Component id="jButtonAbrirMesa" min="-2" pref="256" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -127,12 +121,12 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelMesa1" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="jLabelMesa2" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="jLabelMesa3" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="jLabelMesa2" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="jLabelMesa3" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelMesa4" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
+                          <Component id="jLabelMesa4" alignment="0" min="-2" pref="63" max="-2" attributes="0"/>
                           <Component id="jLabelMesa5" alignment="3" min="-2" pref="63" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="61" max="32767" attributes="0"/>
@@ -201,6 +195,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cerrar Mesa"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCerrarMesaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonTransferir">
       <Properties>

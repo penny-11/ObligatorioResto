@@ -62,6 +62,7 @@ public class ControladorVistaMozo implements Observador{
     public void cerrarMesa(Mesa unaMesa,Cliente unCliente){
         try {
             mozo.cerrarMesa(unaMesa,unCliente);
+            //int clienteId = jTextFieldDescripcion.getText();
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje(ex.getMessage());
         }

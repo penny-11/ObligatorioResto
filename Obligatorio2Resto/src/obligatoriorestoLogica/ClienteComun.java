@@ -1,13 +1,17 @@
 /*
+<<<<<<< HEAD
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+=======
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+>>>>>>> ae0ddfeffcf67d559ab9d2660f5f5d6ec16387be
  */
 package obligatoriorestoLogica;
 
-/**
- *
- * @author tomas
- */
+
+
 public class ClienteComun extends Cliente{
 
     public ClienteComun(String email, String nombre) {
@@ -49,7 +53,15 @@ public class ClienteComun extends Cliente{
 
     @Override
     public int calculoTotalServicio(Servicio servicio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int total = 0;
+        for(Pedido s: servicio.getItems()){
+            if(s.getProducto().equals("Agua")){
+                total = total;
+            }else{
+                total += s.total();
+            }
+        }
+        return total;
     }
     
 }

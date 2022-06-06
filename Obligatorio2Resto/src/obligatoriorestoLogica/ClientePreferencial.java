@@ -49,7 +49,19 @@ public class ClientePreferencial extends Cliente{
 
     @Override
     public int calculoTotalServicio(Servicio servicio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+          int total = 0;
+        for(Pedido s: servicio.getItems()){
+            if(s.getProducto().equals("Cafe")){
+                total = total;
+            }else{
+                total += s.total();
+            }
+        }
+
+        if(total > 2000){
+            total = (total/95)*100;
+        }
+        return total;   
     }
     
 }

@@ -10,9 +10,12 @@ package obligatoriorestoLogica;
  */
 public abstract class Cliente {
     
-    protected int clienteId;
-    protected String email;
-    protected String nombre;
+
+    int clienteId;
+    String email;
+    String nombre;
+
+  
 
     public Cliente(String email, String nombre) {
         this.email = email;

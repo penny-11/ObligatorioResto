@@ -6,15 +6,17 @@
 package obligatoriorestoLogica;
 
 import java.util.ArrayList;
+import obligatorio2Observador.Observable;
 
 /**
  *
  * @author admin
  */
-public class Fachada {
+public class Fachada extends Observable {
     private ControlUsuarios cu = new ControlUsuarios();
     private ControlStock cs=new ControlStock();
     private ControlServicio cser=new ControlServicio();
+     public enum eventos{cambioListaPedidos};
     
     
    private static Fachada instancia = new Fachada();
@@ -65,6 +67,13 @@ public class Fachada {
 
     public Servicio buscarServicio(Mesa unaMesa) {
         return cser.buscarServicio(unaMesa);
+    }
+    public Cliente buscarCliente(String id) {
+        return cser.buscarCliente(id);
+    }
+    
+    public ArrayList<Cliente> getClientes() {
+        return cser.getClientes();
     }
    
     public ArrayList<Mozo> getMozos() {

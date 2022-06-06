@@ -14,6 +14,14 @@ public class Mesa extends Observable{
 
     private int numeroMesa;
     private Mozo mozoAsignado;
+
+    public Cliente getClienteMesa() {
+        return clienteMesa;
+    }
+
+    public void setClienteMesa(Cliente clienteMesa) {
+        this.clienteMesa = clienteMesa;
+    }
     private Cliente clienteMesa;
     private boolean estadoMesa;
     private Servicio servicio;
@@ -69,5 +77,15 @@ public class Mesa extends Observable{
     public String toString() {
         return "Mesa" + numeroMesa;
     }
+<<<<<<< HEAD
+    
+    
+    
+    
+    
+
+    
+=======
+>>>>>>> f14242c0ced0059b3a06a2a044612a4e2404a51d
 
 }

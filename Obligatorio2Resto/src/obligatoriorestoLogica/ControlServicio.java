@@ -35,6 +35,19 @@ public class ControlServicio{
         clientes.add(unCliente);
     }
     
+      public ArrayList<Cliente> getClientes(){
+        return this.getClientes();
+    }
+      
+    public Cliente buscarCliente(String id){
+        for(Cliente cli:clientes){
+            if(cli.clienteId == Integer.parseInt(id)){
+                return cli;
+            }
+        }
+        return null;
+    }
+    
     public void agregarServicio(Mesa unaMesa){
         Servicio unServicio=new Servicio(unaMesa,unaMesa.getMozo());
         servicios.add(unServicio);

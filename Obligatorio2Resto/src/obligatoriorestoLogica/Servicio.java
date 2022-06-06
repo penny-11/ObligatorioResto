@@ -48,6 +48,9 @@ public class Servicio {
         this.mozoAtencion = mozoAtencion;
     }
 
+    
+
+
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion) throws ServicioException {
         if (unProducto != null && cantidad >= 1) {
             if (unProducto.getStock() >= cantidad) {
@@ -62,5 +65,15 @@ public class Servicio {
             throw new ServicioException("Cantidad Invalida");
         }
     }
+    public int total(){
+        int total = 0;
+        for(Pedido p: items){
+            total += p.subTotal();
+        }
+        return total;
+    }
+    
+
+
 
 }
