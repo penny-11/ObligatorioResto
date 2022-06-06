@@ -4,18 +4,24 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import obligatoriorestoLogica.Transferencia;
+
 /**
  *
  * @author tomas
  */
 public class DecisionTransferencia extends javax.swing.JDialog {
+    
+    private Transferencia transferencia;
 
     /**
      * Creates new form DecisionTransferencia
      */
-    public DecisionTransferencia(java.awt.Frame parent, boolean modal) {
+    public DecisionTransferencia(java.awt.Frame parent, boolean modal, Transferencia trans) {
         super(parent, modal);
         initComponents();
+        transferencia=trans;
+        mostrarTransferencia(trans);
     }
 
     /**
@@ -34,9 +40,9 @@ public class DecisionTransferencia extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jButtonSi = new javax.swing.JButton();
         jButtonNo = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabelInfoNroMesa = new javax.swing.JLabel();
+        jLabelEstadoMesa = new javax.swing.JLabel();
+        jLabelMozoOrigen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -59,12 +65,11 @@ public class DecisionTransferencia extends javax.swing.JDialog {
         });
 
         jButtonNo.setText("No");
-
-        jLabel6.setText("jLabel6");
-
-        jLabel7.setText("jLabel7");
-
-        jLabel8.setText("jLabel8");
+        jButtonNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,10 +88,10 @@ public class DecisionTransferencia extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelInfoNroMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(jLabelMozoOrigen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                                .addComponent(jLabelEstadoMesa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(97, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -104,17 +109,17 @@ public class DecisionTransferencia extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addComponent(jLabel1)
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelInfoNroMesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelEstadoMesa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelMozoOrigen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -128,8 +133,12 @@ public class DecisionTransferencia extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiActionPerformed
-        // TODO add your handling code here:
+        aceptarTransferencia();
     }//GEN-LAST:event_jButtonSiActionPerformed
+
+    private void jButtonNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNoActionPerformed
+        rechazarTransferencia();
+    }//GEN-LAST:event_jButtonNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,8 +152,29 @@ public class DecisionTransferencia extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelEstadoMesa;
+    private javax.swing.JLabel jLabelInfoNroMesa;
+    private javax.swing.JLabel jLabelMozoOrigen;
     // End of variables declaration//GEN-END:variables
+
+    private void mostrarTransferencia(Transferencia trans) {
+        
+        jLabelInfoNroMesa.setText(trans.getMesa().getNumeroMesa()+"");
+        
+        if(trans.getMesa().isEstadoMesa()){
+            jLabelEstadoMesa.setText("Mesa ocupada");
+        }else{
+            jLabelEstadoMesa.setText("Mesa libre");
+        }
+        
+        jLabelMozoOrigen.setText(trans.getMozoOrigen().getNombreCompleto());
+    }
+
+    private void aceptarTransferencia() {
+        transferencia.getMozoDestino().respuestaTransferencia(transferencia, true);
+    }
+
+    private void rechazarTransferencia() {
+        transferencia.getMozoDestino().respuestaTransferencia(transferencia, false);
+    }
 }

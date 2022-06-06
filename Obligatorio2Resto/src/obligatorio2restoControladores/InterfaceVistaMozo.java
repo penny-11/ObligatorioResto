@@ -8,6 +8,7 @@ import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Producto;
+import obligatoriorestoLogica.Transferencia;
 
 /**
  *
@@ -31,5 +32,6 @@ public interface InterfaceVistaMozo {
     
     public void mostrarMensaje(String mensaje);
     
+    public void opcionTransferencia(Transferencia trans);
     
 }

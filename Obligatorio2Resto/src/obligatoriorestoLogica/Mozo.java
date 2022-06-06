@@ -10,17 +10,21 @@ import java.util.ArrayList;
  *
  * @author tomas
  */
-public class Mozo extends Usuario {
+public class Mozo extends Usuario{
 
     private String telefono;
     private ArrayList<Mesa> mesas;
     private boolean conectado;
+    private ArrayList<Transferencia> transferencias; 
+    
+    public enum eventos{aceptarTransferencia,rechazarTransferencia}
 
     public Mozo(String usuario, String password, String nombreCompleto, String telefono) {
         super(usuario, password, nombreCompleto);
         this.telefono = telefono;
         this.mesas = new ArrayList(5);
         this.conectado = false;
+        this.transferencias=new ArrayList();
     }
 
     @Override
@@ -57,6 +61,7 @@ public class Mozo extends Usuario {
     public boolean getConexion() {
         return conectado;
     }
+    
 
     public void abrirMesa(Mesa unaMesa) throws MesaException {
         Mesa mesaAux = buscarMesa(unaMesa.getNumeroMesa());
@@ -87,11 +92,14 @@ public class Mozo extends Usuario {
         return null;
     }
 
-    public boolean aceptarTransferencia(Transferencia trans) {
-         trans.setEstado(true);
-         return trans.isEstado();
+    public void respuestaTransferencia(Transferencia trans, boolean state) {
+         trans.setEstado(state);
+         if(state){
+             transferencias.add(trans);
+             avisar(eventos.aceptarTransferencia);
+         }else{
+             avisar(eventos.rechazarTransferencia);
+         }
     }
-    
-    
-
+   
 }

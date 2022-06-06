@@ -61,7 +61,6 @@ public class Mesa extends Observable{
     }
     
     public void transferirMesa(Mozo mozoDestino){
-        Transferencia trans=new Transferencia(mozoAsignado,mozoDestino,this);
         avisar(eventos.transferenciaMesa);
     }
 
