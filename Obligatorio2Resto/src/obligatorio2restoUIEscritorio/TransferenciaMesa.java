@@ -6,6 +6,8 @@ package obligatorio2restoUIEscritorio;
 
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import obligatorio2restoControladores.ControladorVistaMozo;
+import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
 
 /**
@@ -14,13 +16,20 @@ import obligatoriorestoLogica.Mozo;
  */
 public class TransferenciaMesa extends javax.swing.JFrame {
     
+   private Mesa mesa;
+   private ArrayList<Mozo> mozosConectados;
+   private Mozo mozoTransferir;
+   private ControladorVistaMozo controlador;
+    
 
     /**
      * Creates new form TransferenciaMesa
      */
-    public TransferenciaMesa(ArrayList<Mozo> mozosConectados) {
+    public TransferenciaMesa(ArrayList<Mozo> mozos,Mesa mesaTransferir) {
         initComponents();
-        mostrarMozosConectados(mozosConectados);
+        mostrarMozosConectados(mozos);
+        mozosConectados=mozos;
+        mesa=mesaTransferir;
     }
 
     /**
@@ -54,11 +63,21 @@ public class TransferenciaMesa extends javax.swing.JFrame {
 
             }
         ));
+        jTableMozosConectados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMozosConectadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableMozosConectados);
 
         jLabel2.setText("Mozos conectados:");
 
         jButtonTransferir.setText("Transferir");
+        jButtonTransferir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTransferirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,10 +115,26 @@ public class TransferenciaMesa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferirActionPerformed
+        transferirMesa(mesa,mozoTransferir);
+    }//GEN-LAST:event_jButtonTransferirActionPerformed
+
+    private void jTableMozosConectadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMozosConectadosMouseClicked
+        mozoTransferir=seleccionarMozo(jTableMozosConectados.getSelectedRow());
+    }//GEN-LAST:event_jTableMozosConectadosMouseClicked
+
     /**
      * @param args the command line arguments
      */
     
+    
+    private Mozo seleccionarMozo(int pos) {
+        Mozo elegido = null;
+        if (pos != -1) {
+            elegido = mozosConectados.get(pos);
+        }
+        return elegido;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonTransferir;
@@ -126,5 +161,9 @@ public class TransferenciaMesa extends javax.swing.JFrame {
                 fila++;
             }
             jTableMozosConectados.setModel(lista);
+    }
+
+    private void transferirMesa(Mesa mesa, Mozo mozoTransferir) {
+        controlador.transferirMesa(mesa, mozoTransferir);
     }
 }

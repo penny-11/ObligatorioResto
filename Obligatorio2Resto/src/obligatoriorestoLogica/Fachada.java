@@ -88,21 +88,8 @@ public class Fachada extends Observable {
         return cser.getServicios();
     }
 
-    
-
-    
-    
-    
-
-    
-    
-    
-     
-    
-    
-    
-    
-     
-    
+    public ArrayList<Mozo> getMozosConectados() {
+        return cu.getMozosConectados();
+    }
     
 }

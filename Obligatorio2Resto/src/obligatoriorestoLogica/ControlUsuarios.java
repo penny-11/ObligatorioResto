@@ -58,5 +58,15 @@ public class ControlUsuarios {
     public ArrayList<Gestor> getGestores(){
         return usuariosGestores;
     }
+    
+    public ArrayList<Mozo> getMozosConectados(){
+        ArrayList<Mozo> mozosConectados=new ArrayList();
+        for(Mozo mo:usuariosMozo){
+            if(mo.getConexion()){
+                mozosConectados.add(mo);
+            }
+        }
+        return mozosConectados;
+    }
 
 }
