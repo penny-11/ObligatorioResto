@@ -18,6 +18,9 @@ public class ControladorMonitoreo implements Observador {
      private MonitorPedidos vista;
     private Fachada modelo = Fachada.getInstancia();
 
+    public ControladorMonitoreo() {
+    }
+
     @Override
     public void actualizar(Object evento, Observable aThis) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
