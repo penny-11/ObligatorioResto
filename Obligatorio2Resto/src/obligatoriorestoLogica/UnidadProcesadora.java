@@ -21,5 +21,8 @@ public abstract class UnidadProcesadora {
     }
     
     public abstract String getNombre();
+    public abstract ArrayList<Pedido> getPedidos();
+    public abstract void recibirPedido(Pedido unPedido);
+    public abstract void despacharPedido(Pedido unPedido);
     
 }

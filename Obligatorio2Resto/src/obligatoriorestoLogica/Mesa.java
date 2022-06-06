@@ -12,6 +12,14 @@ public class Mesa {
 
     private int numeroMesa;
     private Mozo mozoAsignado;
+
+    public Cliente getClienteMesa() {
+        return clienteMesa;
+    }
+
+    public void setClienteMesa(Cliente clienteMesa) {
+        this.clienteMesa = clienteMesa;
+    }
     private Cliente clienteMesa;
     private boolean estadoMesa;
     private Servicio servicio;
@@ -35,6 +43,10 @@ public class Mesa {
     public void addMozo(Mozo unMozo) {
         this.mozoAsignado = unMozo;
     }
+    
+    public Mozo getMozo(){
+        return mozoAsignado;
+    }
 
     public void addCliente(Cliente unCliente) {
         this.clienteMesa = unCliente;
@@ -47,6 +59,20 @@ public class Mesa {
     public void setEstadoMesa(boolean estadoMesa) {
         this.estadoMesa = estadoMesa;
     }
+    
+    public Servicio getServicio(){
+        return servicio;
+    }
+
+    @Override
+    public String toString() {
+        return "Mesa"+ numeroMesa;
+    }
+    
+    
+    
+    
+    
 
     
 

@@ -83,7 +83,7 @@ public class Producto {
         return nombre!=null && !nombre.trim().equals("");
      }
 
-    protected void modificarStock(int cantidad) {
-        stock+=cantidad;
+    public void modificarStock(int cantidad) {
+        stock=stock-cantidad;
     }
 }

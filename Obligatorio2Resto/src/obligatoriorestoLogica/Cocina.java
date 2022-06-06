@@ -4,6 +4,8 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
@@ -16,6 +18,21 @@ public class Cocina extends UnidadProcesadora{
 
     @Override
     public String getNombre() {
+        return this.nombre;
+    }
+
+    @Override
+    public ArrayList<Pedido> getPedidos() {
+        return this.pedidos;
+    }
+
+    @Override
+    public void recibirPedido(Pedido unPedido) {
+        this.pedidos.add(unPedido);
+    }
+
+    @Override
+    public void despacharPedido(Pedido unPedido) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

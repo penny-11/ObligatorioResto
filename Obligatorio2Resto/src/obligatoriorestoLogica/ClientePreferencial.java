@@ -1,24 +1,20 @@
 /*
-<<<<<<< HEAD
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-=======
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
->>>>>>> ae0ddfeffcf67d559ab9d2660f5f5d6ec16387be
  */
 package obligatoriorestoLogica;
 
+/**
+ *
+ * @author tomas
+ */
+public class ClientePreferencial extends Cliente{
 
-
-public class ClienteComun extends Cliente{
-
-    public ClienteComun(String email, String nombre) {
+    public ClientePreferencial(String email, String nombre) {
         super(email, nombre);
     }
 
-    public ClienteComun() {
+    public ClientePreferencial() {
     }
 
     @Override
@@ -53,15 +49,19 @@ public class ClienteComun extends Cliente{
 
     @Override
     public int calculoTotalServicio(Servicio servicio) {
-        int total = 0;
+          int total = 0;
         for(Pedido s: servicio.getItems()){
-            if(s.getProducto().equals("Agua")){
+            if(s.getProducto().equals("Cafe")){
                 total = total;
             }else{
                 total += s.total();
             }
         }
-        return total;
+
+        if(total > 2000){
+            total = (total/95)*100;
+        }
+        return total;   
     }
     
 }

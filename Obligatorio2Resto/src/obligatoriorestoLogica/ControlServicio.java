@@ -12,34 +12,52 @@ import java.util.ArrayList;
  */
 public class ControlServicio {
 
-    private ArrayList<Mesa> mesas = new ArrayList();
+    private ArrayList<Mesa> mesasSinAsignar = new ArrayList();
+    private ArrayList<Cliente> clientes=new ArrayList();
+    private ArrayList<Servicio> servicios=new ArrayList();
 
     public void asignarMesas(Mozo mozo) {
-        for (Mesa me : mesas) {
+        for (Mesa me : mesasSinAsignar) {
             if (mozo.getMesas().isEmpty()) {
                 mozo.addMesa(me);
+                mesasSinAsignar.remove(me);
             }
         }
     }
     
-    public void abrirMesa(Mesa unaMesa) throws MesaException{
-        if (!unaMesa.isEstadoMesa()) {
-            unaMesa.setEstadoMesa(true);
-        }else{
-            throw new MesaException("La Mesa ya esta abierta.");
-        }
-    }
-
-    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) throws MesaException{
-        if (unaMesa.isEstadoMesa()) {
-            if(unCliente!=null){
-                unaMesa.addCliente(unCliente);
-                unaMesa.setEstadoMesa(false);
-            }
-        }else{
-            throw new MesaException("La Mesa no esta abierta");
-        }
+    public void agregarMesa(Mesa unaMesa){
+        mesasSinAsignar.add(unaMesa);
     }
     
+    public void agregarCliente(Cliente unCliente){
+        clientes.add(unCliente);
+    }
+    
+      public ArrayList<Cliente> getClientes(){
+        return this.getClientes();
+    }
+      
+    public Cliente buscarCliente(String id){
+        for(Cliente cli:clientes){
+            if(cli.clienteId == Integer.parseInt(id)){
+                return cli;
+            }
+        }
+        return null;
+    }
+    
+    public void agregarServicio(Mesa unaMesa){
+        Servicio unServicio=new Servicio(unaMesa,unaMesa.getMozo());
+        servicios.add(unServicio);
+    }
+    
+    public Servicio buscarServicio(Mesa unaMesa){
+        for(Servicio se:servicios){
+            if(se.getMesa().getNumeroMesa()==unaMesa.getNumeroMesa() && se.getMesa().isEstadoMesa()){
+                return se;
+            }
+        }
+        return null;
+    }
     
 }

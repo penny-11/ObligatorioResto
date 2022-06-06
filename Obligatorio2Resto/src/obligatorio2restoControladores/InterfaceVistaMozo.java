@@ -29,5 +29,7 @@ public interface InterfaceVistaMozo {
     
     public void salirSistema();
     
+    public void mostrarMensaje(String mensaje);
+    
     
 }

@@ -1,18 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package obligatoriorestoLogica;
 
-/**
- *
- * @author tomas
- */
-public class Pedido {
+package obligatoriorestoLogica;
+import obligatorio2Observador.Observable;
+
+
+
+public class Pedido extends Observable{
     
     private Producto producto;
     private int cantidad;
     private String descripcion;
+    private String estado;
 
     public Pedido(Producto producto, int cantidad, String descripcion) {
         this.producto = producto;
@@ -22,6 +19,8 @@ public class Pedido {
     
     public Pedido(){
     }
+    
+    public enum eventos{nuevoPedido};
 
     public Producto getProducto() {
         return producto;
@@ -46,13 +45,32 @@ public class Pedido {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     public float total (){
         return this.getCantidad()* this.getProducto().getPrecio();
     }
     
     
     
+    
+
+    public void enviarPedido(){
+        producto.getUnidadProcesadora().recibirPedido(this);
+        avisar(eventos.nuevoPedido);
+        Fachada.getInstancia().avisar(Fachada.eventos.cambioListaPedidos);
+    }
+
+    public float subTotal(){
+        return producto.getPrecio()*cantidad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     
     
 }

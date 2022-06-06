@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author tomas
  */
 public class Servicio {
-    
+
     private ArrayList<Pedido> items;
     private Mesa mesa;
     private Mozo mozoAtencion;
@@ -20,8 +20,8 @@ public class Servicio {
         this.mesa = mesa;
         this.mozoAtencion = mozoAtencion;
     }
-    
-    public Servicio(){
+
+    public Servicio() {
     }
 
     public ArrayList<Pedido> getItems() {
@@ -47,16 +47,33 @@ public class Servicio {
     public void setMozoAtencion(Mozo mozoAtencion) {
         this.mozoAtencion = mozoAtencion;
     }
+
     
-    public float total(){
-            float total = 0;
-            for(Pedido p:items){
-            total += p.total();
+
+
+    public void hacerPedido(Producto unProducto, int cantidad, String descripcion) throws ServicioException {
+        if (unProducto != null && cantidad >= 1) {
+            if (unProducto.getStock() >= cantidad) {
+                Pedido pedido = new Pedido(unProducto, cantidad, descripcion);
+                unProducto.modificarStock(cantidad);
+                items.add(pedido);
+                pedido.enviarPedido();
+            } else {
+                throw new ServicioException("Sin stock, solo quedan "+unProducto.getStock());
+            }
+        } else {
+            throw new ServicioException("Cantidad Invalida");
         }
-            
+    }
+    public int total(){
+        int total = 0;
+        for(Pedido p: items){
+            total += p.subTotal();
+        }
         return total;
     }
-   
     
-    
+
+
+
 }

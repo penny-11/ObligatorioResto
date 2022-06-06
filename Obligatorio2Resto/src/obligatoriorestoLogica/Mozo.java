@@ -71,6 +71,7 @@ public class Mozo extends Usuario{
             if(unCliente!=null){
                 unaMesa.addCliente(unCliente);
                 unaMesa.setEstadoMesa(false);
+               
             }
         }else{
             throw new MesaException("La Mesa no esta abierta");
