@@ -9,5 +9,9 @@ package obligatorio2restoControladores;
  * @author tomas
  */
 public interface InterfaceMonitorPedidos {
+
+    public void mostrarPendientes();
+    
+    public void mostrarTomados();
     
 }

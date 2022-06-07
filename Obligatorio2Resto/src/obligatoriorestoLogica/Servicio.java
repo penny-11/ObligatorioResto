@@ -5,12 +5,13 @@
 package obligatoriorestoLogica;
 
 import java.util.ArrayList;
+import obligatorio2Observador.Observable;
 
 /**
  *
  * @author tomas
  */
-public class Servicio {
+public class Servicio{
 
     private ArrayList<Pedido> items;
     private Mesa mesa;
@@ -48,13 +49,10 @@ public class Servicio {
         this.mozoAtencion = mozoAtencion;
     }
 
-    
-
-
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion) throws ServicioException {
         if (unProducto != null && cantidad >= 1) {
             if (unProducto.getStock() >= cantidad) {
-                Pedido pedido = new Pedido(unProducto, cantidad, descripcion);
+                Pedido pedido = new Pedido(unProducto, cantidad, descripcion,this);
                 unProducto.modificarStock(cantidad);
                 items.add(pedido);
                 pedido.enviarPedido();

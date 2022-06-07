@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/admin/Desktop/ORT/Diseño%20y%20desarrollo/ObligatorioResto/Obligatorio2Resto/src/obligatorio2restoControladores/ControladorMonitoreo.java</file>
-            <file>file:/C:/Users/admin/Desktop/ORT/Diseño%20y%20desarrollo/ObligatorioResto/Obligatorio2Resto/src/obligatorio2restoUIEscritorio/MonitorPedidos.java</file>
-=======
-            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/Transferencia.java</file>
-            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/Mozo.java</file>
-            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/Mesa.java</file>
-            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/ControlServicio.java</file>
->>>>>>> f14242c0ced0059b3a06a2a044612a4e2404a51d
+            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/ClienteComun.java</file>
+            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/ClientePreferencial.java</file>
+            <file>file:/C:/Users/tomas/Documents/ORT/Desarrollo%20y%20Diseño%20de%20Apps/Obli2%202022/Obligatorio2Resto/src/obligatoriorestoLogica/ClienteCasa.java</file>
         </group>
     </open-files>
 </project-private>

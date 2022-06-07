@@ -54,11 +54,9 @@ public class ClienteComun extends Cliente{
     @Override
     public int calculoTotalServicio(Servicio servicio) {
         int total = 0;
-        for(Pedido s: servicio.getItems()){
-            if(s.getProducto().equals("Agua")){
-                total = total;
-            }else{
-                total += s.total();
+        for(Pedido p: servicio.getItems()){
+            if(!p.getProducto().getNombre().contains("Cafe")){
+                total += p.subTotal();
             }
         }
         return total;

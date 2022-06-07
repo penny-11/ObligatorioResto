@@ -43,6 +43,7 @@ public class ControladorVistaMozo implements Observador{
        }else if(evento.equals(Mozo.eventos.aceptarTransferencia)){
            vistaMozo.mostrarMensaje("Transferencia confirmada!");
        }else if(evento.equals(Mozo.eventos.rechazarTransferencia)){
+           transferencia=null;
            vistaMozo.mostrarMensaje("Transferencia rechazada");
        }
     }

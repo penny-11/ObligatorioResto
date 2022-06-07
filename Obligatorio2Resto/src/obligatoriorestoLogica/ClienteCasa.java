@@ -53,8 +53,7 @@ public class ClienteCasa extends Cliente {
 
     @Override
     public int calculoTotalServicio(Servicio servicio) {
-       int total = servicio.total( )- 500;
-
+       int total = servicio.total()- 500;
        return total;
     }
 

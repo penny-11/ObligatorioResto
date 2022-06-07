@@ -35,5 +35,16 @@ public class Bar extends UnidadProcesadora{
     public void despacharPedido(Pedido unPedido) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public ArrayList<Pedido> pedidosMostrar(boolean estado) {
+        ArrayList<Pedido> pedidosMostrar=new ArrayList();
+        for(Pedido p:pedidos){
+            if(p.getEstado()==estado){
+                pedidosMostrar.add(p);
+            }
+        }
+        return pedidosMostrar;
+    }
     
 }

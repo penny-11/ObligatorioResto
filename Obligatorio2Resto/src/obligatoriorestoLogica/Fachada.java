@@ -16,7 +16,7 @@ public class Fachada extends Observable {
     private ControlUsuarios cu = new ControlUsuarios();
     private ControlStock cs=new ControlStock();
     private ControlServicio cser=new ControlServicio();
-     public enum eventos{cambioListaPedidos};
+
     
     
    private static Fachada instancia = new Fachada();

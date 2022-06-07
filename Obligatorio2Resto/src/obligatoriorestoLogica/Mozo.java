@@ -97,6 +97,8 @@ public class Mozo extends Usuario{
          trans.setEstado(state);
          if(state){
              transferencias.add(trans);
+             trans.getMozoDestino().addMesa(trans.getMesa());
+             trans.getMozoOrigen().getMesas().remove(trans.getMesa());
              avisar(eventos.aceptarTransferencia);
          }else{
              avisar(eventos.rechazarTransferencia);
