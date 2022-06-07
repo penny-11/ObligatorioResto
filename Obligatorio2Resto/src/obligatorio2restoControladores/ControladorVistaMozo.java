@@ -99,4 +99,7 @@ public class ControladorVistaMozo implements Observador{
         return sistema.getMozosConectados();
     }
     
+    public Cliente buscarCliente(int idCliente){
+        return sistema.buscarCliente(idCliente);
+    }
 }

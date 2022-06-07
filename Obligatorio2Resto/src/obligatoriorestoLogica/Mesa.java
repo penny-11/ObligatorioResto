@@ -14,17 +14,9 @@ public class Mesa extends Observable{
 
     private int numeroMesa;
     private Mozo mozoAsignado;
-
-    public Cliente getClienteMesa() {
-        return clienteMesa;
-    }
-
-    public void setClienteMesa(Cliente clienteMesa) {
-        this.clienteMesa = clienteMesa;
-    }
-    private Cliente clienteMesa;
+    private Servicio servicioMesa;
     private boolean estadoMesa;
-    private Servicio servicio;
+    private Cliente clienteMesa;
 
     public enum eventos{transferenciaMesa}
     
@@ -52,10 +44,6 @@ public class Mesa extends Observable{
         return mozoAsignado;
     }
 
-    public void addCliente(Cliente unCliente) {
-        this.clienteMesa = unCliente;
-    }
-
     public boolean isEstadoMesa() {
         return estadoMesa;
     }
@@ -65,14 +53,24 @@ public class Mesa extends Observable{
     }
 
     public Servicio getServicio() {
-        return servicio;
+        return servicioMesa;
+    }
+    public void addServicio(Servicio servicio){
+        this.servicioMesa=servicio;
+    }
+    
+    public Cliente getClienteMesa() {
+        return clienteMesa;
+    }
+
+    public void addCliente(Cliente clienteMesa) {
+        this.clienteMesa = clienteMesa;
     }
     
     public void transferirMesa(Mozo mozoDestino){
         avisar(eventos.transferenciaMesa);
     }
-
-
+    
     @Override
     public String toString() {
         return "Mesa" + numeroMesa;

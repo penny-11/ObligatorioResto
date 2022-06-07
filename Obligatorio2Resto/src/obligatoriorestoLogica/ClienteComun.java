@@ -14,8 +14,8 @@ package obligatoriorestoLogica;
 
 public class ClienteComun extends Cliente{
 
-    public ClienteComun(String email, String nombre) {
-        super(email, nombre);
+    public ClienteComun(int clienteId,String email, String nombre) {
+        super(clienteId,email, nombre);
     }
 
     public ClienteComun() {

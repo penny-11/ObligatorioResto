@@ -50,6 +50,7 @@ public class Servicio{
     }
 
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion) throws ServicioException {
+        mesa.addServicio(this);
         if (unProducto != null && cantidad >= 1) {
             if (unProducto.getStock() >= cantidad) {
                 Pedido pedido = new Pedido(unProducto, cantidad, descripcion,this);

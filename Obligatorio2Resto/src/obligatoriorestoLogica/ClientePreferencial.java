@@ -10,8 +10,8 @@ package obligatoriorestoLogica;
  */
 public class ClientePreferencial extends Cliente {
 
-    public ClientePreferencial(String email, String nombre) {
-        super(email, nombre);
+    public ClientePreferencial(int clienteId,String email, String nombre) {
+        super(clienteId,email, nombre);
     }
 
     public ClientePreferencial() {

@@ -13,8 +13,8 @@ package obligatoriorestoLogica;
 
 public class ClienteCasa extends Cliente {
 
-    public ClienteCasa(String email, String nombre) {
-        super(email, nombre);
+    public ClienteCasa(int clienteId,String email, String nombre) {
+        super(clienteId,email, nombre);
     }
 
 

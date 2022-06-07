@@ -68,7 +68,7 @@ public class Fachada extends Observable {
     public Servicio buscarServicio(Mesa unaMesa) {
         return cser.buscarServicio(unaMesa);
     }
-    public Cliente buscarCliente(String id) {
+    public Cliente buscarCliente(int id) {
         return cser.buscarCliente(id);
     }
     
