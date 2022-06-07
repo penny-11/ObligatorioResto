@@ -8,7 +8,7 @@ package obligatoriorestoLogica;
  *
  * @author tomas
  */
-public class ClientePreferencial extends Cliente{
+public class ClientePreferencial extends Cliente {
 
     public ClientePreferencial(String email, String nombre) {
         super(email, nombre);
@@ -44,21 +44,21 @@ public class ClientePreferencial extends Cliente{
 
     @Override
     public void setNombre(String nombre) {
-        this.nombre=nombre;
+        this.nombre = nombre;
     }
 
     @Override
     public int calculoTotalServicio(Servicio servicio) {
-          int total = 0;
-        for(Pedido p: servicio.getItems()){
-            if(!p.getProducto().getNombre().contains("Agua")){
+        int total = 0;
+        for (Pedido p : servicio.getItems()) {
+            if (!p.getProducto().getNombre().contains("Agua")) {
                 total += p.subTotal();
+                if (total > 2000) {
+                    total = (total / 95) * 100;
+                }
             }
         }
-        if(total > 2000){
-            total = (total/95)*100;
-        }
-        return total;   
+        return total;
     }
-    
+        
 }

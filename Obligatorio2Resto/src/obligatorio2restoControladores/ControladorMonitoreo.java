@@ -4,9 +4,9 @@
  */
 package obligatorio2restoControladores;
 
+import java.util.ArrayList;
 import obligatorio2Observador.Observable;
 import obligatorio2Observador.Observador;
-import obligatorio2restoUIEscritorio.MonitorPedidos;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Mesa;
@@ -19,11 +19,15 @@ import obligatoriorestoLogica.UnidadProcesadora;
  */
 public class ControladorMonitoreo implements Observador {
     
+
      private InterfaceMonitorPedidos vistaGestor;
+
+
     private Fachada modelo = Fachada.getInstancia();
     private Gestor gestor;
     private UnidadProcesadora unidad;
     private Pedido pedido;
+
 
     public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user,UnidadProcesadora lugar) {
         this.vistaGestor=vista;
