@@ -60,9 +60,18 @@ public class Fachada extends Observable {
     public void agregarMesa(Mesa unaMesa) {
         cser.agregarMesa(unaMesa);
     }
+     public void agregarMozo(String us, String pwd, String nomCom, String tel) {
+        cu.crearUsuarioMozo(us, pwd, nomCom, tel);
+    }
+     public void agregarGestor(String us, String pwd, String nomCom) {
+        cu.crearUsuarioGestor(us, pwd, nomCom);
+    }
 
     public void agregarServicio(Mesa unaMesa) {
         cser.agregarServicio(unaMesa);
+    }
+    public void agregarProducto(Producto prod1) {
+        cs.agregar(prod1);
     }
 
     public Servicio buscarServicio(Mesa unaMesa) {
