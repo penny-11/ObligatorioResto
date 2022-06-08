@@ -9,20 +9,18 @@ package obligatoriorestoLogica;
  * @author tomas
  */
 public abstract class Cliente {
-    
 
     int clienteId;
     String email;
     String nombre;
 
-  
-
-    public Cliente(String email, String nombre) {
+    public Cliente(int idCliente,String email, String nombre) {
+        this.clienteId=idCliente;
         this.email = email;
         this.nombre = nombre;
     }
-    
-    public Cliente(){
+
+    public Cliente() {
     }
 
     public abstract int getClienteId();
@@ -36,9 +34,7 @@ public abstract class Cliente {
     public abstract String getNombre();
 
     public abstract void setNombre(String nombre);
-    
+
     public abstract int calculoTotalServicio(Servicio servicio);
-    
-    
-    
+
 }

@@ -5,8 +5,7 @@
 package obligatoriorestoLogica;
 
 import java.util.ArrayList;
-import obligatorio2Observador.Observable;
-import obligatorio2Observador.Observador;
+
 
 /**
  *
@@ -44,12 +43,12 @@ public class ControlServicio{
     }
     
       public ArrayList<Cliente> getClientes(){
-        return this.getClientes();
+        return clientes;
     }
       
-    public Cliente buscarCliente(String id){
+    public Cliente buscarCliente(int id){
         for(Cliente cli:clientes){
-            if(cli.clienteId == Integer.parseInt(id)){
+            if(cli.clienteId == id){
                 return cli;
             }
         }

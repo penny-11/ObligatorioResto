@@ -7,8 +7,11 @@ package obligatorio2restoControladores;
 import java.util.ArrayList;
 import obligatorio2Observador.Observable;
 import obligatorio2Observador.Observador;
-import obligatorio2restoUIEscritorio.VistaMonitorPedidos;
 import obligatoriorestoLogica.Fachada;
+import obligatoriorestoLogica.Gestor;
+import obligatoriorestoLogica.Mesa;
+import obligatoriorestoLogica.Pedido;
+import obligatoriorestoLogica.UnidadProcesadora;
 
 /**
  *
@@ -16,25 +19,41 @@ import obligatoriorestoLogica.Fachada;
  */
 public class ControladorMonitoreo implements Observador {
     
-     private VistaMonitorPedidos vista;
-    private Fachada modelo = Fachada.getInstancia();
 
-    public ControladorMonitoreo(VistaMonitorPedidos vista) {
-        this.vista = vista;
-        ArrayList resultado = new ArrayList();
-        modelo.agregar(this);
-        for (int i = 0; i < modelo.getServicios().size(); i++) {
-            resultado.add(modelo.getServicios().get(i).getItems());
-        }
-        vista.mostrarPedidos(resultado);
-        
+     private InterfaceMonitorPedidos vistaGestor;
+
+
+    private Fachada modelo = Fachada.getInstancia();
+    private Gestor gestor;
+    private UnidadProcesadora unidad;
+    private Pedido pedido;
+
+
+    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user,UnidadProcesadora lugar) {
+        this.vistaGestor=vista;
+        this.gestor=user;
+        this.unidad=lugar;
+        pedido.avisar(this);
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if(evento.equals(Pedido.eventos.nuevoPedido)){
+           vistaGestor.mostrarPendientes();
+       }else if(evento.equals(Pedido.eventos.cambiarPedido)){
+           vistaGestor.mostrarPendientes();
+           vistaGestor.mostrarTomados();
+       }
     }
     
+    public void tomarPedido(Pedido pedido){
+        pedido.setEstado(true);
+        gestor.addPedidoTomado(pedido);
+    }
+    
+    public void finalizarPedido(Pedido pedido){
+        gestor.getPedidosTomados().remove(pedido);
+    }
     
     
 }

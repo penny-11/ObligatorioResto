@@ -16,7 +16,7 @@ public class Fachada extends Observable {
     private ControlUsuarios cu = new ControlUsuarios();
     private ControlStock cs=new ControlStock();
     private ControlServicio cser=new ControlServicio();
-     public enum eventos{cambioListaPedidos};
+
     
     
    private static Fachada instancia = new Fachada();
@@ -77,7 +77,7 @@ public class Fachada extends Observable {
     public Servicio buscarServicio(Mesa unaMesa) {
         return cser.buscarServicio(unaMesa);
     }
-    public Cliente buscarCliente(String id) {
+    public Cliente buscarCliente(int id) {
         return cser.buscarCliente(id);
     }
     

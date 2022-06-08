@@ -22,7 +22,7 @@ public interface InterfaceVistaMozo {
     
     public void abrirMesa(Mesa unaMesa);
     
-    public void cerrarMesa(Mesa unaMesa,Cliente unCliente);
+    public void cerrarMesa(Mesa unaMesa);
     
     public void transferirMesa();
     

@@ -269,18 +269,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonCerrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarMesaActionPerformed
-           if(!mesa.isEstadoMesa()){
-               this.mostrarMensaje("La mesa no está abierta");
-           }//else if(tiene pedido pendiente){
-              // this.mostrarMensaje(“Tiene pedidos pendientes”);
-          // }
-           else if(cliente == null){
-               this.mostrarMensaje("No se encontró al cliente");
-           }else{
-                new VistaCerrarMesa(null, false,mesa.getServicio(),cliente).setVisible(true);
-           }
-       
-        
+        mesa=(Mesa) jComboBoxMesas.getSelectedItem();   
+        cerrarMesa(mesa);
     }//GEN-LAST:event_jButtonCerrarMesaActionPerformed
 
     private void jButtonTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferirActionPerformed
@@ -361,8 +351,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }
 
     @Override
-    public void cerrarMesa(Mesa unaMesa,Cliente unCliente) {
-            controlador.cerrarMesa(unaMesa,unCliente);
+    public void cerrarMesa(Mesa unaMesa) {
+            new VistaCerrarMesa(this,false,unaMesa).setVisible(true);
     }
 
     @Override

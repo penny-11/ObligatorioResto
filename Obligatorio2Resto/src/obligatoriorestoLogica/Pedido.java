@@ -9,18 +9,20 @@ public class Pedido extends Observable{
     private Producto producto;
     private int cantidad;
     private String descripcion;
-    private String estado;
+    private boolean estado;
+    private Servicio servicio;
+    
+    public enum eventos{nuevoPedido,cambiarPedido};
 
-    public Pedido(Producto producto, int cantidad, String descripcion) {
+    public Pedido(Producto producto, int cantidad, String descripcion,Servicio serv) {
         this.producto = producto;
         this.cantidad = cantidad;
         this.descripcion = descripcion;
+        this.servicio=serv;
     }
     
     public Pedido(){
     }
-    
-    public enum eventos{nuevoPedido};
 
     public Producto getProducto() {
         return producto;
@@ -45,37 +47,31 @@ public class Pedido extends Observable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-
-    public float total (){
-        return this.getCantidad()* this.getProducto().getPrecio();
-    }
     
-    
-    
-    
-
     public void enviarPedido(){
         producto.getUnidadProcesadora().recibirPedido(this);
         avisar(eventos.nuevoPedido);
-        Fachada.getInstancia().avisar(Fachada.eventos.cambioListaPedidos);
     }
 
     public float subTotal(){
         return producto.getPrecio()*cantidad;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
+        avisar(eventos.cambiarPedido);
     }
-    
-    public boolean pedidoPendiente(){
-        if(this.estado == "pendiente"){
-            return true;
-        }return false;
+
+    public Servicio getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(Servicio servicio) {
+        this.servicio = servicio;
     }
     
     

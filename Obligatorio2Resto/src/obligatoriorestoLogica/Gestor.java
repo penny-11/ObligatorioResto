@@ -4,6 +4,7 @@
  */
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,9 +14,11 @@ import java.util.Date;
 public class Gestor extends Usuario{
     
     private Date ultimoIngreso;
+    private ArrayList<Pedido> pedidosTomados;
 
     public Gestor(String usuario, String password, String nombreCompleto) {
         super(usuario, password, nombreCompleto);
+        this.pedidosTomados=new ArrayList();
     }
 
     @Override
@@ -39,6 +42,14 @@ public class Gestor extends Usuario{
 
     public void setUltimoIngreso(Date ultimoIngreso) {
         this.ultimoIngreso = ultimoIngreso;
+    }
+
+    public ArrayList<Pedido> getPedidosTomados() {
+        return pedidosTomados;
+    }
+
+    public void addPedidoTomado(Pedido pedidoTomado) {
+        pedidosTomados.add(pedidoTomado);
     }
     
     

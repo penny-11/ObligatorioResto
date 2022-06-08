@@ -43,6 +43,7 @@ public class ControladorVistaMozo implements Observador{
        }else if(evento.equals(Mozo.eventos.aceptarTransferencia)){
            vistaMozo.mostrarMensaje("Transferencia confirmada!");
        }else if(evento.equals(Mozo.eventos.rechazarTransferencia)){
+           transferencia=null;
            vistaMozo.mostrarMensaje("Transferencia rechazada");
        }
     }
@@ -98,4 +99,7 @@ public class ControladorVistaMozo implements Observador{
         return sistema.getMozosConectados();
     }
     
+    public Cliente buscarCliente(int idCliente){
+        return sistema.buscarCliente(idCliente);
+    }
 }

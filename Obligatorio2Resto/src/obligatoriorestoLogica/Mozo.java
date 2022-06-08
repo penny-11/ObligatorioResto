@@ -76,9 +76,8 @@ public class Mozo extends Usuario{
         if (unaMesa.isEstadoMesa()) {
             if (unCliente != null) {
                 unaMesa.addCliente(unCliente);
-                unaMesa.setEstadoMesa(false);
-               
             }
+            unaMesa.setEstadoMesa(false);
         } else {
             throw new MesaException("La Mesa no esta abierta");
         }
@@ -97,6 +96,8 @@ public class Mozo extends Usuario{
          trans.setEstado(state);
          if(state){
              transferencias.add(trans);
+             trans.getMozoDestino().addMesa(trans.getMesa());
+             trans.getMozoOrigen().getMesas().remove(trans.getMesa());
              avisar(eventos.aceptarTransferencia);
          }else{
              avisar(eventos.rechazarTransferencia);

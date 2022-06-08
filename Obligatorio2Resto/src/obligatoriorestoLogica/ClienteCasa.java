@@ -13,8 +13,8 @@ package obligatoriorestoLogica;
 
 public class ClienteCasa extends Cliente {
 
-    public ClienteCasa(String email, String nombre) {
-        super(email, nombre);
+    public ClienteCasa(int clienteId,String email, String nombre) {
+        super(clienteId,email, nombre);
     }
 
 
@@ -53,8 +53,7 @@ public class ClienteCasa extends Cliente {
 
     @Override
     public int calculoTotalServicio(Servicio servicio) {
-       int total = servicio.total( )- 500;
-
+       int total = servicio.total()- 500;
        return total;
     }
 
