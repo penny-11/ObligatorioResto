@@ -4,6 +4,9 @@
  */
 package obligatorio2resto;
 
+import obligatorio2restoUIEscritorio.LoginGestor;
+import ObligatorioInicio.DatosPrueba;
+
 /**
  *
  * @author tomas
@@ -14,7 +17,9 @@ public class Obligatorio2Resto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+         DatosPrueba.cargar();
+        LoginGestor inicio = new LoginGestor();
+        inicio.setVisible(true);
     }
     
 }
