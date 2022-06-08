@@ -49,6 +49,7 @@ public class ControladorVistaMozo implements Observador{
     }
     
     public void mostrarMesas(){
+        sistema.asignarMesas(mozo);
         vistaMozo.cargarMesas(mozo);
     }
     

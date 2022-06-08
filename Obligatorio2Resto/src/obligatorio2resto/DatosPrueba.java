@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ObligatorioInicio;
+package obligatorio2resto;
 
 import obligatoriorestoLogica.ClienteCasa;
 import obligatoriorestoLogica.ClienteComun;
@@ -45,18 +45,18 @@ public class DatosPrueba {
         
         //CLIENTES PREFERENCIALES
         
-        ClientePreferencial clientePref1 = new ClientePreferencial("lucas@rodriguez.com", "Lucas Preferencial");
-        ClientePreferencial clientePref2 = new ClientePreferencial("xim@xim.com", "Ximena Preferencial");
+        ClientePreferencial clientePref1 = new ClientePreferencial(10,"lucas@rodriguez.com", "Lucas Preferencial");
+        ClientePreferencial clientePref2 = new ClientePreferencial(11,"xim@xim.com", "Ximena Preferencial");
         
         //CLIENTES COMUNES
         
-        ClienteComun clienteCom1 = new ClienteComun("jorge@jorge.com", "Jorge Comun");
-        ClienteComun clienteCom2 = new ClienteComun("sof@sof.com", "Sofia Comun");
+        ClienteComun clienteCom1 = new ClienteComun(12,"jorge@jorge.com", "Jorge Comun");
+        ClienteComun clienteCom2 = new ClienteComun(13,"sof@sof.com", "Sofia Comun");
         
         //CLIENTES CASA
         
-        ClienteCasa clienteCasa1 = new ClienteCasa("martina@mart.com", "Martina Casa");
-        ClienteCasa clienteCasa2 = new ClienteCasa("nic@nic.com", "Nicolas Casa");
+        ClienteCasa clienteCasa1 = new ClienteCasa(14,"martina@mart.com", "Martina Casa");
+        ClienteCasa clienteCasa2 = new ClienteCasa(15,"nic@nic.com", "Nicolas Casa");
         
         
         //MESAS

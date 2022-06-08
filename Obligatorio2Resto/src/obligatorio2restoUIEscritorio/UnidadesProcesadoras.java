@@ -4,17 +4,22 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import obligatoriorestoLogica.Gestor;
+
 /**
  *
  * @author tomas
  */
 public class UnidadesProcesadoras extends javax.swing.JFrame {
+    
+    private Gestor gestor;
 
     /**
      * Creates new form MenuPrincipal
      */
-    public UnidadesProcesadoras() {
+    public UnidadesProcesadoras(Gestor user) {
         initComponents();
+        this.gestor=user;
     }
 
     /**

@@ -4,14 +4,20 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import java.awt.Frame;
 import obligatoriorestoLogica.Fachada;
+import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Usuario;
 
 /**
  *
  * @author tomas
  */
-public class LoginGestor extends Login{
+public class LoginGestor extends LoginGeneral{
+    
+    public LoginGestor(Frame parent, boolean modal){
+        super(parent, modal);
+    }
     
     @Override
     public Usuario Logear(String usuario, String pwd) {
@@ -20,7 +26,7 @@ public class LoginGestor extends Login{
 
     @Override
     public void proxCasoUso(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        new UnidadesProcesadoras((Gestor)obj).setVisible(true);
     }
     
     

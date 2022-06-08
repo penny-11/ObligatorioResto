@@ -4,8 +4,8 @@
  */
 package obligatorio2resto;
 
-import obligatorio2restoUIEscritorio.LoginGestor;
-import ObligatorioInicio.DatosPrueba;
+
+import obligatorio2restoUIEscritorio.MenuPrincipal;
 
 /**
  *
@@ -18,8 +18,7 @@ public class Obligatorio2Resto {
      */
     public static void main(String[] args) {
          DatosPrueba.cargar();
-        LoginGestor inicio = new LoginGestor();
-        inicio.setVisible(true);
+        new MenuPrincipal().setVisible(true);
     }
     
 }

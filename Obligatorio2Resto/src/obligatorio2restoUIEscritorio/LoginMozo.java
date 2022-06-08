@@ -4,6 +4,7 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import java.awt.Frame;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Usuario;
@@ -13,7 +14,11 @@ import obligatoriorestoLogica.UsuarioException;
  *
  * @author tomas
  */
-public class LoginMozo extends Login{
+public class LoginMozo extends LoginGeneral{
+    
+    public LoginMozo(Frame parent, boolean modal){
+        super(parent, modal);
+    }
     
     @Override
     public Usuario Logear(String u, String pwd) throws UsuarioException{
