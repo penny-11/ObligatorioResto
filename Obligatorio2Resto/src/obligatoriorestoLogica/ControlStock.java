@@ -36,6 +36,15 @@ public class ControlStock {
         unidadesProcesadoras.add(new Cocina("Barra Cocina"));
         
     }
+    
+    public Producto buscarProducto(String productoNom) {
+        for(Producto p: productos){
+            if(p.getNombre()==productoNom){
+                return p;
+            }
+        }
+        return null;
+    }
 
     
 }

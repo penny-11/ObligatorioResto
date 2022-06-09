@@ -38,6 +38,8 @@ public class DatosPrueba {
         Mozo mozo4 = new Mozo("Sofia", "Sofia1234","Sofia Martinez", "099 222 748");
         Mozo mozo5 = new Mozo("Lucia", "Lucia1234","Lucia Rodriguez", "094 333 487");
         
+       
+        
          //USUARIOS GESTORES
         logica.agregarGestor("Camila", "Camila1234","Camila Perez");
         logica.agregarGestor("Martina", "Martina1234","Martina Gonzalez");
@@ -47,16 +49,22 @@ public class DatosPrueba {
         
         ClientePreferencial clientePref1 = new ClientePreferencial(10,"lucas@rodriguez.com", "Lucas Preferencial");
         ClientePreferencial clientePref2 = new ClientePreferencial(11,"xim@xim.com", "Ximena Preferencial");
-        
+        logica.agregarCliente(clientePref1);
+        logica.agregarCliente(clientePref2);
         //CLIENTES COMUNES
         
         ClienteComun clienteCom1 = new ClienteComun(12,"jorge@jorge.com", "Jorge Comun");
         ClienteComun clienteCom2 = new ClienteComun(13,"sof@sof.com", "Sofia Comun");
+        logica.agregarCliente(clienteCom1);
+        logica.agregarCliente(clienteCom2);
         
         //CLIENTES CASA
         
         ClienteCasa clienteCasa1 = new ClienteCasa(14,"martina@mart.com", "Martina Casa");
         ClienteCasa clienteCasa2 = new ClienteCasa(15,"nic@nic.com", "Nicolas Casa");
+        logica.agregarCliente(clienteCasa1);
+        logica.agregarCliente(clienteCasa2);
+        
         
         
         //MESAS
@@ -65,6 +73,8 @@ public class DatosPrueba {
         Mesa mesa3 = new Mesa(3);
         Mesa mesa4 = new Mesa(4);
         Mesa mesa5 = new Mesa(5);
+        
+        
         
         logica.agregarMesa(mesa1);
         logica.agregarMesa(mesa2);
@@ -103,7 +113,9 @@ public class DatosPrueba {
         
         
         
-               
+        
+        
+       
         
            
         

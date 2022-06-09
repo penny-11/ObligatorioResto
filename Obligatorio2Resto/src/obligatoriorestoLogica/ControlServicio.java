@@ -13,6 +13,8 @@ import java.util.ArrayList;
  */
 public class ControlServicio{
 
+    
+
     private ArrayList<Mesa> mesasSinAsignar = new ArrayList();
     private ArrayList<Cliente> clientes=new ArrayList();
     private ArrayList<Servicio> servicios=new ArrayList();
@@ -26,16 +28,22 @@ public class ControlServicio{
     }
 
     public void asignarMesas(Mozo mozo) {
+       
         for (Mesa me : mesasSinAsignar) {
-            if (mozo.getMesas().isEmpty()) {
-                mozo.addMesa(me);
-                mesasSinAsignar.remove(me);
-            }
+           mozo.addMesa(me);  
+           me.setIsAsignada(true);
         }
+          
     }
+    
+    
     
     public void agregarMesa(Mesa unaMesa){
         mesasSinAsignar.add(unaMesa);
+    }
+    
+     public void eliminarMesaDeSinAsignar(Mesa unaMesa){
+        mesasSinAsignar.remove(unaMesa);
     }
     
     public void agregarCliente(Cliente unCliente){

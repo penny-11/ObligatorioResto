@@ -52,6 +52,9 @@ public class ControladorVistaMozo implements Observador{
         sistema.asignarMesas(mozo);
         vistaMozo.cargarMesas(mozo);
     }
+    public void mostrarProductos(){
+        vistaMozo.mostrarProductos(sistema.getProductos());
+    }
     
     public void abrirMesa(Mesa unaMesa){
         try {
@@ -85,11 +88,11 @@ public class ControladorVistaMozo implements Observador{
         
     }
     
-    public void verificarMesa(Mesa unaMesa){
-        if(!unaMesa.isEstadoMesa()){
-            vistaMozo.mostrarMensaje("La mesa esta cerrada");
-        }
-    }
+   // public void verificarMesa(Mesa unaMesa){
+    //    if(!unaMesa.isEstadoMesa()){
+      //      vistaMozo.mostrarMensaje("La mesa esta cerrada");
+      //  }
+   // }
     
     public void transferirMesa(Mesa mesaTransferir,Mozo mozoDestino){
         transferencia=new Transferencia(mozo,mozoDestino,mesaTransferir);
@@ -103,4 +106,5 @@ public class ControladorVistaMozo implements Observador{
     public Cliente buscarCliente(int idCliente){
         return sistema.buscarCliente(idCliente);
     }
+    
 }
