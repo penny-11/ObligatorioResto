@@ -4,6 +4,7 @@
  */
 package obligatorio2restoControladores;
 
+import java.util.ArrayList;
 import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
@@ -33,5 +34,7 @@ public interface InterfaceVistaMozo {
     public void mostrarMensaje(String mensaje);
     
     public void opcionTransferencia(Transferencia trans);
+
+    public void mostrarProductos(ArrayList<Producto> productos);
     
 }

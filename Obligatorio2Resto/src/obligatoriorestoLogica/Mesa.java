@@ -18,6 +18,15 @@ public class Mesa extends Observable{
     private boolean estadoMesa;
     private Cliente clienteMesa;
 
+    public boolean isIsAsignada() {
+        return isAsignada;
+    }
+
+    public void setIsAsignada(boolean isAsignada) {
+        this.isAsignada = isAsignada;
+    }
+    private boolean isAsignada;
+
     public enum eventos{transferenciaMesa}
     
     public Mesa(int numeroMesa) {

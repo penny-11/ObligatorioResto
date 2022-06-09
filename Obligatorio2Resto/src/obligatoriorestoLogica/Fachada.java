@@ -88,6 +88,8 @@ public class Fachada extends Observable {
     public ArrayList<Mozo> getMozos() {
         return cu.getMozos();
     }
+    
+   
 
     public ArrayList<Gestor> getGestores() {
         return cu.getGestores();
@@ -101,4 +103,7 @@ public class Fachada extends Observable {
         return cu.getMozosConectados();
     }
     
+    public Producto buscarProducto(String productoNom ) {
+        return cs.buscarProducto(productoNom);
+    }
 }
