@@ -67,8 +67,8 @@ public class Fachada extends Observable {
         cu.crearUsuarioGestor(us, pwd, nomCom);
     }
 
-    public void agregarServicio(Mesa unaMesa) {
-        cser.agregarServicio(unaMesa);
+    public Servicio agregarServicio(Mesa unaMesa) {
+        return cser.agregarServicio(unaMesa);
     }
     public void agregarProducto(Producto prod1) {
         cs.agregar(prod1);

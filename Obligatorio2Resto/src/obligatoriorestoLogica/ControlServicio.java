@@ -18,6 +18,11 @@ public class ControlServicio{
     private ArrayList<Mesa> mesasSinAsignar = new ArrayList();
     private ArrayList<Cliente> clientes=new ArrayList();
     private ArrayList<Servicio> servicios=new ArrayList();
+   
+    
+    public ControlServicio(){
+        
+    }
 
     public ArrayList<Servicio> getServicios() {
         return servicios;
@@ -35,8 +40,6 @@ public class ControlServicio{
         }
           
     }
-    
-    
     
     public void agregarMesa(Mesa unaMesa){
         mesasSinAsignar.add(unaMesa);
@@ -63,9 +66,10 @@ public class ControlServicio{
         return null;
     }
     
-    public void agregarServicio(Mesa unaMesa){
+    public Servicio agregarServicio(Mesa unaMesa){
         Servicio unServicio=new Servicio(unaMesa,unaMesa.getMozo());
         servicios.add(unServicio);
+        return unServicio;
     }
     
     public Servicio buscarServicio(Mesa unaMesa){

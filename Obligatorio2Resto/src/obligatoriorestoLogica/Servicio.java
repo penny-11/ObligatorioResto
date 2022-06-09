@@ -20,6 +20,7 @@ public class Servicio{
     public Servicio(Mesa mesa, Mozo mozoAtencion) {
         this.mesa = mesa;
         this.mozoAtencion = mozoAtencion;
+        this.items=new ArrayList();
     }
 
     public Servicio() {

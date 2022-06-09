@@ -15,6 +15,8 @@ public class Cocina extends UnidadProcesadora {
     public Cocina(String nombre) {
         super(nombre);
     }
+    
+    public Cocina(){}
 
     @Override
     public String getNombre() {
