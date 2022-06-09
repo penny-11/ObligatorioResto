@@ -25,6 +25,7 @@ public class DatosPrueba {
     
     public static void cargar(){
         Fachada logica = Fachada.getInstancia();
+           logica.agregarUnidadProcesadora();
         //USUARIOS MOZOS
         logica.agregarMozo("Juan", "Juan1234","Juan Perez", "099 854 784");
         logica.agregarMozo("Lucas", "Lucas1234","Lucas Perez", "099 854 111");
@@ -65,6 +66,7 @@ public class DatosPrueba {
         logica.agregarCliente(clienteCasa1);
         logica.agregarCliente(clienteCasa2);
         
+     
         
         
         //MESAS

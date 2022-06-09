@@ -121,6 +121,7 @@ private void login() {
         Usuario u;
         try {
             u = Logear(usuario, password);
+            
             proxCasoUso(u);
         } catch (UsuarioException ex) {
            JOptionPane.showMessageDialog(this, ex);

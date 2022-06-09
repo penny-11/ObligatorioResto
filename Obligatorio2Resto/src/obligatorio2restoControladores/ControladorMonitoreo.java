@@ -55,5 +55,15 @@ public class ControladorMonitoreo implements Observador {
         gestor.getPedidosTomados().remove(pedido);
     }
     
+    public ArrayList<UnidadProcesadora> mostrarUP(){
+        return modelo.getUnidadProcesadoras();
+    }
+    
+    public UnidadProcesadora devuelveUP(String upNom){
+        return modelo.buscarUP(upNom);
+    }
+    
+    
+    
     
 }

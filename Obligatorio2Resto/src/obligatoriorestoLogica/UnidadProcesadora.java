@@ -20,6 +20,8 @@ public abstract class UnidadProcesadora {
         this.pedidos=new ArrayList();
     }
     
+    
+    
     public abstract String getNombre();
     public abstract ArrayList<Pedido> getPedidos();
     public abstract void recibirPedido(Pedido unPedido);

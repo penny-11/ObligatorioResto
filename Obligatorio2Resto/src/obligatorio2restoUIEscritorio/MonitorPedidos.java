@@ -4,6 +4,7 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import obligatorio2restoControladores.ControladorMonitoreo;
@@ -25,11 +26,14 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     private Pedido pedidoSeleccionadoTomado;
 
  
-    public MonitorPedidos(UnidadProcesadora lugar,Gestor user) {
+    public MonitorPedidos(Gestor user) {
         initComponents();
-        this.unidad=lugar;
-        controlador=new ControladorMonitoreo(this,user,lugar);
+       mostrarUPS();
+       // String up =(String) jComboPedidos.getSelectedItem();
+     //   UnidadProcesadora lugar = controlador.devuelveUP(up);   
+       // controlador=new ControladorMonitoreo(this,user,unidad);
         this.gestor=user;
+       // mostrarPendientes();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -41,6 +45,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         jTablePedidosTomados = new javax.swing.JTable();
         jButtonTomarPedido = new javax.swing.JButton();
         jButtonFinalizarPedido = new javax.swing.JButton();
+        jComboPedidos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,38 +99,49 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             }
         });
 
+        jComboPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboPedidosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonTomarPedido)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonFinalizarPedido))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                        .addComponent(jButtonFinalizarPedido)))
+                .addGap(61, 61, 61))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jComboPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jComboPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonFinalizarPedido)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonFinalizarPedido))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonTomarPedido)
-                        .addGap(68, 68, 68))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonTomarPedido)))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,10 +163,16 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         pedidoSeleccionadoTomado=seleccionarPedidoTomado(jTablePedidosTomados.getSelectedRow());
     }//GEN-LAST:event_jTablePedidosTomadosMouseClicked
 
+    private void jComboPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboPedidosActionPerformed
+        //        mesa = (Mesa) jComboBoxMesas.getSelectedItem();
+        //        mostrarPedidosMesa(mesa);
+    }//GEN-LAST:event_jComboPedidosActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFinalizarPedido;
     private javax.swing.JButton jButtonTomarPedido;
+    private javax.swing.JComboBox<String> jComboPedidos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablePedidosPendientes;
@@ -241,4 +263,11 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             JOptionPane.showMessageDialog(this,"Debes seleccionar un pedido.");
         }
     }
+
+    @Override
+    public void mostrarUPS() {
+        jComboPedidos.addItem(controlador.mostrarUP().toString());
+    }
+    
+   
 }
