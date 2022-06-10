@@ -82,15 +82,15 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jNombreText = new javax.swing.JTextField();
-        jMontoText = new javax.swing.JTextField();
-        jBenefText = new javax.swing.JTextField();
-        jMontoTotalText = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableMozosConectados = new javax.swing.JTable();
         jButtonTransferir1 = new javax.swing.JButton();
+        jLabelNombreCliente = new javax.swing.JLabel();
+        jLabelMontoTotal = new javax.swing.JLabel();
+        jLabelBeneficio = new javax.swing.JLabel();
+        jLabelMontoFinal = new javax.swing.JLabel();
 
         idClienteText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,9 +255,10 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                     .addComponent(jButtonAbrirMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel1)
@@ -271,47 +272,40 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                                             .addGap(18, 18, 18)
                                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addComponent(jScrollPane1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonCerrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(butNoReg)
-                                .addGap(159, 159, 159)
-                                .addComponent(jLabel12)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButtonTransferir1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButtonCerrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(butNoReg)
+                                    .addGap(187, 187, 187)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel13)
+                                        .addComponent(jLabel12)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(146, 146, 146))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel3))
-                                        .addGap(26, 26, 26))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel5))
-                                        .addGap(18, 18, 18)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jNombreText, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                    .addComponent(jMontoText)
-                                    .addComponent(jBenefText)
-                                    .addComponent(jMontoTotalText))
-                                .addGap(514, 514, 514))
+                                    .addComponent(jLabelNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelMontoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelBeneficio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelMontoFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(idClienteText1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)
-                                .addGap(497, 497, 497)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonTransferir1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel13)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(219, Short.MAX_VALUE))))
+                                .addComponent(jButton1)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -348,7 +342,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
@@ -370,7 +364,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                         .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -378,38 +372,38 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                             .addComponent(butNoReg)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel12)))
+                .addGap(8, 8, 8)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(idClienteText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jNombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jMontoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jBenefText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(jMontoTotalText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabelMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonTransferir1)))
-                .addGap(24, 24, 24))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelBeneficio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonTransferir1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabelMontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -421,25 +415,18 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jComboBoxMesasActionPerformed
 
     private void jButtonAbrirMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAbrirMesaActionPerformed
-       String mesa1 =(String) jComboBoxMesas.getSelectedItem();
-       int mesaNum = Integer.parseInt(mesa1.substring(4, 5));
-       
-       Mesa mesaObj = mozo.buscarMesa(mesaNum);      
-      abrirMesa(mesaObj);
+        String mesa1 = (String) jComboBoxMesas.getSelectedItem();
+        abrirMesa(obtenerMesa(mesa1));
     }//GEN-LAST:event_jButtonAbrirMesaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String produc =(String) jComboBoxProductos.getSelectedItem();
-        
-        Producto prod = Fachada.getInstancia().buscarProducto(produc);
+        String produc = (String) jComboBoxProductos.getSelectedItem();
+        Producto prod = controlador.buscarProducto(produc);
         int cantidad = (Integer) jSpinnerCantidad.getValue();
         String descripcion = jTextFieldDescripcion.getText();
-        String mesa1 =(String) jComboBoxMesas.getSelectedItem();
-       int mesaNum = Integer.parseInt(mesa1.substring(4, 5));
-       
-       Mesa mesaObj = mozo.buscarMesa(mesaNum);
-      //  controlador.verificarMesa(mesa);
-        hacerPedido(prod, cantidad, descripcion, mesa);
+        String mesa1 = (String) jComboBoxMesas.getSelectedItem();
+        //  controlador.verificarMesa(mesa);
+        hacerPedido(prod, cantidad, descripcion, obtenerMesa(mesa1));
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonCerrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarMesaActionPerformed
@@ -448,11 +435,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jButtonCerrarMesaActionPerformed
 
     private void jButtonTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferirActionPerformed
-        
+        mostrarMozosConectados(mozosConectados);
     }//GEN-LAST:event_jButtonTransferirActionPerformed
 
     private void butNoRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butNoRegActionPerformed
-        cerrarMesa(mesa,null);
+        cerrarMesa(mesa, null);
     }//GEN-LAST:event_butNoRegActionPerformed
 
     private void idClienteTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idClienteTextActionPerformed
@@ -468,11 +455,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTableMozosConectadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMozosConectadosMouseClicked
-        mozoTransferir=seleccionarMozo(jTableMozosConectados.getSelectedRow());
+        mozoTransferir = seleccionarMozo(jTableMozosConectados.getSelectedRow());
     }//GEN-LAST:event_jTableMozosConectadosMouseClicked
 
     private void jButtonTransferir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferir1ActionPerformed
-        transferirMesa(mesa,mozoTransferir);
+        transferirMesa(mesa, mozoTransferir);
     }//GEN-LAST:event_jButtonTransferir1ActionPerformed
 
     /**
@@ -483,7 +470,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private javax.swing.JButton butNoReg;
     private javax.swing.JTextField idClienteText;
     private javax.swing.JTextField idClienteText1;
-    private javax.swing.JTextField jBenefText;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAbrirMesa;
@@ -506,14 +492,15 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelBeneficio;
     private javax.swing.JLabel jLabelMesa1;
     private javax.swing.JLabel jLabelMesa2;
     private javax.swing.JLabel jLabelMesa3;
     private javax.swing.JLabel jLabelMesa4;
     private javax.swing.JLabel jLabelMesa5;
-    private javax.swing.JTextField jMontoText;
-    private javax.swing.JTextField jMontoTotalText;
-    private javax.swing.JTextField jNombreText;
+    private javax.swing.JLabel jLabelMontoFinal;
+    private javax.swing.JLabel jLabelMontoTotal;
+    private javax.swing.JLabel jLabelNombreCliente;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinnerCantidad;
@@ -526,17 +513,15 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     public void cargarMesas(Mozo unMozo) {
 
         for (Mesa me : unMozo.getMesas()) {
-            jComboBoxMesas.addItem(me+ " ");
+            jComboBoxMesas.addItem(me + " ");
         }
         //jLabelMesa1.setText("Mesa - " + unMozo.getMesas().get(0).getNumeroMesa());
         //jLabelMesa2.setText("Mesa - " + unMozo.getMesas().get(1).getNumeroMesa());
         //jLabelMesa3.setText("Mesa - " + unMozo.getMesas().get(2).getNumeroMesa());
         //jLabelMesa4.setText("Mesa - " + unMozo.getMesas().get(3).getNumeroMesa());
         //jLabelMesa5.setText("Mesa - " + unMozo.getMesas().get(4).getNumeroMesa());
-         
+
     }
-    
-    
 
     @Override
     public void mostrarPedidosMesa(Mesa unaMesa) {
@@ -569,7 +554,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void cerrarMesa(Mesa unaMesa) {
-        new VistaCerrarMesa(this, false, unaMesa).setVisible(true);
+        controlador.cerrarMesa(mesa, cliente);
     }
 
     @Override
@@ -598,15 +583,14 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         DecisionTransferencia tran = new DecisionTransferencia(this, false, trans);
         tran.setVisible(true);
     }
-    
+
     private void detallesCliente(String idCliente) {
-        
         int clienteId = Integer.parseInt(idClienteText1.getText());
         cliente = controlador.buscarCliente(clienteId);
         mostrarDatos(cliente);
         cerrarMesa(mesa, cliente);
     }
-    
+
     private Mozo seleccionarMozo(int pos) {
         Mozo elegido = null;
         if (pos != -1) {
@@ -617,35 +601,35 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     private void mostrarDatos(Cliente seleccionado) {
         if (seleccionado != null) {
-            jNombreText.setText(seleccionado.getNombre());
-            jMontoText.setText(mesa.getServicio().total() + "");
+            jLabelNombreCliente.setText(seleccionado.getNombre());
+            jLabelMontoTotal.setText(mesa.getServicio().total() + "");
             // jBenefText.setText(seleccionado!=null?seleccionado.getTipo().getNombre():"");
-            jMontoTotalText.setText(seleccionado.calculoTotalServicio(mesa.getServicio()) + "");
-        }else{
-            JOptionPane.showMessageDialog(this,"Cliente no existe.");
+            jLabelMontoFinal.setText(seleccionado.calculoTotalServicio(mesa.getServicio()) + "");
+        } else {
+            JOptionPane.showMessageDialog(this, "Cliente no existe.");
         }
     }
 
-    private void cerrarMesa(Mesa mesaServicio,Cliente unCliente) {
+    private void cerrarMesa(Mesa mesaServicio, Cliente unCliente) {
         controlador.cerrarMesa(mesaServicio, unCliente);
     }
-      
-    public void mostrarMozosConectados(ArrayList<Mozo> mozosConectados){
-        
+
+    public void mostrarMozosConectados(ArrayList<Mozo> mozosConectados) {
+
         DefaultTableModel lista = new DefaultTableModel();
-        
+
         lista.addColumn("Nombre Mozo");
         lista.addColumn("Cantidad Mesas Asignadas");
-        
+
         int fila = 0;
-            lista.setNumRows(mozosConectados.size());
-            
-            for(Mozo mo: mozosConectados){
-                lista.setValueAt(mo.getNombreCompleto(),fila,0);
-                lista.setValueAt(mo.getMesas().size(),fila,0);
-                fila++;
-            }
-            jTableMozosConectados.setModel(lista);
+        lista.setNumRows(mozosConectados.size());
+
+        for (Mozo mo : mozosConectados) {
+            lista.setValueAt(mo.getNombreCompleto(), fila, 0);
+            lista.setValueAt(mo.getMesas().size(), fila, 0);
+            fila++;
+        }
+        jTableMozosConectados.setModel(lista);
     }
 
     private void transferirMesa(Mesa mesa, Mozo mozoTransferir) {
@@ -656,8 +640,13 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     public void mostrarProductos(ArrayList<Producto> productos) {
         for (Producto p : productos) {
             jComboBoxProductos.addItem(p.getNombre());
-        } 
+        }
     }
 
+    public Mesa obtenerMesa(String nombreMesa) {
+        int mesaNum = Integer.parseInt(nombreMesa.substring(4, 5));
+        Mesa mesaObj = mozo.buscarMesa(mesaNum);
+        return mesaObj;
+    }
 
 }

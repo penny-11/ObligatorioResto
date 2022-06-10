@@ -59,7 +59,7 @@ public class ControladorVistaMozo implements Observador{
     public void abrirMesa(Mesa unaMesa){
         try {
             mozo.abrirMesa(unaMesa);
-            sistema.agregarServicio(unaMesa);
+            
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje(ex.getMessage());
         }
@@ -75,7 +75,7 @@ public class ControladorVistaMozo implements Observador{
     }
 
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa){
-        Servicio serv=sistema.buscarServicio(unaMesa);
+        Servicio serv=sistema.agregarServicio(unaMesa);
         try{
             if(serv!=null){
             serv.hacerPedido(unProducto, cantidad, descripcion);
@@ -107,4 +107,7 @@ public class ControladorVistaMozo implements Observador{
         return sistema.buscarCliente(idCliente);
     }
     
+    public Producto buscarProducto(String producto){
+        return sistema.buscarProducto(producto);
+    }
 }

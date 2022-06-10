@@ -15,6 +15,8 @@ public class Bar extends UnidadProcesadora{
     public Bar(String nombre) {
         super(nombre);
     }
+    
+    public Bar(){}
 
     @Override
     public String getNombre() {

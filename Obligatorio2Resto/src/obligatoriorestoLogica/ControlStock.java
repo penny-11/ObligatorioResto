@@ -17,6 +17,15 @@ public class ControlStock {
     private ArrayList<Producto> productos = new ArrayList();
     private ArrayList <UnidadProcesadora> unidadesProcesadoras=new ArrayList();
     
+    public ControlStock(){
+        //cargarUnidadesProcesadoras();
+    }
+    
+    public void cargarUnidadesProcesadoras(){
+        unidadesProcesadoras.add(new Bar("Bar"));
+        unidadesProcesadoras.add(new Cocina("Cocina"));
+    }
+    
     public boolean agregar(Producto unProducto) {
         if (!unProducto.validar()) {
             return false;

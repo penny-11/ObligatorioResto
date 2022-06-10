@@ -5,9 +5,11 @@
  */
 package obligatorio2resto;
 
+import obligatoriorestoLogica.Bar;
 import obligatoriorestoLogica.ClienteCasa;
 import obligatoriorestoLogica.ClienteComun;
 import obligatoriorestoLogica.ClientePreferencial;
+import obligatoriorestoLogica.Cocina;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Mesa;
@@ -84,6 +86,9 @@ public class DatosPrueba {
         logica.agregarMesa(mesa4);
         logica.agregarMesa(mesa5);
         
+        Bar bar=new Bar("Bar");
+        Cocina cocina=new Cocina("Cocina");
+        
         //PRODUCTOS
         
         Producto prod1 = new Producto(1,"Hamburgesa", 250,30);
@@ -95,6 +100,9 @@ public class DatosPrueba {
         Producto prod7 = new Producto(1,"Strogonoff", 120,50);
         Producto prod8 = new Producto(1,"Guiso", 110,30);
         Producto prod9 = new Producto(1,"Pascualina", 50,30);
+        
+        prod1.setUnidadProcesadora(bar);
+        prod2.setUnidadProcesadora(cocina);
         
         logica.agregar(prod1);
         logica.agregar(prod2);
