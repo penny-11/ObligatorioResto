@@ -4,6 +4,9 @@
  */
 package obligatorio2restoControladores;
 
+import java.util.ArrayList;
+import obligatoriorestoLogica.UnidadProcesadora;
+
 /**
  *
  * @author tomas
@@ -13,5 +16,6 @@ public interface InterfaceMonitorPedidos {
     public void mostrarPendientes();
     
     public void mostrarTomados();
-    
+
+    public void mostrarUPS();
 }

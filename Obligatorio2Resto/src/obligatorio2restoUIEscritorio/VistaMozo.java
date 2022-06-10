@@ -554,7 +554,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void cerrarMesa(Mesa unaMesa) {
-        new VistaCerrarMesa(this, false, unaMesa).setVisible(true);
+        controlador.cerrarMesa(mesa, cliente);
     }
 
     @Override

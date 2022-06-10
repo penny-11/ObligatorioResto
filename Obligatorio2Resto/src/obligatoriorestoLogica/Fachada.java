@@ -49,6 +49,10 @@ public class Fachada extends Observable {
         cs.agregarUnidadProcesadora();
     }
     
+    public ArrayList<UnidadProcesadora> getUnidadProcesadoras() {
+       return cs.getUnidadProcesadoras();
+    }
+    
     public void agregarCliente(Cliente unCliente) {
         cser.agregarCliente(unCliente);
     }
@@ -106,4 +110,8 @@ public class Fachada extends Observable {
     public Producto buscarProducto(String productoNom ) {
         return cs.buscarProducto(productoNom);
     }
+    
+   public UnidadProcesadora buscarUP(String upNom){
+       return cs.buscarUP(upNom);
+   }
 }

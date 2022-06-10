@@ -39,6 +39,9 @@ public class ControlStock {
     public ArrayList<Producto> getProductos() {
         return productos;
     }
+     public ArrayList<UnidadProcesadora> getUnidadProcesadoras() {
+        return unidadesProcesadoras;
+    }
     
     public void agregarUnidadProcesadora(){
         unidadesProcesadoras.add(new Bar("Barra Bar"));
@@ -50,6 +53,15 @@ public class ControlStock {
         for(Producto p: productos){
             if(p.getNombre()==productoNom){
                 return p;
+            }
+        }
+        return null;
+    }
+    
+    public UnidadProcesadora buscarUP(String upNom) {
+        for(UnidadProcesadora up: unidadesProcesadoras){
+            if(up.getNombre()==upNom){
+                return up;
             }
         }
         return null;

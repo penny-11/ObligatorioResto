@@ -7,6 +7,7 @@ package obligatorio2restoUIEscritorio;
 import java.awt.Frame;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Gestor;
+import obligatoriorestoLogica.UnidadProcesadora;
 import obligatoriorestoLogica.Usuario;
 
 /**
@@ -26,7 +27,7 @@ public class LoginGestor extends LoginGeneral{
 
     @Override
     public void proxCasoUso(Object obj) {
-        new UnidadesProcesadoras((Gestor)obj).setVisible(true);
+        new MonitorPedidos((Gestor)obj).setVisible(true);
     }
     
     
