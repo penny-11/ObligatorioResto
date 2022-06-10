@@ -4,30 +4,20 @@
  */
 package obligatoriorestoLogica;
 
-import obligatorio2Observador.Observable;
+
 
 /**
  *
  * @author tomas
  */
-public class Mesa extends Observable{
+public class Mesa {
 
     private int numeroMesa;
     private Mozo mozoAsignado;
     private Servicio servicioMesa;
     private boolean estadoMesa;
     private Cliente clienteMesa;
-
-    public boolean isIsAsignada() {
-        return isAsignada;
-    }
-
-    public void setIsAsignada(boolean isAsignada) {
-        this.isAsignada = isAsignada;
-    }
     private boolean isAsignada;
-
-    public enum eventos{transferenciaMesa}
     
     public Mesa(int numeroMesa) {
         this.numeroMesa = numeroMesa;
@@ -76,8 +66,12 @@ public class Mesa extends Observable{
         this.clienteMesa = clienteMesa;
     }
     
-    public void transferirMesa(Mozo mozoDestino){
-        avisar(eventos.transferenciaMesa);
+    public boolean isIsAsignada() {
+        return isAsignada;
+    }
+
+    public void setIsAsignada(boolean isAsignada) {
+        this.isAsignada = isAsignada;
     }
     
     @Override

@@ -17,7 +17,7 @@ public class Mozo extends Usuario{
     private boolean conectado;
     private ArrayList<Transferencia> transferencias; 
     
-    public enum eventos{aceptarTransferencia,rechazarTransferencia}
+    public enum eventos{transferirMesa,aceptarTransferencia,rechazarTransferencia}
 
     public Mozo(String usuario, String password, String nombreCompleto, String telefono) {
         super(usuario, password, nombreCompleto);
@@ -90,6 +90,10 @@ public class Mozo extends Usuario{
             }
         }
         return null;
+    }
+    
+    public void transferirMesa(){
+        avisar(Mozo.eventos.transferirMesa);
     }
 
     public void respuestaTransferencia(Transferencia trans, boolean state) {
