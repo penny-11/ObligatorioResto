@@ -96,13 +96,22 @@ public class DatosPrueba {
         Producto prod3 = new Producto(3,"Milanesa de carne", 180,60);
         Producto prod4 = new Producto(1,"Milanesa de pollo", 220,20);
         Producto prod5 = new Producto(1,"Ravioles", 400,40);
-        Producto prod6 = new Producto(1,"Ñoquis", 420,20);
-        Producto prod7 = new Producto(1,"Strogonoff", 120,50);
-        Producto prod8 = new Producto(1,"Guiso", 110,30);
-        Producto prod9 = new Producto(1,"Pascualina", 50,30);
+        Producto prod6 = new Producto(1,"Daikiri", 420,20);
+        Producto prod7 = new Producto(1,"Fernet", 120,50);
+        Producto prod8 = new Producto(1,"Cerveza", 110,30);
+        Producto prod9 = new Producto(1,"Vino", 50,30);
         
-        prod1.setUnidadProcesadora(bar);
+        prod6.setUnidadProcesadora(bar);
+        prod7.setUnidadProcesadora(bar);
+        prod8.setUnidadProcesadora(bar);
+        prod9.setUnidadProcesadora(bar);
+       
+         
+        prod1.setUnidadProcesadora(cocina);
         prod2.setUnidadProcesadora(cocina);
+        prod3.setUnidadProcesadora(cocina);
+        prod4.setUnidadProcesadora(cocina);
+        prod5.setUnidadProcesadora(cocina);
         
         logica.agregar(prod1);
         logica.agregar(prod2);

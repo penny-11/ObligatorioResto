@@ -16,10 +16,16 @@ public abstract class Usuario extends Observable{
     protected String password;
     protected String nombreCompleto;
 
+    public abstract boolean isConectado();
+
+   
+    protected boolean conectado;
+
     public Usuario(String usuario, String password, String nombreCompleto) {
         this.usuario = usuario;
         this.password = password;
         this.nombreCompleto = nombreCompleto;
+        this.conectado= false;
     }
 
     public abstract String getUsuario();
@@ -28,6 +34,8 @@ public abstract class Usuario extends Observable{
 
     public abstract String getNombreCompleto();
     
+    public abstract void setConectado(boolean conectado);
+      
     
     
     

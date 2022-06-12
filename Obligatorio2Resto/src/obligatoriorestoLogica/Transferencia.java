@@ -21,6 +21,9 @@ public class Transferencia {
         this.mesa = mesa;
     }
 
+    public Transferencia() {
+    }
+
     public Mozo getMozoOrigen() {
         return mozoOrigen;
     }
