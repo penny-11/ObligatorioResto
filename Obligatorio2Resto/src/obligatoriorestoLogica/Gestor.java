@@ -51,6 +51,16 @@ public class Gestor extends Usuario{
     public void addPedidoTomado(Pedido pedidoTomado) {
         pedidosTomados.add(pedidoTomado);
     }
+
+    @Override
+    public boolean isConectado() {
+        return conectado;
+    }
+
+    @Override
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
+    }
     
     
 }

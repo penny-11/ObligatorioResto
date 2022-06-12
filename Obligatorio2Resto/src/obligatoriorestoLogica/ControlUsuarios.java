@@ -19,9 +19,10 @@ public class ControlUsuarios {
         Mozo mozo=(Mozo) verificarUsuario(u, p, usuariosMozo);
         if(mozo==null){
             throw new UsuarioException("Nombre de usuario y/o contraseña incorrectos");
-        }else if(mozo.getConexion()==true){
+        }else if(mozo.isConectado()==true){
             throw new UsuarioException("Ud. ya está logueado");
         }
+        mozo.setConectado(true);
         return mozo;
     }
 
@@ -35,6 +36,7 @@ public class ControlUsuarios {
             usr = (Usuario) obj;
             if (usr.getUsuario().equalsIgnoreCase(u)
                     && usr.getPassword().equals(p)) {
+                
                 return usr;
             }
         }
@@ -62,7 +64,7 @@ public class ControlUsuarios {
     public ArrayList<Mozo> getMozosConectados(){
         ArrayList<Mozo> mozosConectados=new ArrayList();
         for(Mozo mo:usuariosMozo){
-            if(mo.getConexion()){
+            if(mo.isConectado()){
                 mozosConectados.add(mo);
             }
         }

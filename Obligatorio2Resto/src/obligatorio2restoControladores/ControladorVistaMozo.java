@@ -28,23 +28,26 @@ public class ControladorVistaMozo implements Observador{
     private InterfaceVistaMozo vistaMozo;
     private Fachada sistema=Fachada.getInstancia();
     private Mozo mozo;
-    private Transferencia transferencia;
+    private Transferencia transferencia = new Transferencia();
 
     public ControladorVistaMozo(InterfaceVistaMozo vista,Mozo mo) {
         this.vistaMozo=vista;
         this.mozo = mo;
         mozo.agregar(this);
+      
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
+        
         if(evento.equals(Mozo.eventos.transferirMesa)){
+            
            vistaMozo.opcionTransferencia(transferencia);
        }else if(evento.equals(Mozo.eventos.aceptarTransferencia)){
-           transferencia=null;
+         //  transferencia=null;
            vistaMozo.mostrarMensaje("Transferencia confirmada!");
        }else if(evento.equals(Mozo.eventos.rechazarTransferencia)){
-           transferencia=null;
+        //   transferencia=null;
            vistaMozo.mostrarMensaje("Transferencia rechazada!");
        }
     }
@@ -88,7 +91,8 @@ public class ControladorVistaMozo implements Observador{
     }
     
     public void transferirMesa(Mesa mesaTransferir,Mozo mozoDestino){
-        transferencia=new Transferencia(mozo,mozoDestino,mesaTransferir);
+        Transferencia transf = new Transferencia(mozo,mozoDestino,mesaTransferir);
+        transferencia = transf;
         mozoDestino.transferirMesa();
     }
     
