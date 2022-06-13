@@ -16,18 +16,8 @@ public class Mozo extends Usuario{
     private ArrayList<Mesa> mesas;
    
     private ArrayList<Transferencia> transferencias; 
-
-    @Override
-    public boolean isConectado() {
-        return conectado;
-    }
-
-    @Override
-    public void setConectado(boolean conectado) {
-        this.conectado = conectado;
-    }
     
-    public enum eventos{transferirMesa,aceptarTransferencia,rechazarTransferencia}
+    public enum Eventos{transferirMesa,aceptarTransferencia,rechazarTransferencia}
 
     public Mozo(String usuario, String password, String nombreCompleto, String telefono) {
         super(usuario, password, nombreCompleto);
@@ -49,6 +39,16 @@ public class Mozo extends Usuario{
     @Override
     public String getNombreCompleto() {
         return this.nombreCompleto;
+    }
+    
+    @Override
+    public boolean isConectado() {
+        return conectado;
+    }
+
+    @Override
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
     }
 
     public String getTelefono() {
@@ -95,19 +95,19 @@ public class Mozo extends Usuario{
         return null;
     }
     
-    public void transferirMesa(){
-        avisar(eventos.transferirMesa);
+    public void transferirMesa(Transferencia tran){
+        transferencias.add(tran);
+        avisar(Eventos.transferirMesa);
     }
 
     public void respuestaTransferencia(Transferencia trans, boolean state) {
          trans.setEstado(state);
          if(state){
-             transferencias.add(trans);
              trans.getMozoDestino().addMesa(trans.getMesa());
              trans.getMozoOrigen().getMesas().remove(trans.getMesa());
-             avisar(eventos.aceptarTransferencia);
+             avisar(Eventos.aceptarTransferencia);
          }else{
-             avisar(eventos.rechazarTransferencia);
+             avisar(Eventos.rechazarTransferencia);
          }
     }
    

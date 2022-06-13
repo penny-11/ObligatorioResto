@@ -28,25 +28,23 @@ public class ControladorVistaMozo implements Observador{
     private InterfaceVistaMozo vistaMozo;
     private Fachada sistema=Fachada.getInstancia();
     private Mozo mozo;
-    private Transferencia transferencia = new Transferencia();
+    private Transferencia transferencia;
 
     public ControladorVistaMozo(InterfaceVistaMozo vista,Mozo mo) {
         this.vistaMozo=vista;
         this.mozo = mo;
         mozo.agregar(this);
-      
+         transferencia= new Transferencia();
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
-        
-        if(evento.equals(Mozo.eventos.transferirMesa)){
-            
-           vistaMozo.opcionTransferencia(transferencia);
-       }else if(evento.equals(Mozo.eventos.aceptarTransferencia)){
+        if(evento.equals(Mozo.Eventos.transferirMesa)){
+            opcionTransferencia();
+       }else if(evento.equals(Mozo.Eventos.aceptarTransferencia)){
          //  transferencia=null;
            vistaMozo.mostrarMensaje("Transferencia confirmada!");
-       }else if(evento.equals(Mozo.eventos.rechazarTransferencia)){
+       }else if(evento.equals(Mozo.Eventos.rechazarTransferencia)){
         //   transferencia=null;
            vistaMozo.mostrarMensaje("Transferencia rechazada!");
        }
@@ -63,6 +61,7 @@ public class ControladorVistaMozo implements Observador{
     public void abrirMesa(Mesa unaMesa){
         try {
             mozo.abrirMesa(unaMesa);
+            sistema.agregarServicio(unaMesa);
             vistaMozo.mostrarMensaje("Mesa abierta con exito.");
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje(ex.getMessage());
@@ -80,7 +79,7 @@ public class ControladorVistaMozo implements Observador{
     }
 
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa){
-        Servicio serv=sistema.agregarServicio(unaMesa);
+        Servicio serv=new Servicio();
         try{
             serv.hacerPedido(unProducto, cantidad, descripcion);
             vistaMozo.mostrarMensaje("Pedido realizado con exito.");
@@ -93,7 +92,7 @@ public class ControladorVistaMozo implements Observador{
     public void transferirMesa(Mesa mesaTransferir,Mozo mozoDestino){
         Transferencia transf = new Transferencia(mozo,mozoDestino,mesaTransferir);
         transferencia = transf;
-        mozoDestino.transferirMesa();
+        mozoDestino.transferirMesa(transf);
     }
     
     public ArrayList<Mozo> mozosConectados(){
@@ -110,5 +109,10 @@ public class ControladorVistaMozo implements Observador{
     
     public Mesa buscarMesa(int nroMesa,Mozo mozo){
         return mozo.buscarMesa(nroMesa);
+    }
+
+    private void opcionTransferencia() {
+        
+        vistaMozo.opcionTransferencia(transferencia);
     }
 }
