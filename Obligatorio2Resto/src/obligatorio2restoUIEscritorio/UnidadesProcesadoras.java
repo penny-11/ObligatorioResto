@@ -5,6 +5,7 @@
 package obligatorio2restoUIEscritorio;
 
 import obligatoriorestoLogica.Gestor;
+import obligatoriorestoLogica.UnidadProcesadora;
 
 /**
  *
@@ -38,6 +39,11 @@ public class UnidadesProcesadoras extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonBar.setText("Bar");
+        jButtonBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBarActionPerformed(evt);
+            }
+        });
 
         jButtonCocina.setText("Cocina");
         jButtonCocina.addActionListener(new java.awt.event.ActionListener() {
@@ -81,8 +87,15 @@ public class UnidadesProcesadoras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCocinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCocinaActionPerformed
-        // TODO add your handling code here:
+        MonitorPedidos MP = new MonitorPedidos(gestor,"Cocina");
+        MP.setVisible(true);
     }//GEN-LAST:event_jButtonCocinaActionPerformed
+
+    private void jButtonBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBarActionPerformed
+
+        MonitorPedidos MP = new MonitorPedidos(gestor,"Bar");
+        MP.setVisible(true);
+    }//GEN-LAST:event_jButtonBarActionPerformed
 
     /**
      * @param args the command line arguments

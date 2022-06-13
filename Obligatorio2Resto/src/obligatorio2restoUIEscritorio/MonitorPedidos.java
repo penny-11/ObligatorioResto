@@ -26,14 +26,13 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     private Pedido pedidoSeleccionadoTomado;
 
  
-    public MonitorPedidos(Gestor user) {
+    public MonitorPedidos(Gestor user, String up) {
         initComponents();
-       mostrarUPS();
-       // String up =(String) jComboPedidos.getSelectedItem();
-     //   UnidadProcesadora lugar = controlador.devuelveUP(up);   
-       // controlador=new ControladorMonitoreo(this,user,unidad);
+        UnidadProcesadora Uproc =  dvuelUp(up);
+        controlador=new ControladorMonitoreo(this,user,Uproc);
+        unidad = Uproc;
         this.gestor=user;
-       // mostrarPendientes();
+        mostrarPendientes();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -45,7 +44,6 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         jTablePedidosTomados = new javax.swing.JTable();
         jButtonTomarPedido = new javax.swing.JButton();
         jButtonFinalizarPedido = new javax.swing.JButton();
-        jComboPedidos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,12 +97,6 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             }
         });
 
-        jComboPedidos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboPedidosActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,17 +113,11 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonFinalizarPedido)))
                 .addGap(61, 61, 61))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jComboPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jComboPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(92, 92, 92)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,16 +149,10 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         pedidoSeleccionadoTomado=seleccionarPedidoTomado(jTablePedidosTomados.getSelectedRow());
     }//GEN-LAST:event_jTablePedidosTomadosMouseClicked
 
-    private void jComboPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboPedidosActionPerformed
-        //        mesa = (Mesa) jComboBoxMesas.getSelectedItem();
-        //        mostrarPedidosMesa(mesa);
-    }//GEN-LAST:event_jComboPedidosActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFinalizarPedido;
     private javax.swing.JButton jButtonTomarPedido;
-    private javax.swing.JComboBox<String> jComboPedidos;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablePedidosPendientes;
@@ -263,11 +243,12 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             JOptionPane.showMessageDialog(this,"Debes seleccionar un pedido.");
         }
     }
-
-    @Override
-    public void mostrarUPS() {
-        jComboPedidos.addItem(controlador.mostrarUP().toString());
+    
+    private UnidadProcesadora dvuelUp(String upNom){
+        return controlador.devuelveUP(upNom);
     }
+
+  
     
    
 }

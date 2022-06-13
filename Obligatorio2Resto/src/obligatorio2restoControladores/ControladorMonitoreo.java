@@ -60,8 +60,15 @@ public class ControladorMonitoreo implements Observador {
     }
     
     public UnidadProcesadora devuelveUP(String upNom){
-        return modelo.buscarUP(upNom);
+        for(UnidadProcesadora up : modelo.getUnidadProcesadoras()){
+            if(up.getNombre() == upNom){
+                return up;
+            }
+        }
+        return null;
     }
+    
+    
     
     
     

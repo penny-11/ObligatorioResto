@@ -79,7 +79,7 @@ public class ControladorVistaMozo implements Observador{
     }
 
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa){
-        Servicio serv=new Servicio();
+        Servicio serv=unaMesa.getServicio();
         try{
             serv.hacerPedido(unProducto, cantidad, descripcion);
             vistaMozo.mostrarMensaje("Pedido realizado con exito.");

@@ -69,7 +69,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabel8 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jComboBoxMesas = new javax.swing.JComboBox<>();
+        jComboBoxMesas = new javax.swing.JComboBox();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         butNoReg = new javax.swing.JButton();
@@ -473,7 +473,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private javax.swing.JButton jButtonCerrarMesa;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonTransferir1;
-    private javax.swing.JComboBox<String> jComboBoxMesas;
+    private javax.swing.JComboBox jComboBoxMesas;
     private javax.swing.JComboBox<String> jComboBoxProductos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -509,7 +509,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     public void cargarMesas(Mozo unMozo) {
 
         for (Mesa me : unMozo.getMesas()) {
-            jComboBoxMesas.addItem(me + " ");
+            jComboBoxMesas.addItem(me);
         }
         //jLabelMesa1.setText("Mesa - " + unMozo.getMesas().get(0).getNumeroMesa());
         //jLabelMesa2.setText("Mesa - " + unMozo.getMesas().get(1).getNumeroMesa());

@@ -45,6 +45,7 @@ public class DatosPrueba {
         
          //USUARIOS GESTORES
         logica.agregarGestor("Camila", "Camila1234","Camila Perez");
+        logica.agregarGestor("x", "x","Camila Perez");
         logica.agregarGestor("Martina", "Martina1234","Martina Gonzalez");
         logica.agregarGestor("Jorge", "Jorge1234","Jorge Martinez");
         
