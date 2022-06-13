@@ -30,5 +30,10 @@ public abstract class UnidadProcesadora {
     public abstract void despacharPedido(Pedido unPedido);
     public abstract ArrayList<Pedido> pedidosMostrar(boolean estado);
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
     
 }

@@ -23,26 +23,25 @@ public class ControladorMonitoreo implements Observador {
      private InterfaceMonitorPedidos vistaGestor;
 
 
-    private Fachada modelo = Fachada.getInstancia();
+    private Fachada sistema = Fachada.getInstancia();
     private Gestor gestor;
     private UnidadProcesadora unidad;
     private Pedido pedido;
 
 
-    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user,UnidadProcesadora lugar) {
+    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user) {
         this.vistaGestor=vista;
         this.gestor=user;
-        this.unidad=lugar;
-        pedido.avisar(this);
+        //pedido.avisar(this);
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
        if(evento.equals(Pedido.eventos.nuevoPedido)){
-           vistaGestor.mostrarPendientes();
+           vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
        }else if(evento.equals(Pedido.eventos.cambiarPedido)){
-           vistaGestor.mostrarPendientes();
-           vistaGestor.mostrarTomados();
+           vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
+           vistaGestor.mostrarTomados(gestor.getPedidosTomados());
        }
     }
     
@@ -56,16 +55,20 @@ public class ControladorMonitoreo implements Observador {
     }
     
     public ArrayList<UnidadProcesadora> mostrarUP(){
-        return modelo.getUnidadProcesadoras();
+        return sistema.getUnidadProcesadoras();
     }
     
-    public UnidadProcesadora devuelveUP(String upNom){
-        for(UnidadProcesadora up : modelo.getUnidadProcesadoras()){
-            if(up.getNombre() == upNom){
-                return up;
-            }
-        }
-        return null;
+    public void cargarUnidades(){
+        ArrayList<UnidadProcesadora> unidades=sistema.getUnidadProcesadoras();
+        vistaGestor.cargarUnidades(unidades);
+    }
+
+    public void mostrarPendientes() {
+        vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
+    }
+
+    public void mostrarTomados() {
+        vistaGestor.mostrarTomados(gestor.getPedidosTomados());
     }
     
     

@@ -11,7 +11,7 @@ import obligatorio2Observador.Observable;
  *
  * @author tomas
  */
-public class Servicio{
+public class Servicio {
 
     private ArrayList<Pedido> items;
     private Mesa mesa;
@@ -20,7 +20,7 @@ public class Servicio{
     public Servicio(Mesa mesa, Mozo mozoAtencion) {
         this.mesa = mesa;
         this.mozoAtencion = mozoAtencion;
-        this.items=new ArrayList();
+        this.items = new ArrayList();
     }
 
     public Servicio() {
@@ -51,29 +51,26 @@ public class Servicio{
     }
 
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion) throws ServicioException {
-        mesa.addServicio(this);
-        if (unProducto != null && cantidad >= 1) {
-            if (unProducto.getStock() >= cantidad) {
-                Pedido pedido = new Pedido(unProducto, cantidad, descripcion,this);
+        Pedido pedido = new Pedido(unProducto, cantidad, descripcion, this);
+        if (pedido.validarCantidad()) {
+            if (pedido.validarProducto()) {
                 unProducto.modificarStock(cantidad);
                 items.add(pedido);
                 pedido.enviarPedido();
             } else {
-                throw new ServicioException("Sin stock, solo quedan "+unProducto.getStock());
+                throw new ServicioException("Sin stock, solo quedan " + unProducto.getStock());
             }
         } else {
             throw new ServicioException("Cantidad Invalida");
         }
     }
-    public int total(){
+
+    public int total() {
         int total = 0;
-        for(Pedido p: items){
+        for (Pedido p : items) {
             total += p.subTotal();
         }
         return total;
     }
-    
-
-
 
 }

@@ -31,15 +31,6 @@ public class ControlServicio{
     public void setServicios(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
     }
-
-    public void asignarMesas(Mozo mozo) {
-       
-        for (Mesa me : mesasSinAsignar) {
-           mozo.addMesa(me);  
-           me.setIsAsignada(true);
-        }
-          
-    }
     
     public void agregarMesa(Mesa unaMesa){
         mesasSinAsignar.add(unaMesa);

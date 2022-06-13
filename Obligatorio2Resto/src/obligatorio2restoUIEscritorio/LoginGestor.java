@@ -27,7 +27,7 @@ public class LoginGestor extends LoginGeneral{
 
     @Override
     public void proxCasoUso(Object obj) {
-        new UnidadesProcesadoras((Gestor)obj).setVisible(true);
+        new MonitorPedidos((Gestor)obj).setVisible(true);
     }
     
     

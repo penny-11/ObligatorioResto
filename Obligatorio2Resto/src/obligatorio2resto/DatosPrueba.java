@@ -28,12 +28,6 @@ public class DatosPrueba {
     public static void cargar(){
         Fachada logica = Fachada.getInstancia();
            logica.agregarUnidadProcesadora();
-        //USUARIOS MOZOS
-        logica.agregarMozo("Juan", "Juan1234","Juan Perez", "099 854 784");
-        logica.agregarMozo("Lucas", "Lucas1234","Lucas Perez", "099 854 111");
-        logica.agregarMozo("Martin", "Martin1234","Martin Gonzalez", "099 457 549");
-        logica.agregarMozo("Sofia", "Sofia1234","Sofia Martinez", "099 222 748");
-        logica.agregarMozo("Lucia", "Lucia1234","Lucia Rodriguez", "094 333 487");
         
         Mozo mozo1 = new Mozo("Juan", "Juan1234","Juan Perez", "099 854 784");
         Mozo mozo2 = new Mozo("Lucas", "Lucas1234","Lucas Perez", "099 854 111");
@@ -41,7 +35,6 @@ public class DatosPrueba {
         Mozo mozo4 = new Mozo("Sofia", "Sofia1234","Sofia Martinez", "099 222 748");
         Mozo mozo5 = new Mozo("Lucia", "Lucia1234","Lucia Rodriguez", "094 333 487");
         
-       
         
          //USUARIOS GESTORES
         logica.agregarGestor("Camila", "Camila1234","Camila Perez");
@@ -86,6 +79,21 @@ public class DatosPrueba {
         logica.agregarMesa(mesa3);
         logica.agregarMesa(mesa4);
         logica.agregarMesa(mesa5);
+        
+        mozo1.addMesa(mesa1);
+        mozo1.addMesa(mesa3);
+        
+        mozo2.addMesa(mesa2);
+        mozo2.addMesa(mesa5);
+        
+        mozo3.addMesa(mesa4);
+        
+        //USUARIOS MOZOS
+        logica.agregarMozo(mozo1);
+        logica.agregarMozo(mozo2);
+        logica.agregarMozo(mozo3);
+        logica.agregarMozo(mozo4);
+        logica.agregarMozo(mozo5);
         
         Bar bar=new Bar("Bar");
         Cocina cocina=new Cocina("Cocina");

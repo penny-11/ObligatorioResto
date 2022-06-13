@@ -1,27 +1,27 @@
-
 package obligatoriorestoLogica;
+
 import obligatorio2Observador.Observable;
 
+public class Pedido extends Observable {
 
-
-public class Pedido extends Observable{
-    
     private Producto producto;
     private int cantidad;
     private String descripcion;
     private boolean estado;
     private Servicio servicio;
-    
-    public enum eventos{nuevoPedido,cambiarPedido};
 
-    public Pedido(Producto producto, int cantidad, String descripcion,Servicio serv) {
+    public enum eventos {
+        nuevoPedido, cambiarPedido
+    };
+
+    public Pedido(Producto producto, int cantidad, String descripcion, Servicio serv) {
         this.producto = producto;
         this.cantidad = cantidad;
         this.descripcion = descripcion;
-        this.servicio=serv;
+        this.servicio = serv;
     }
-    
-    public Pedido(){
+
+    public Pedido() {
     }
 
     public Producto getProducto() {
@@ -47,14 +47,14 @@ public class Pedido extends Observable{
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    public void enviarPedido(){
+
+    public void enviarPedido() {
         producto.getUnidadProcesadora().recibirPedido(this);
         avisar(eventos.nuevoPedido);
     }
 
-    public float subTotal(){
-        return producto.getPrecio()*cantidad;
+    public float subTotal() {
+        return producto.getPrecio() * cantidad;
     }
 
     public boolean getEstado() {
@@ -73,6 +73,14 @@ public class Pedido extends Observable{
     public void setServicio(Servicio servicio) {
         this.servicio = servicio;
     }
+
+    public boolean validarProducto() {
+        return producto != null
+                && producto.getStock() >= cantidad;
+    }
     
-    
+    public boolean validarCantidad(){
+        return cantidad >= 1; 
+    }
+
 }

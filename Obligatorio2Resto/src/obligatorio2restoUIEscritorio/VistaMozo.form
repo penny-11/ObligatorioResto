@@ -58,10 +58,11 @@
               </Group>
               <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
               <Component id="jLabelMesa3" min="-2" pref="111" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButtonSalir" min="-2" pref="256" max="-2" attributes="0"/>
-                  <Component id="jButtonAbrirMesa" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButtonSalir" pref="256" max="32767" attributes="0"/>
+                  <Component id="jButtonAbrirMesa" alignment="0" pref="256" max="32767" attributes="0"/>
+                  <Component id="jButtonOpcionTransferir" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -205,6 +206,8 @@
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                       <Component id="jButtonAbrirMesa" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonOpcionTransferir" min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jButtonSalir" min="-2" pref="34" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -325,7 +328,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldDescripcion">
@@ -478,6 +481,14 @@
     <Component class="javax.swing.JLabel" name="jLabelBeneficio">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelMontoFinal">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonOpcionTransferir">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Transferir Mesa"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonOpcionTransferirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

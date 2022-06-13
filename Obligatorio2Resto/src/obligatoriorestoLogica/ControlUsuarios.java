@@ -43,8 +43,8 @@ public class ControlUsuarios {
         return null;
     }
 
-    public boolean crearUsuarioMozo(String us, String pwd, String nomCom, String tel) {
-        usuariosMozo.add(new Mozo(us, pwd, nomCom, tel));
+    public boolean crearUsuarioMozo(Mozo unMozo) {
+        usuariosMozo.add(unMozo);
         return true;
     }
 
@@ -62,10 +62,18 @@ public class ControlUsuarios {
     }
     
     public ArrayList<Mozo> getMozosConectados(){
+        int count=0;
         ArrayList<Mozo> mozosConectados=new ArrayList();
         for(Mozo mo:usuariosMozo){
             if(mo.isConectado()){
-                mozosConectados.add(mo);
+                for(Mesa me:mo.getMesas()){
+                    if(me!=null){
+                        count++;
+                    }
+                }
+                if(count<5){
+                    mozosConectados.add(mo);
+                }
             }
         }
         return mozosConectados;

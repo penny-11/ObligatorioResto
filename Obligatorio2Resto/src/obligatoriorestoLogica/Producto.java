@@ -86,4 +86,9 @@ public class Producto {
     public void modificarStock(int cantidad) {
         stock=stock-cantidad;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

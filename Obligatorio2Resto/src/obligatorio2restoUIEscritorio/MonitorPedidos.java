@@ -26,13 +26,12 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     private Pedido pedidoSeleccionadoTomado;
 
  
-    public MonitorPedidos(Gestor user, String up) {
+    public MonitorPedidos(Gestor user) {
         initComponents();
-        UnidadProcesadora Uproc =  dvuelUp(up);
-        controlador=new ControladorMonitoreo(this,user,Uproc);
-        unidad = Uproc;
+        controlador=new ControladorMonitoreo(this,user);
         this.gestor=user;
-        mostrarPendientes();
+        controlador.cargarUnidades();
+        //controlador.mostrarPendientes();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +43,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         jTablePedidosTomados = new javax.swing.JTable();
         jButtonTomarPedido = new javax.swing.JButton();
         jButtonFinalizarPedido = new javax.swing.JButton();
+        jComboBoxUProcesadoras = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +97,12 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             }
         });
 
+        jComboBoxUProcesadoras.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxUProcesadorasItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,11 +119,17 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonFinalizarPedido)))
                 .addGap(61, 61, 61))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jComboBoxUProcesadoras, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(25, 25, 25)
+                .addComponent(jComboBoxUProcesadoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,7 +139,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonTomarPedido)))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,10 +161,15 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         pedidoSeleccionadoTomado=seleccionarPedidoTomado(jTablePedidosTomados.getSelectedRow());
     }//GEN-LAST:event_jTablePedidosTomadosMouseClicked
 
+    private void jComboBoxUProcesadorasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUProcesadorasItemStateChanged
+        unidad=(UnidadProcesadora)jComboBoxUProcesadoras.getSelectedItem();
+    }//GEN-LAST:event_jComboBoxUProcesadorasItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFinalizarPedido;
     private javax.swing.JButton jButtonTomarPedido;
+    private javax.swing.JComboBox jComboBoxUProcesadoras;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablePedidosPendientes;
@@ -178,7 +195,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     }
     
     @Override
-    public void mostrarPendientes() {
+    public void mostrarPendientes(ArrayList<Pedido> pedidosPendientes) {
         DefaultTableModel lista = new DefaultTableModel();
         
         lista.addColumn("Nombre Producto");
@@ -188,9 +205,9 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         lista.addColumn("Mozo");
         
         int fila = 0;
-            lista.setNumRows(unidad.pedidosMostrar(false).size());
+            lista.setNumRows(pedidosPendientes.size());
             
-            for(Pedido p: unidad.pedidosMostrar(false)){
+            for(Pedido p: pedidosPendientes){
                 lista.setValueAt(p.getProducto().getNombre(), fila, 0);
                 lista.setValueAt(p.getCantidad(), fila, 0);
                 lista.setValueAt(p.getDescripcion(), fila, 0);
@@ -202,7 +219,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     }
 
     @Override
-    public void mostrarTomados() {
+    public void mostrarTomados(ArrayList<Pedido> pedidosTomados) {
         DefaultTableModel lista = new DefaultTableModel();
         
         lista.addColumn("Nombre Producto");
@@ -212,9 +229,9 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         lista.addColumn("Mozo");
         
         int fila = 0;
-            lista.setNumRows(gestor.getPedidosTomados().size());
+            lista.setNumRows(pedidosTomados.size());
             
-            for(Pedido p: gestor.getPedidosTomados()){
+            for(Pedido p: pedidosTomados){
                 lista.setValueAt(p.getProducto().getNombre(), fila, 0);
                 lista.setValueAt(p.getCantidad(), fila, 0);
                 lista.setValueAt(p.getDescripcion(), fila, 0);
@@ -225,27 +242,32 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         jTablePedidosTomados.setModel(lista);
     }
     
-    private void tomarPedido(Pedido pedidoPendiente) {
+    @Override
+    public void tomarPedido(Pedido pedidoPendiente) {
         if(pedidoPendiente!=null){
             controlador.tomarPedido(pedidoPendiente);
-            mostrarPendientes();
-            mostrarTomados();
+            controlador.mostrarPendientes();
+            controlador.mostrarTomados();
         }else{
             JOptionPane.showMessageDialog(this,"Debes seleccionar un pedido.");
         }
     }
     
-    private void finalizarPedido(Pedido pedidoTomado) {
+    @Override
+    public void finalizarPedido(Pedido pedidoTomado) {
         if(pedidoTomado!=null){
             controlador.finalizarPedido(pedidoTomado);
-            mostrarTomados();
+            controlador.mostrarTomados();
         }else{
             JOptionPane.showMessageDialog(this,"Debes seleccionar un pedido.");
         }
     }
-    
-    private UnidadProcesadora dvuelUp(String upNom){
-        return controlador.devuelveUP(upNom);
+
+    @Override
+    public void cargarUnidades(ArrayList<UnidadProcesadora> unidades) {
+        for(UnidadProcesadora up: unidades){
+            jComboBoxUProcesadoras.addItem(up);
+        }
     }
 
   

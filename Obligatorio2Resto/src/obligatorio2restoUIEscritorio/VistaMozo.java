@@ -16,6 +16,7 @@ import obligatoriorestoLogica.MesaException;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.Producto;
+import obligatoriorestoLogica.Servicio;
 import obligatoriorestoLogica.Transferencia;
 
 /**
@@ -26,8 +27,9 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     private Mozo mozo;
     private ControladorVistaMozo controlador;
-    private Cliente cliente;
     private Mesa mesa;
+    private ArrayList<Mozo> mozosConectados = new ArrayList();
+    private Cliente cliente;
 
     /**
      * Creates new form VistaMozo
@@ -38,7 +40,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         controlador = new ControladorVistaMozo(this, mo);
         controlador.mostrarMesas();
         controlador.mostrarProductos();
-        mostrarMozosConectados(controlador.mozosConectados());
     }
 
     /**
@@ -62,7 +63,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jButtonSalir = new javax.swing.JButton();
         jButtonAbrirMesa = new javax.swing.JButton();
         jSpinnerCantidad = new javax.swing.JSpinner();
-        jComboBoxProductos = new javax.swing.JComboBox<>();
+        jComboBoxProductos = new javax.swing.JComboBox();
         jTextFieldDescripcion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -89,6 +90,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabelMontoTotal = new javax.swing.JLabel();
         jLabelBeneficio = new javax.swing.JLabel();
         jLabelMontoFinal = new javax.swing.JLabel();
+        jButtonOpcionTransferir = new javax.swing.JButton();
 
         idClienteText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +220,13 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
             }
         });
 
+        jButtonOpcionTransferir.setText("Transferir Mesa");
+        jButtonOpcionTransferir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOpcionTransferirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -244,10 +253,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                         .addGap(42, 42, 42)))
                 .addGap(50, 50, 50)
                 .addComponent(jLabelMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAbrirMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(124, 124, 124)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(jButtonAbrirMesa, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(jButtonOpcionTransferir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
@@ -356,6 +366,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                         .addGap(133, 133, 133)
                         .addComponent(jButtonAbrirMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(jButtonOpcionTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -411,21 +423,17 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jComboBoxMesasActionPerformed
 
     private void jButtonAbrirMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAbrirMesaActionPerformed
-        String mesa1 = (String) jComboBoxMesas.getSelectedItem();
-        abrirMesa(obtenerMesa(mesa1));
+        abrirMesa(mesa);
     }//GEN-LAST:event_jButtonAbrirMesaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String produc = (String) jComboBoxProductos.getSelectedItem();
-        Producto prod = controlador.buscarProducto(produc);
+        Producto prod = (Producto) jComboBoxProductos.getSelectedItem();
         int cantidad = (Integer) jSpinnerCantidad.getValue();
         String descripcion = jTextFieldDescripcion.getText();
-        String mesa1 = (String) jComboBoxMesas.getSelectedItem();
-        hacerPedido(prod, cantidad, descripcion, obtenerMesa(mesa1));
+        hacerPedido(prod, cantidad, descripcion, mesa);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonCerrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarMesaActionPerformed
-        mesa = (Mesa) jComboBoxMesas.getSelectedItem();
         cerrarMesa(mesa);
     }//GEN-LAST:event_jButtonCerrarMesaActionPerformed
 
@@ -440,13 +448,13 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private void idClienteText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idClienteText1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idClienteText1ActionPerformed
- 
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        detallesCliente(idClienteText.getText());
+        detallesCliente(idClienteText1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTableMozosConectadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMozosConectadosMouseClicked
-        
+
     }//GEN-LAST:event_jTableMozosConectadosMouseClicked
 
     private void jButtonTransferir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferir1ActionPerformed
@@ -454,10 +462,13 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jButtonTransferir1ActionPerformed
 
     private void jComboBoxMesasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMesasItemStateChanged
-        String mesa1 = (String) jComboBoxMesas.getSelectedItem();
-        mesa = obtenerMesa(mesa1);
-        mostrarPedidosMesa(mesa);
+        mesa = (Mesa) jComboBoxMesas.getSelectedItem();
+        controlador.mostrarPedidosMesa(mesa);
     }//GEN-LAST:event_jComboBoxMesasItemStateChanged
+
+    private void jButtonOpcionTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpcionTransferirActionPerformed
+        transferenciaMesa();
+    }//GEN-LAST:event_jButtonOpcionTransferirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -471,10 +482,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAbrirMesa;
     private javax.swing.JButton jButtonCerrarMesa;
+    private javax.swing.JButton jButtonOpcionTransferir;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonTransferir1;
     private javax.swing.JComboBox jComboBoxMesas;
-    private javax.swing.JComboBox<String> jComboBoxProductos;
+    private javax.swing.JComboBox jComboBoxProductos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -506,34 +518,34 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void cargarMesas(Mozo unMozo) {
+    public void cargarMesas(ArrayList<Mesa> mesasMozo) {
 
-        for (Mesa me : unMozo.getMesas()) {
+        for (Mesa me : mesasMozo) {
             jComboBoxMesas.addItem(me);
+            jLabelMesa1.setText("Mesa - " + me.getNumeroMesa());
+            jLabelMesa2.setText("Mesa - " + me.getNumeroMesa());
+            jLabelMesa3.setText("Mesa - " + me.getNumeroMesa());
+            jLabelMesa4.setText("Mesa - " + me.getNumeroMesa());
+            jLabelMesa5.setText("Mesa - " + me.getNumeroMesa());
         }
-        //jLabelMesa1.setText("Mesa - " + unMozo.getMesas().get(0).getNumeroMesa());
-        //jLabelMesa2.setText("Mesa - " + unMozo.getMesas().get(1).getNumeroMesa());
-        //jLabelMesa3.setText("Mesa - " + unMozo.getMesas().get(2).getNumeroMesa());
-        //jLabelMesa4.setText("Mesa - " + unMozo.getMesas().get(3).getNumeroMesa());
-        //jLabelMesa5.setText("Mesa - " + unMozo.getMesas().get(4).getNumeroMesa());
 
     }
 
     @Override
-    public void mostrarPedidosMesa(Mesa unaMesa) {
+    public void mostrarPedidosMesa(Servicio servicioMesa) {
         DefaultTableModel lista = new DefaultTableModel();
 
-            lista.addColumn("Nombre Producto");
-            lista.addColumn("Cantidad");
-            lista.addColumn("Precio unitario");
-            lista.addColumn("Subtotal");
-            lista.addColumn("Estado");
-        if (unaMesa.getServicio()!=null) {
+        lista.addColumn("Nombre Producto");
+        lista.addColumn("Cantidad");
+        lista.addColumn("Precio unitario");
+        lista.addColumn("Subtotal");
+        lista.addColumn("Estado");
+        if (servicioMesa != null) {
 
             int fila = 0;
-            lista.setNumRows(unaMesa.getServicio().getItems().size());
+            lista.setNumRows(servicioMesa.getItems().size());
 
-            for (Pedido p : unaMesa.getServicio().getItems()) {
+            for (Pedido p : servicioMesa.getItems()) {
                 lista.setValueAt(p.getProducto().getNombre(), fila, 0);
                 lista.setValueAt(p.getCantidad(), fila, 1);
                 lista.setValueAt(p.getProducto().getPrecio(), fila, 2);
@@ -542,7 +554,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                 fila++;
             }
             jTableServicio.setModel(lista);
-        }else{
+        } else {
             jTableServicio.setModel(lista);
         }
     }
@@ -551,8 +563,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     public void abrirMesa(Mesa unaMesa) {
         controlador.abrirMesa(unaMesa);
     }
-    
-    
 
     @Override
     public void cerrarMesa(Mesa unaMesa) {
@@ -560,14 +570,18 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }
 
     @Override
-    public void transferirMesa() {
-        mostrarMozosConectados(controlador.mozosConectados());
+    public void transferenciaMesa() {
+        mozosConectados = controlador.mozosConectados();
+        controlador.mostrarMozosConectados(mozosConectados);
     }
 
     @Override
     public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa) {
-        controlador.hacerPedido(unProducto, cantidad, descripcion, unaMesa);
-        mostrarPedidosMesa(unaMesa);
+        if (unProducto != null) {
+            controlador.hacerPedido(unProducto, cantidad, descripcion, unaMesa);
+        } else {
+            JOptionPane.showMessageDialog(this, "Se debe seleccionar un producto.");
+        }
     }
 
     @Override
@@ -587,21 +601,22 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }
 
     private void detallesCliente(String idCliente) {
-        int clienteId = Integer.parseInt(idCliente);
+        int clienteId = Integer.valueOf(idCliente);
         cliente = controlador.buscarCliente(clienteId);
-        mostrarDatos(cliente);
-        cerrarMesa(mesa, cliente);
+        controlador.mostrarDatosCliente(cliente);
+        controlador.cerrarMesa(mesa, cliente);
     }
 
     private Mozo seleccionarMozo(int pos) {
         Mozo elegido = null;
         if (pos != -1) {
-            elegido = controlador.mozosConectados().get(pos);
+            elegido = mozosConectados.get(pos);
         }
         return elegido;
     }
 
-    private void mostrarDatos(Cliente seleccionado) {
+    @Override
+    public void mostrarDatos(Cliente seleccionado) {
         if (seleccionado != null) {
             jLabelNombreCliente.setText(seleccionado.getNombre());
             jLabelMontoTotal.setText(mesa.getServicio().total() + "");
@@ -616,7 +631,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         controlador.cerrarMesa(mesaServicio, unCliente);
     }
 
-    private void mostrarMozosConectados(ArrayList<Mozo> mozosConectados) {
+    @Override
+    public void mostrarMozosConectados(ArrayList<Mozo> mozosConectados) {
 
         DefaultTableModel lista = new DefaultTableModel();
 
@@ -634,21 +650,15 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jTableMozosConectados.setModel(lista);
     }
 
-    private void transferirMesa(Mesa mesa, Mozo mozoTransferir) {
+    @Override
+    public void transferirMesa(Mesa mesa, Mozo mozoTransferir) {
         controlador.transferirMesa(mesa, mozoTransferir);
     }
 
     @Override
     public void mostrarProductos(ArrayList<Producto> productos) {
         for (Producto p : productos) {
-            jComboBoxProductos.addItem(p.getNombre());
+            jComboBoxProductos.addItem(p);
         }
     }
-
-    public Mesa obtenerMesa(String nombreMesa) {
-        int mesaNum = Integer.parseInt(nombreMesa.substring(4, 5));
-        Mesa mesaObj = controlador.buscarMesa(mesaNum, mozo);
-        return mesaObj;
-    }
-
 }

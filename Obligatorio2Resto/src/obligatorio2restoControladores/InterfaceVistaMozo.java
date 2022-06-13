@@ -9,6 +9,7 @@ import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Producto;
+import obligatoriorestoLogica.Servicio;
 import obligatoriorestoLogica.Transferencia;
 
 /**
@@ -17,15 +18,17 @@ import obligatoriorestoLogica.Transferencia;
  */
 public interface InterfaceVistaMozo {
     
-    public void cargarMesas(Mozo unMozo);
+    public void cargarMesas(ArrayList<Mesa> mesasMozo);
     
-    public void mostrarPedidosMesa(Mesa unaMesa);
+    public void mostrarPedidosMesa(Servicio servicioMesa);
     
     public void abrirMesa(Mesa unaMesa);
     
     public void cerrarMesa(Mesa unaMesa);
     
-    public void transferirMesa();
+    public void transferenciaMesa();
+    
+    public void transferirMesa(Mesa mesa, Mozo mozoTransferir);
     
     public void hacerPedido(Producto unProducto,int cantidad,String descripcion,Mesa unaMesa);
     
@@ -36,5 +39,9 @@ public interface InterfaceVistaMozo {
     public void opcionTransferencia(Transferencia trans);
 
     public void mostrarProductos(ArrayList<Producto> productos);
+    
+    public void mostrarMozosConectados(ArrayList<Mozo> mozosConectados);
+    
+    public void mostrarDatos(Cliente seleccionado);
     
 }

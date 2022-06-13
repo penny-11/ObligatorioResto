@@ -5,6 +5,7 @@
 package obligatorio2restoControladores;
 
 import java.util.ArrayList;
+import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.UnidadProcesadora;
 
 /**
@@ -13,9 +14,15 @@ import obligatoriorestoLogica.UnidadProcesadora;
  */
 public interface InterfaceMonitorPedidos {
 
-    public void mostrarPendientes();
+    public void mostrarPendientes(ArrayList<Pedido> pedidosPendientes);
     
-    public void mostrarTomados();
+    public void mostrarTomados(ArrayList<Pedido> pedidosTomados);
+
+    public void cargarUnidades(ArrayList<UnidadProcesadora> unidades);
+    
+    public void tomarPedido(Pedido pedidoPendiente);
+    
+    public void finalizarPedido(Pedido pedidoTomado);
 
     
 }

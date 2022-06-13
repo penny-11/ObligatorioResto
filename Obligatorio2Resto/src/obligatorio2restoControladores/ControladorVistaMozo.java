@@ -23,42 +23,38 @@ import obligatoriorestoLogica.Transferencia;
  *
  * @author tomas
  */
-public class ControladorVistaMozo implements Observador{
-    
-    private InterfaceVistaMozo vistaMozo;
-    private Fachada sistema=Fachada.getInstancia();
-    private Mozo mozo;
-    private Transferencia transferencia;
+public class ControladorVistaMozo implements Observador {
 
-    public ControladorVistaMozo(InterfaceVistaMozo vista,Mozo mo) {
-        this.vistaMozo=vista;
+    private InterfaceVistaMozo vistaMozo;
+    private Fachada sistema = Fachada.getInstancia();
+    private Mozo mozo;
+
+    public ControladorVistaMozo(InterfaceVistaMozo vista, Mozo mo) {
+        this.vistaMozo = vista;
         this.mozo = mo;
         mozo.agregar(this);
-         transferencia= new Transferencia();
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
-        if(evento.equals(Mozo.Eventos.transferirMesa)){
-            opcionTransferencia();
-       }else if(evento.equals(Mozo.Eventos.aceptarTransferencia)){
-         //  transferencia=null;
-           vistaMozo.mostrarMensaje("Transferencia confirmada!");
-       }else if(evento.equals(Mozo.Eventos.rechazarTransferencia)){
-        //   transferencia=null;
-           vistaMozo.mostrarMensaje("Transferencia rechazada!");
-       }
+        if (evento.equals(Mozo.Eventos.transferirMesa)) {
+            opcionTransferencia(mozo.getTransferencia());
+        } else if (evento.equals(Mozo.Eventos.aceptarTransferencia)) {
+            vistaMozo.mostrarMensaje("Transferencia confirmada!");
+        } else if (evento.equals(Mozo.Eventos.rechazarTransferencia)) {
+            vistaMozo.mostrarMensaje("Transferencia rechazada!");
+        }
     }
-    
-    public void mostrarMesas(){
-        sistema.asignarMesas(mozo);
-        vistaMozo.cargarMesas(mozo);
+
+    public void mostrarMesas() {
+        vistaMozo.cargarMesas(mozo.getMesas());
     }
-    public void mostrarProductos(){
+
+    public void mostrarProductos() {
         vistaMozo.mostrarProductos(sistema.getProductos());
     }
-    
-    public void abrirMesa(Mesa unaMesa){
+
+    public void abrirMesa(Mesa unaMesa) {
         try {
             mozo.abrirMesa(unaMesa);
             sistema.agregarServicio(unaMesa);
@@ -67,10 +63,10 @@ public class ControladorVistaMozo implements Observador{
             vistaMozo.mostrarMensaje(ex.getMessage());
         }
     }
-    
-    public void cerrarMesa(Mesa unaMesa,Cliente unCliente){
+
+    public void cerrarMesa(Mesa unaMesa, Cliente unCliente) {
         try {
-            mozo.cerrarMesa(unaMesa,unCliente);
+            mozo.cerrarMesa(unaMesa, unCliente);
             //int clienteId = jTextFieldDescripcion.getText();
             vistaMozo.mostrarMensaje("Mesa cerrada con exito.");
         } catch (MesaException ex) {
@@ -78,41 +74,58 @@ public class ControladorVistaMozo implements Observador{
         }
     }
 
-    public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa){
-        Servicio serv=unaMesa.getServicio();
-        try{
-            serv.hacerPedido(unProducto, cantidad, descripcion);
-            vistaMozo.mostrarMensaje("Pedido realizado con exito.");
-        }catch(ServicioException ex){
+    public void hacerPedido(Producto unProducto, int cantidad, String descripcion, Mesa unaMesa) {
+        Servicio serv = unaMesa.getServicio();
+        try {
+            if (serv != null) {
+                serv.hacerPedido(unProducto, cantidad, descripcion);
+                vistaMozo.mostrarMensaje("Pedido realizado con exito.");
+                vistaMozo.mostrarPedidosMesa(serv);
+            } else {
+                vistaMozo.mostrarMensaje("No se puede abrir servicio de una mesa cerrada.");
+            }
+        } catch (ServicioException ex) {
             vistaMozo.mostrarMensaje(ex.getMessage());
         }
-        
+
     }
-    
-    public void transferirMesa(Mesa mesaTransferir,Mozo mozoDestino){
-        Transferencia transf = new Transferencia(mozo,mozoDestino,mesaTransferir);
-        transferencia = transf;
-        mozoDestino.transferirMesa(transf);
+
+    public void transferirMesa(Mesa mesaTransferir, Mozo mozoDestino) {
+        Transferencia transf = new Transferencia(mozo, mozoDestino, mesaTransferir);
+        mozo.setTransferencia(transf);
+        mozoDestino.setTransferencia(transf);
+        mozoDestino.transferirMesa();
     }
-    
-    public ArrayList<Mozo> mozosConectados(){
-        return sistema.getMozosConectados();
-    }
-    
-    public Cliente buscarCliente(int idCliente){
+
+    public Cliente buscarCliente(int idCliente) {
         return sistema.buscarCliente(idCliente);
     }
-    
-    public Producto buscarProducto(String producto){
+
+    public Producto buscarProducto(String producto) {
         return sistema.buscarProducto(producto);
     }
-    
-    public Mesa buscarMesa(int nroMesa,Mozo mozo){
+
+    public Mesa buscarMesa(int nroMesa, Mozo mozo) {
         return mozo.buscarMesa(nroMesa);
     }
 
-    private void opcionTransferencia() {
-        
+    private void opcionTransferencia(Transferencia transferencia) {
         vistaMozo.opcionTransferencia(transferencia);
+    }
+
+    public void mostrarPedidosMesa(Mesa mesa) {
+        vistaMozo.mostrarPedidosMesa(mesa.getServicio());
+    }
+
+    public void mostrarMozosConectados(ArrayList<Mozo> mozosConectados) {
+        vistaMozo.mostrarMozosConectados(mozosConectados);
+    }
+
+    public ArrayList<Mozo> mozosConectados() {
+        return sistema.getMozosConectados();
+    }
+
+    public void mostrarDatosCliente(Cliente cliente) {
+        vistaMozo.mostrarDatos(cliente);
     }
 }
