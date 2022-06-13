@@ -17,5 +17,5 @@ public interface InterfaceMonitorPedidos {
     
     public void mostrarTomados();
 
-    public void mostrarUPS();
+    
 }

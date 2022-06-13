@@ -60,7 +60,7 @@ public class ControlStock {
     
     public UnidadProcesadora buscarUP(String upNom) {
         for(UnidadProcesadora up: unidadesProcesadoras){
-            if(up.getNombre()==upNom){
+            if(up.equals(upNom)){
                 return up;
             }
         }
