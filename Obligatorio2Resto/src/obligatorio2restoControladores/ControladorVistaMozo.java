@@ -41,17 +41,10 @@ public class ControladorVistaMozo implements Observador {
             opcionTransferencia(mozo.getTransferencia());
         } else if (evento.equals(Mozo.Eventos.aceptarTransferencia)) {
             vistaMozo.mostrarMensaje("Transferencia confirmada!");
+            vistaMozo.cargarMesas(mozo.getMesas());
         } else if (evento.equals(Mozo.Eventos.rechazarTransferencia)) {
             vistaMozo.mostrarMensaje("Transferencia rechazada!");
         }
-    }
-
-    public void mostrarMesas() {
-        vistaMozo.cargarMesas(mozo.getMesas());
-    }
-
-    public void mostrarProductos() {
-        vistaMozo.mostrarProductos(sistema.getProductos());
     }
 
     public void abrirMesa(Mesa unaMesa) {
@@ -90,11 +83,11 @@ public class ControladorVistaMozo implements Observador {
 
     }
 
-    public void transferirMesa(Mesa mesaTransferir, Mozo mozoDestino) {
-        Transferencia transf = new Transferencia(mozo, mozoDestino, mesaTransferir);
-        mozo.setTransferencia(transf);
-        mozoDestino.setTransferencia(transf);
-        mozoDestino.transferirMesa();
+    public void transferirMesa(Mesa mesaTransferir,Mozo mozoOrigen,Mozo mozoDestino) {
+        Transferencia transf = new Transferencia(mozoOrigen, mozoDestino, mesaTransferir);
+        mozoOrigen.setTransferencia(transf);
+        mozo=mozoOrigen;
+        mozoDestino.transferirMesa(transf);
     }
 
     public Cliente buscarCliente(int idCliente) {
@@ -114,7 +107,9 @@ public class ControladorVistaMozo implements Observador {
     }
 
     public void mostrarPedidosMesa(Mesa mesa) {
-        vistaMozo.mostrarPedidosMesa(mesa.getServicio());
+        if(mesa!=null){
+            vistaMozo.mostrarPedidosMesa(mesa.getServicio());
+        }
     }
 
     public void mostrarMozosConectados(ArrayList<Mozo> mozosConectados) {
@@ -127,5 +122,13 @@ public class ControladorVistaMozo implements Observador {
 
     public void mostrarDatosCliente(Cliente cliente) {
         vistaMozo.mostrarDatos(cliente);
+    }
+
+    public void mostrarMesas() {
+        vistaMozo.cargarMesas(mozo.getMesas());
+    }
+
+    public void mostrarProductos() {
+        vistaMozo.mostrarProductos(sistema.getProductos());
     }
 }

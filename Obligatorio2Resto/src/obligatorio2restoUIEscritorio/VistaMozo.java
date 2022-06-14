@@ -458,7 +458,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }//GEN-LAST:event_jTableMozosConectadosMouseClicked
 
     private void jButtonTransferir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferir1ActionPerformed
-        transferirMesa(mesa, seleccionarMozo(jTableMozosConectados.getSelectedRow()));
+        transferirMesa(mesa,mozo,seleccionarMozo(jTableMozosConectados.getSelectedRow()));
     }//GEN-LAST:event_jButtonTransferir1ActionPerformed
 
     private void jComboBoxMesasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMesasItemStateChanged
@@ -519,7 +519,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void cargarMesas(ArrayList<Mesa> mesasMozo) {
-
+        
+        jComboBoxMesas.removeAllItems();
         for (Mesa me : mesasMozo) {
             jComboBoxMesas.addItem(me);
             jLabelMesa1.setText("Mesa - " + me.getNumeroMesa());
@@ -651,8 +652,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }
 
     @Override
-    public void transferirMesa(Mesa mesa, Mozo mozoTransferir) {
-        controlador.transferirMesa(mesa, mozoTransferir);
+    public void transferirMesa(Mesa mesa,Mozo mozoOrigen ,Mozo mozoTransferir) {
+        controlador.transferirMesa(mesa,mozoOrigen,mozoTransferir);
     }
 
     @Override

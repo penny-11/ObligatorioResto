@@ -28,7 +28,7 @@ public interface InterfaceVistaMozo {
     
     public void transferenciaMesa();
     
-    public void transferirMesa(Mesa mesa, Mozo mozoTransferir);
+    public void transferirMesa(Mesa mesa,Mozo mozoOrigen,Mozo mozoTransferir);
     
     public void hacerPedido(Producto unProducto,int cantidad,String descripcion,Mesa unaMesa);
     

@@ -3,7 +3,7 @@ package obligatoriorestoLogica;
 import java.util.ArrayList;
 import obligatorio2Observador.Observable;
 
-public class Pedido extends Observable {
+public class Pedido {
 
     private Producto producto;
     private int cantidad;
@@ -12,9 +12,6 @@ public class Pedido extends Observable {
     private Servicio servicio;
     private ArrayList<Pedido> pedidosPendientes;
 
-    public enum eventos {
-        nuevoPedido, cambiarPedido
-    };
 
     public Pedido(Producto producto, int cantidad, String descripcion, Servicio serv) {
         this.producto = producto;
@@ -52,7 +49,6 @@ public class Pedido extends Observable {
 
     public void enviarPedido() {
         producto.getUnidadProcesadora().recibirPedido(this);
-        avisar(eventos.nuevoPedido);
     }
 
     public float subTotal() {
@@ -65,7 +61,6 @@ public class Pedido extends Observable {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-        avisar(eventos.cambiarPedido);
     }
 
     public Servicio getServicio() {

@@ -11,6 +11,8 @@ import java.util.ArrayList;
  * @author tomas
  */
 public class Cocina extends UnidadProcesadora {
+    
+    public enum Eventos{recibirPedido}
 
     public Cocina(String nombre) {
         super(nombre);
@@ -31,6 +33,7 @@ public class Cocina extends UnidadProcesadora {
     @Override
     public void recibirPedido(Pedido unPedido) {
         this.pedidos.add(unPedido);
+        avisar(Eventos.recibirPedido);
     }
 
     @Override

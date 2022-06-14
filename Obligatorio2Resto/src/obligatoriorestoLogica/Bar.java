@@ -11,6 +11,8 @@ import java.util.ArrayList;
  * @author tomas
  */
 public class Bar extends UnidadProcesadora{
+    
+    public enum Eventos{recibirPedido}
 
     public Bar(String nombre) {
         super(nombre);
@@ -31,6 +33,7 @@ public class Bar extends UnidadProcesadora{
     @Override
     public void recibirPedido(Pedido unPedido) {
         this.pedidos.add(unPedido);
+        avisar(Cocina.Eventos.recibirPedido);
     }
 
     @Override

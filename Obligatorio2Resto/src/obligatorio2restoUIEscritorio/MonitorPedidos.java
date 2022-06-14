@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import obligatorio2restoControladores.ControladorMonitoreo;
 import obligatorio2restoControladores.InterfaceMonitorPedidos;
+import obligatoriorestoLogica.Bar;
 import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.UnidadProcesadora;
@@ -19,7 +20,7 @@ import obligatoriorestoLogica.UnidadProcesadora;
  */
 public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonitorPedidos{
 
-    private UnidadProcesadora unidad;
+    private UnidadProcesadora unidad=new Bar();
     private Gestor gestor;
     private ControladorMonitoreo controlador;
     private Pedido pedidoSeleccionadoPendiente;
@@ -28,7 +29,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
  
     public MonitorPedidos(Gestor user) {
         initComponents();
-        controlador=new ControladorMonitoreo(this,user);
+        controlador=new ControladorMonitoreo(this,user,unidad);
         this.gestor=user;
         controlador.cargarUnidades();
         //controlador.mostrarPendientes();
@@ -163,6 +164,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
 
     private void jComboBoxUProcesadorasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUProcesadorasItemStateChanged
         unidad=(UnidadProcesadora)jComboBoxUProcesadoras.getSelectedItem();
+        controlador.cambiarUnidad(unidad);
     }//GEN-LAST:event_jComboBoxUProcesadorasItemStateChanged
 
 

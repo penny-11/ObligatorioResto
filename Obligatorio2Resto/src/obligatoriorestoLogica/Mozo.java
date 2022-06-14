@@ -101,7 +101,8 @@ public class Mozo extends Usuario{
         return null;
     }
     
-    public void transferirMesa(){
+    public void transferirMesa(Transferencia trans){
+        this.transferencia=trans;
         avisar(Eventos.transferirMesa);
     }
 

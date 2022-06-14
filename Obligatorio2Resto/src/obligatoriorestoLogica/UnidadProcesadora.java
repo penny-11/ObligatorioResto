@@ -5,12 +5,13 @@
 package obligatoriorestoLogica;
 
 import java.util.ArrayList;
+import obligatorio2Observador.Observable;
 
 /**
  *
  * @author tomas
  */
-public abstract class UnidadProcesadora {
+public abstract class UnidadProcesadora extends Observable{
     
     protected String nombre;
     protected ArrayList<Pedido> pedidos;

@@ -171,10 +171,12 @@ public class DecisionTransferencia extends javax.swing.JDialog {
     }
 
     private void aceptarTransferencia() {
-        transferencia.getMozoDestino().respuestaTransferencia(transferencia, true);
+        transferencia.getMozoOrigen().respuestaTransferencia(transferencia, true);
+        this.setVisible(false);
     }
 
     private void rechazarTransferencia() {
-        transferencia.getMozoDestino().respuestaTransferencia(transferencia, false);
+        transferencia.getMozoOrigen().respuestaTransferencia(transferencia, false);
+        this.setVisible(false);
     }
 }

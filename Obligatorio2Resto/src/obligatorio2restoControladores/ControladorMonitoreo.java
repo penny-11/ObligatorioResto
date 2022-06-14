@@ -7,6 +7,8 @@ package obligatorio2restoControladores;
 import java.util.ArrayList;
 import obligatorio2Observador.Observable;
 import obligatorio2Observador.Observador;
+import obligatoriorestoLogica.Bar;
+import obligatoriorestoLogica.Cocina;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Mesa;
@@ -29,17 +31,18 @@ public class ControladorMonitoreo implements Observador {
     private Pedido pedido;
 
 
-    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user) {
+    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user,UnidadProcesadora unidadEntrante) {
         this.vistaGestor=vista;
         this.gestor=user;
-        //pedido.avisar(this);
+        this.unidad=unidadEntrante;
+        unidad.agregar(this);
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
-       if(evento.equals(Pedido.eventos.nuevoPedido)){
+       if(evento.equals(Bar.Eventos.recibirPedido)){
            vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
-       }else if(evento.equals(Pedido.eventos.cambiarPedido)){
+       }else if(evento.equals(Cocina.Eventos.recibirPedido)){
            vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
            vistaGestor.mostrarTomados(gestor.getPedidosTomados());
        }
@@ -71,6 +74,9 @@ public class ControladorMonitoreo implements Observador {
         vistaGestor.mostrarTomados(gestor.getPedidosTomados());
     }
     
+    public void cambiarUnidad(UnidadProcesadora nuevaUnidad){
+        this.unidad=nuevaUnidad;
+    }
     
     
     
