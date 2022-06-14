@@ -60,5 +60,10 @@ public class ClientePreferencial extends Cliente {
         }
         return total;
     }
+
+    @Override
+    public String descripcionBeneficio() {
+        return "Agua de la casa - Si es mayor a 2000 tiene descuento";
+    }
         
 }

@@ -1,5 +1,6 @@
 package obligatoriorestoLogica;
 
+import java.util.ArrayList;
 import obligatorio2Observador.Observable;
 
 public class Pedido extends Observable {
@@ -9,6 +10,7 @@ public class Pedido extends Observable {
     private String descripcion;
     private boolean estado;
     private Servicio servicio;
+    private ArrayList<Pedido> pedidosPendientes;
 
     public enum eventos {
         nuevoPedido, cambiarPedido
@@ -81,6 +83,15 @@ public class Pedido extends Observable {
     
     public boolean validarCantidad(){
         return cantidad >= 1; 
+    }
+    
+    public ArrayList<Pedido> pedidosPendientes(){
+        for(Pedido p: pedidosPendientes){
+            if(p.estado == false){
+                pedidosPendientes.add(p);
+            }
+        }
+        return pedidosPendientes;
     }
 
 }

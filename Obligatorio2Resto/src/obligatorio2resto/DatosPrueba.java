@@ -42,6 +42,7 @@ public class DatosPrueba {
         logica.agregarGestor("Martina", "Martina1234","Martina Gonzalez");
         logica.agregarGestor("Jorge", "Jorge1234","Jorge Martinez");
         
+        
         //CLIENTES PREFERENCIALES
         
         ClientePreferencial clientePref1 = new ClientePreferencial(10,"lucas@rodriguez.com", "Lucas Preferencial");

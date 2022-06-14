@@ -36,5 +36,7 @@ public abstract class Cliente {
     public abstract void setNombre(String nombre);
 
     public abstract int calculoTotalServicio(Servicio servicio);
+    
+    public abstract String descripcionBeneficio();
 
 }
