@@ -57,5 +57,10 @@ public class ClienteCasa extends Cliente {
        return total;
     }
 
+    @Override
+    public String descripcionBeneficio() {
+        return "500 pesos de descuento";
+    }
+
 
 }

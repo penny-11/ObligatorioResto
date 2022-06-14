@@ -61,5 +61,10 @@ public class ClienteComun extends Cliente{
         }
         return total;
     }
+
+    @Override
+    public String descripcionBeneficio() {
+        return "Café de la casa";
+    }
     
 }

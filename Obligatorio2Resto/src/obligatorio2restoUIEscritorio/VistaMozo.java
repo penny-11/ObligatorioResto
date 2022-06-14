@@ -620,7 +620,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         if (seleccionado != null) {
             jLabelNombreCliente.setText(seleccionado.getNombre());
             jLabelMontoTotal.setText(mesa.getServicio().total() + "");
-            // jBenefText.setText(seleccionado!=null?seleccionado.getTipo().getNombre():"");
+            jLabelBeneficio.setText(seleccionado!=null?seleccionado.descripcionBeneficio():"");
             jLabelMontoFinal.setText(seleccionado.calculoTotalServicio(mesa.getServicio()) + "");
         } else {
             JOptionPane.showMessageDialog(this, "Cliente no existe.");
