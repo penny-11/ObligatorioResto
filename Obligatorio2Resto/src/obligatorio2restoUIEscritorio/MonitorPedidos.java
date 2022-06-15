@@ -46,6 +46,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
         jButtonTomarPedido = new javax.swing.JButton();
         jButtonFinalizarPedido = new javax.swing.JButton();
         jComboBoxUProcesadoras = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +106,9 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Monitoreo de Pedidos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,13 +128,17 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jComboBoxUProcesadoras, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jComboBoxUProcesadoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxUProcesadoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -141,7 +149,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonTomarPedido)))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,6 +181,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     private javax.swing.JButton jButtonFinalizarPedido;
     private javax.swing.JButton jButtonTomarPedido;
     private javax.swing.JComboBox jComboBoxUProcesadoras;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTablePedidosPendientes;
@@ -184,7 +193,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     private Pedido seleccionarPedidoPendiente(int pos) {
         Pedido elegido = null;
         if (pos != -1) {
-            elegido = unidadInicio.pedidosMostrar(false).get(pos);
+            elegido = unidadInicio.getPedidos().get(pos);
         }
         return elegido;
     }

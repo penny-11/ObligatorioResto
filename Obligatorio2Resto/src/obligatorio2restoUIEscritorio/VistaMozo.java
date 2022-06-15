@@ -551,7 +551,12 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                 lista.setValueAt(p.getCantidad(), fila, 1);
                 lista.setValueAt(p.getProducto().getPrecio(), fila, 2);
                 lista.setValueAt(p.subTotal(), fila, 3);
-                lista.setValueAt(p.getEstado(), fila, 4);
+                if(p.getEstado()){
+                    lista.setValueAt("Pedido Finalizado", fila, 4);
+                }else{
+                    lista.setValueAt("Pedido Pendiente", fila, 4);
+                }
+                
                 fila++;
             }
             jTableServicio.setModel(lista);
