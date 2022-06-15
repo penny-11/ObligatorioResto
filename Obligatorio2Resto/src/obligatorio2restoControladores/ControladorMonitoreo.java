@@ -12,6 +12,7 @@ import obligatoriorestoLogica.Cocina;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Mesa;
+import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.UnidadProcesadora;
 
@@ -31,43 +32,47 @@ public class ControladorMonitoreo implements Observador {
     private Pedido pedido;
 
 
-    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user,UnidadProcesadora unidadEntrante) {
+    public ControladorMonitoreo(InterfaceMonitorPedidos vista, Gestor user) {
         this.vistaGestor=vista;
         this.gestor=user;
-        this.unidad=unidadEntrante;
+        vistaGestor.cargarUnidades(sistema.getUnidadProcesadoras());
+        this.unidad=sistema.getUnidadProcesadoras().get(0);
         unidad.agregar(this);
+        gestor.agregar(this);
     }
 
     @Override
     public void actualizar(Object evento, Observable aThis) {
-       if(evento.equals(Bar.Eventos.recibirPedido)){
-           vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
-       }else if(evento.equals(Cocina.Eventos.recibirPedido)){
-           vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
-           vistaGestor.mostrarTomados(gestor.getPedidosTomados());
+       if(evento.equals(Cocina.Eventos.recibirPedido)){
+           mostrarPendientes();
+       }else if(evento.equals(Bar.Eventos.recibirPedido)){
+           mostrarPendientes();
+       }else if(evento.equals(Gestor.Eventos.pedidoTomado)){
+           mostrarPendientes();
        }
     }
     
     public void tomarPedido(Pedido pedido){
         pedido.setEstado(true);
+        unidad.getPedidos().remove(pedido);
         gestor.addPedidoTomado(pedido);
     }
     
     public void finalizarPedido(Pedido pedido){
         gestor.getPedidosTomados().remove(pedido);
+        pedido.getServicio().getMozoAtencion().pedidoFinalizado(pedido);
     }
     
     public ArrayList<UnidadProcesadora> mostrarUP(){
         return sistema.getUnidadProcesadoras();
     }
     
-    public void cargarUnidades(){
-        ArrayList<UnidadProcesadora> unidades=sistema.getUnidadProcesadoras();
+    public void cargarUnidades(ArrayList<UnidadProcesadora> unidades){
         vistaGestor.cargarUnidades(unidades);
     }
 
     public void mostrarPendientes() {
-        vistaGestor.mostrarPendientes(unidad.pedidosMostrar(false));
+        vistaGestor.mostrarPendientes(unidad.getPedidos());
     }
 
     public void mostrarTomados() {
@@ -75,7 +80,7 @@ public class ControladorMonitoreo implements Observador {
     }
     
     public void cambiarUnidad(UnidadProcesadora nuevaUnidad){
-        this.unidad=nuevaUnidad;
+            this.unidad=nuevaUnidad;
     }
     
     

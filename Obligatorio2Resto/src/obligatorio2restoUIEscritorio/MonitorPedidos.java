@@ -20,7 +20,8 @@ import obligatoriorestoLogica.UnidadProcesadora;
  */
 public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonitorPedidos{
 
-    private UnidadProcesadora unidad=new Bar();
+    private ArrayList<UnidadProcesadora> unidadesProcesadoras;
+    private UnidadProcesadora unidadInicio;
     private Gestor gestor;
     private ControladorMonitoreo controlador;
     private Pedido pedidoSeleccionadoPendiente;
@@ -29,10 +30,10 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
  
     public MonitorPedidos(Gestor user) {
         initComponents();
-        controlador=new ControladorMonitoreo(this,user,unidad);
+        controlador=new ControladorMonitoreo(this,user);
         this.gestor=user;
-        controlador.cargarUnidades();
-        //controlador.mostrarPendientes();
+        this.unidadesProcesadoras=new ArrayList();
+        controlador.mostrarPendientes();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -163,8 +164,8 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     }//GEN-LAST:event_jTablePedidosTomadosMouseClicked
 
     private void jComboBoxUProcesadorasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxUProcesadorasItemStateChanged
-        unidad=(UnidadProcesadora)jComboBoxUProcesadoras.getSelectedItem();
-        controlador.cambiarUnidad(unidad);
+        unidadInicio=(UnidadProcesadora)jComboBoxUProcesadoras.getSelectedItem();
+        pedidosPendientes(unidadInicio);
     }//GEN-LAST:event_jComboBoxUProcesadorasItemStateChanged
 
 
@@ -183,7 +184,7 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
     private Pedido seleccionarPedidoPendiente(int pos) {
         Pedido elegido = null;
         if (pos != -1) {
-            elegido = unidad.pedidosMostrar(false).get(pos);
+            elegido = unidadInicio.pedidosMostrar(false).get(pos);
         }
         return elegido;
     }
@@ -211,10 +212,10 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             
             for(Pedido p: pedidosPendientes){
                 lista.setValueAt(p.getProducto().getNombre(), fila, 0);
-                lista.setValueAt(p.getCantidad(), fila, 0);
-                lista.setValueAt(p.getDescripcion(), fila, 0);
-                lista.setValueAt(p.getServicio().getMesa().toString(), fila, 0);
-                lista.setValueAt(p.getServicio().getMesa().getMozo().getNombreCompleto(), fila, 0);
+                lista.setValueAt(p.getCantidad(), fila, 1);
+                lista.setValueAt(p.getDescripcion(), fila, 2);
+                lista.setValueAt(p.getServicio().getMesa().toString(), fila, 3);
+                lista.setValueAt(p.getServicio().getMesa().getMozo().getNombreCompleto(), fila, 4);
                 fila++;
             }
         jTablePedidosPendientes.setModel(lista);
@@ -235,10 +236,10 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
             
             for(Pedido p: pedidosTomados){
                 lista.setValueAt(p.getProducto().getNombre(), fila, 0);
-                lista.setValueAt(p.getCantidad(), fila, 0);
-                lista.setValueAt(p.getDescripcion(), fila, 0);
-                lista.setValueAt(p.getServicio().getMesa().toString(), fila, 0);
-                lista.setValueAt(p.getServicio().getMesa().getMozo().getNombreCompleto(), fila, 0);
+                lista.setValueAt(p.getCantidad(), fila, 1);
+                lista.setValueAt(p.getDescripcion(), fila, 2);
+                lista.setValueAt(p.getServicio().getMesa().toString(), fila, 3);
+                lista.setValueAt(p.getServicio().getMesa().getMozo().getNombreCompleto(), fila, 4);
                 fila++;
             }
         jTablePedidosTomados.setModel(lista);
@@ -267,8 +268,16 @@ public class MonitorPedidos extends javax.swing.JFrame implements InterfaceMonit
 
     @Override
     public void cargarUnidades(ArrayList<UnidadProcesadora> unidades) {
+        unidadesProcesadoras=unidades;
         for(UnidadProcesadora up: unidades){
             jComboBoxUProcesadoras.addItem(up);
+        }
+    }
+
+    private void pedidosPendientes(UnidadProcesadora unidad) {
+        if(controlador!=null){
+            controlador.mostrarPendientes();
+            controlador.cambiarUnidad(unidad);
         }
     }
 

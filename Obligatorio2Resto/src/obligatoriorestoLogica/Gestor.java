@@ -15,10 +15,14 @@ public class Gestor extends Usuario{
     
     private Date ultimoIngreso;
     private ArrayList<Pedido> pedidosTomados;
+    private ArrayList<UnidadProcesadora> unidadesProcesadoras;
+    
+    public enum Eventos{pedidoTomado}
 
     public Gestor(String usuario, String password, String nombreCompleto) {
         super(usuario, password, nombreCompleto);
         this.pedidosTomados=new ArrayList();
+        this.unidadesProcesadoras=new ArrayList();
     }
 
     @Override
@@ -35,6 +39,16 @@ public class Gestor extends Usuario{
     public String getNombreCompleto() {
         return this.nombreCompleto;
     }
+    
+    @Override
+    public boolean isConectado() {
+        return conectado;
+    }
+
+    @Override
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
+    }
 
     public Date getUltimoIngreso() {
         return ultimoIngreso;
@@ -50,17 +64,14 @@ public class Gestor extends Usuario{
 
     public void addPedidoTomado(Pedido pedidoTomado) {
         pedidosTomados.add(pedidoTomado);
-    }
-
-    @Override
-    public boolean isConectado() {
-        return conectado;
-    }
-
-    @Override
-    public void setConectado(boolean conectado) {
-        this.conectado = conectado;
+        avisar(Eventos.pedidoTomado);
     }
     
+    public void addUnidadProcesadora(UnidadProcesadora unidad){
+        this.unidadesProcesadoras.add(unidad);
+    }
     
+    public ArrayList<UnidadProcesadora> getUnidades(){
+        return unidadesProcesadoras;
+    }
 }

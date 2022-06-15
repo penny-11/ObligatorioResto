@@ -15,15 +15,17 @@ public class Mozo extends Usuario{
     private String telefono;
     private ArrayList<Mesa> mesas;
    
-    private Transferencia transferencia; 
+    private Transferencia transferencia;
+    private Pedido pedidoFinalizado;
     
-    public enum Eventos{transferirMesa,aceptarTransferencia,rechazarTransferencia}
+    public enum Eventos{transferirMesa,aceptarTransferencia,rechazarTransferencia,pedidoFinalizado}
 
     public Mozo(String usuario, String password, String nombreCompleto, String telefono) {
         super(usuario, password, nombreCompleto);
         this.telefono = telefono;
         this.mesas = new ArrayList(5); 
         this.transferencia=null;
+        this.pedidoFinalizado=null;
     }
 
     @Override
@@ -71,8 +73,13 @@ public class Mozo extends Usuario{
         this.transferencia = transferencia;
     }
     
+    public Pedido getPedidoFinalizado(){
+        return this.pedidoFinalizado;
+    }
+    
     public void abrirMesa(Mesa unaMesa) throws MesaException {
         if (!unaMesa.isEstadoMesa()) {
+            unaMesa.addMozo(this);
             Servicio serv=new Servicio(unaMesa,unaMesa.getMozo());
             unaMesa.addServicio(serv);
             unaMesa.setEstadoMesa(true);
@@ -115,6 +122,11 @@ public class Mozo extends Usuario{
          }else{
              avisar(Eventos.rechazarTransferencia);
          }
+    }
+    
+    public void pedidoFinalizado(Pedido pedidoFinalizado){
+        this.pedidoFinalizado=pedidoFinalizado;
+        avisar(Eventos.pedidoFinalizado);
     }
    
 }

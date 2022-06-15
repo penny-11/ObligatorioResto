@@ -48,9 +48,8 @@ public class ControlUsuarios {
         return true;
     }
 
-    public boolean crearUsuarioGestor(String us, String pwd, String nomCom) {
-        usuariosGestores.add(new Gestor(us, pwd, nomCom));
-        return true;
+    public void crearUsuarioGestor(Gestor gestor) {
+        usuariosGestores.add(gestor);
     }
     
     public ArrayList<Mozo> getMozos(){

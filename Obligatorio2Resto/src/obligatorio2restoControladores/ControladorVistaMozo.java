@@ -44,6 +44,9 @@ public class ControladorVistaMozo implements Observador {
             vistaMozo.cargarMesas(mozo.getMesas());
         } else if (evento.equals(Mozo.Eventos.rechazarTransferencia)) {
             vistaMozo.mostrarMensaje("Transferencia rechazada!");
+        }else if(evento.equals(Mozo.Eventos.pedidoFinalizado)){
+            vistaMozo.opcionPedidoFinalizado(mozo.getPedidoFinalizado());
+            vistaMozo.mostrarPedidosMesa(mozo.getPedidoFinalizado().getServicio());
         }
     }
 

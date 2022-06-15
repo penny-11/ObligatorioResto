@@ -21,9 +21,12 @@ public class ControlStock {
         //cargarUnidadesProcesadoras();
     }
     
-    public void cargarUnidadesProcesadoras(){
-        unidadesProcesadoras.add(new Bar("Bar"));
-        unidadesProcesadoras.add(new Cocina("Cocina"));
+    public void addUnidadProcesadora(UnidadProcesadora unidad){
+        unidadesProcesadoras.add(unidad);
+    }
+    
+    public ArrayList<UnidadProcesadora> getUnidades(){
+        return unidadesProcesadoras;
     }
     
     public boolean agregar(Producto unProducto) {
@@ -41,12 +44,6 @@ public class ControlStock {
     }
      public ArrayList<UnidadProcesadora> getUnidadProcesadoras() {
         return unidadesProcesadoras;
-    }
-    
-    public void agregarUnidadProcesadora(){
-        unidadesProcesadoras.add(new Bar("Barra Bar"));
-        unidadesProcesadoras.add(new Cocina("Barra Cocina"));
-        
     }
     
     public Producto buscarProducto(String productoNom) {

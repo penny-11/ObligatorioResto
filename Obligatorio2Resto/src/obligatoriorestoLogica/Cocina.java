@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class Cocina extends UnidadProcesadora {
     
+    
     public enum Eventos{recibirPedido}
-
     public Cocina(String nombre) {
         super(nombre);
     }

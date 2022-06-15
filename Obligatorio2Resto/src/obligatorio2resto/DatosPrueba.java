@@ -12,6 +12,7 @@ import obligatoriorestoLogica.ClientePreferencial;
 import obligatoriorestoLogica.Cocina;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Fachada;
+import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
 import obligatoriorestoLogica.Mozo;
@@ -27,7 +28,12 @@ public class DatosPrueba {
     
     public static void cargar(){
         Fachada logica = Fachada.getInstancia();
-           logica.agregarUnidadProcesadora();
+        
+        Bar bar=new Bar("Bar");
+        Cocina cocina=new Cocina("Cocina");
+        
+        logica.addUnidadProcesadora(cocina);
+        logica.addUnidadProcesadora(bar);
         
         Mozo mozo1 = new Mozo("Juan", "Juan1234","Juan Perez", "099 854 784");
         Mozo mozo2 = new Mozo("Lucas", "Lucas1234","Lucas Perez", "099 854 111");
@@ -35,12 +41,27 @@ public class DatosPrueba {
         Mozo mozo4 = new Mozo("Sofia", "Sofia1234","Sofia Martinez", "099 222 748");
         Mozo mozo5 = new Mozo("Lucia", "Lucia1234","Lucia Rodriguez", "094 333 487");
         
-        
          //USUARIOS GESTORES
-        logica.agregarGestor("Camila", "Camila1234","Camila Perez");
-        logica.agregarGestor("x", "x","Camila Perez");
-        logica.agregarGestor("Martina", "Martina1234","Martina Gonzalez");
-        logica.agregarGestor("Jorge", "Jorge1234","Jorge Martinez");
+         
+         Gestor gestor1=new Gestor("Camila", "Camila1234","Camila Perez");
+         Gestor gestor2=new Gestor("x", "x","Camila Perez");
+         Gestor gestor3=new Gestor("Martina", "Martina1234","Martina Gonzalez");
+         Gestor gestor4=new Gestor("Jorge", "Jorge1234","Jorge Martinez");
+         
+         /*gestor1.addUnidadProcesadora(bar);
+         gestor2.addUnidadProcesadora(bar);
+         gestor3.addUnidadProcesadora(bar);
+         gestor4.addUnidadProcesadora(bar);
+         gestor1.addUnidadProcesadora(cocina);
+         gestor2.addUnidadProcesadora(cocina);
+         gestor3.addUnidadProcesadora(cocina);
+         gestor4.addUnidadProcesadora(cocina);*/
+         
+         
+        logica.agregarGestor(gestor1);
+        logica.agregarGestor(gestor2);
+        logica.agregarGestor(gestor3);
+        logica.agregarGestor(gestor4);
         
         
         //CLIENTES PREFERENCIALES
@@ -95,9 +116,6 @@ public class DatosPrueba {
         logica.agregarMozo(mozo3);
         logica.agregarMozo(mozo4);
         logica.agregarMozo(mozo5);
-        
-        Bar bar=new Bar("Bar");
-        Cocina cocina=new Cocina("Cocina");
         
         //PRODUCTOS
         

@@ -600,6 +600,12 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         DecisionTransferencia tran = new DecisionTransferencia(this, false, trans);
         tran.setVisible(true);
     }
+    
+    @Override
+    public void opcionPedidoFinalizado(Pedido unPedido){
+        PedidoFinalizado finalizado=new PedidoFinalizado(this,false,unPedido);
+        finalizado.setVisible(true);
+    }
 
     private void detallesCliente(String idCliente) {
         int clienteId = Integer.valueOf(idCliente);

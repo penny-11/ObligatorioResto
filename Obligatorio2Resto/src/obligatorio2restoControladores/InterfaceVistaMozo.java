@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import obligatoriorestoLogica.Cliente;
 import obligatoriorestoLogica.Mesa;
 import obligatoriorestoLogica.Mozo;
+import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.Producto;
 import obligatoriorestoLogica.Servicio;
 import obligatoriorestoLogica.Transferencia;
@@ -37,6 +38,8 @@ public interface InterfaceVistaMozo {
     public void mostrarMensaje(String mensaje);
     
     public void opcionTransferencia(Transferencia trans);
+    
+    public void opcionPedidoFinalizado(Pedido unPedido);
 
     public void mostrarProductos(ArrayList<Producto> productos);
     

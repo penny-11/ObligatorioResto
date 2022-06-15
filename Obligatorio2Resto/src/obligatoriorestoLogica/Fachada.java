@@ -44,9 +44,9 @@ public class Fachada extends Observable {
     public ArrayList<Producto> getProductos() {
         return cs.getProductos();
     }
-    
-    public void agregarUnidadProcesadora() {
-        cs.agregarUnidadProcesadora();
+
+    public void addUnidadProcesadora(UnidadProcesadora unidad) {
+        cs.addUnidadProcesadora(unidad);
     }
     
     public ArrayList<UnidadProcesadora> getUnidadProcesadoras() {
@@ -63,8 +63,8 @@ public class Fachada extends Observable {
      public void agregarMozo(Mozo unMozo) {
         cu.crearUsuarioMozo(unMozo);
     }
-     public void agregarGestor(String us, String pwd, String nomCom) {
-        cu.crearUsuarioGestor(us, pwd, nomCom);
+     public void agregarGestor(Gestor gestor) {
+        cu.crearUsuarioGestor(gestor);
     }
 
     public Servicio agregarServicio(Mesa unaMesa) {
