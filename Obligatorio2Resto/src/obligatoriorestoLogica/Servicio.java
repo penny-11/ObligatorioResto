@@ -64,6 +64,17 @@ public class Servicio {
             throw new ServicioException("Cantidad Invalida");
         }
     }
+    
+    public boolean verificarPendientes(){
+        boolean result=false;
+        for(Pedido pe:items){
+            if(pe.getEstado()){
+                result=true;
+                return result;
+            }
+        }
+        return result;
+    }
 
     public int total() {
         int total = 0;

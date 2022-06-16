@@ -55,6 +55,7 @@ public class ControladorVistaMozo implements Observador {
             mozo.abrirMesa(unaMesa);
             sistema.agregarServicio(unaMesa);
             vistaMozo.mostrarMensaje("Mesa abierta con exito.");
+            vistaMozo.cargarMesas(mozo.getMesas());
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje(ex.getMessage());
         }
@@ -63,8 +64,10 @@ public class ControladorVistaMozo implements Observador {
     public void cerrarMesa(Mesa unaMesa, Cliente unCliente) {
         try {
             mozo.cerrarMesa(unaMesa, unCliente);
-            //int clienteId = jTextFieldDescripcion.getText();
             vistaMozo.mostrarMensaje("Mesa cerrada con exito.");
+            vistaMozo.cargarMesas(mozo.getMesas());
+            mostrarPedidosMesa(unaMesa);
+            vistaMozo.borrarDetalleCliente();
         } catch (MesaException ex) {
             vistaMozo.mostrarMensaje(ex.getMessage());
         }
@@ -75,6 +78,7 @@ public class ControladorVistaMozo implements Observador {
         try {
             if (serv != null) {
                 serv.hacerPedido(unProducto, cantidad, descripcion);
+                sistema.actualizarServicio(serv);
                 vistaMozo.mostrarMensaje("Pedido realizado con exito.");
                 vistaMozo.mostrarPedidosMesa(serv);
             } else {
@@ -95,14 +99,6 @@ public class ControladorVistaMozo implements Observador {
 
     public Cliente buscarCliente(int idCliente) {
         return sistema.buscarCliente(idCliente);
-    }
-
-    public Producto buscarProducto(String producto) {
-        return sistema.buscarProducto(producto);
-    }
-
-    public Mesa buscarMesa(int nroMesa, Mozo mozo) {
-        return mozo.buscarMesa(nroMesa);
     }
 
     private void opcionTransferencia(Transferencia transferencia) {

@@ -4,6 +4,7 @@
  */
 package obligatorio2restoUIEscritorio;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -59,7 +60,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabelMesa3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableServicio = new javax.swing.JTable();
-        jButtonCerrarMesa = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jButtonAbrirMesa = new javax.swing.JButton();
         jSpinnerCantidad = new javax.swing.JSpinner();
@@ -91,6 +91,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jLabelBeneficio = new javax.swing.JLabel();
         jLabelMontoFinal = new javax.swing.JLabel();
         jButtonOpcionTransferir = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jButtonCerrarMesa = new javax.swing.JButton();
 
         idClienteText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,6 +101,21 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabelMesa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMesa1.setOpaque(true);
+
+        jLabelMesa4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMesa4.setOpaque(true);
+
+        jLabelMesa2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMesa2.setOpaque(true);
+
+        jLabelMesa5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMesa5.setOpaque(true);
+
+        jLabelMesa3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMesa3.setOpaque(true);
 
         jTableServicio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,13 +129,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
             }
         ));
         jScrollPane1.setViewportView(jTableServicio);
-
-        jButtonCerrarMesa.setText("Cerrar Mesa");
-        jButtonCerrarMesa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCerrarMesaActionPerformed(evt);
-            }
-        });
 
         jButtonSalir.setText("Salir del Sistema");
 
@@ -150,11 +160,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                 jComboBoxMesasItemStateChanged(evt);
             }
         });
-        jComboBoxMesas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxMesasActionPerformed(evt);
-            }
-        });
 
         jLabel10.setText("Seleccionar Mesa:");
 
@@ -164,12 +169,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         butNoReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 butNoRegActionPerformed(evt);
-            }
-        });
-
-        idClienteText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idClienteText1ActionPerformed(evt);
             }
         });
 
@@ -206,11 +205,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
             }
         ));
-        jTableMozosConectados.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMozosConectadosMouseClicked(evt);
-            }
-        });
         jScrollPane2.setViewportView(jTableMozosConectados);
 
         jButtonTransferir1.setText("Transferir");
@@ -227,38 +221,20 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
             }
         });
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel14.setText("Cerrar Mesa");
+
+        jButtonCerrarMesa.setText("Cerrar Mesa");
+        jButtonCerrarMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCerrarMesaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jLabelMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabelMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(93, 93, 93)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
-                .addGap(50, 50, 50)
-                .addComponent(jLabelMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(jButtonAbrirMesa, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                    .addComponent(jButtonOpcionTransferir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,17 +252,19 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jTextFieldDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabelMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jScrollPane1))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButtonTransferir1)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButtonCerrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(butNoReg)
-                                        .addGap(187, 187, 187)
+                                        .addGap(604, 604, 604)
+                                        .addComponent(jButtonTransferir1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(75, 75, 75)
+                                        .addComponent(jLabel14)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel13)
                                             .addComponent(jLabel12)
@@ -295,35 +273,73 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(butNoReg)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(242, 242, 242)
+                                        .addComponent(jButton1))))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel11))
+                                    .addComponent(jLabel11)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel3)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabelNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelMontoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelBeneficio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelMontoFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(idClienteText1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)))
-                        .addContainerGap())))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idClienteText1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButtonCerrarMesa)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabelNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabelMontoTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabelBeneficio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabelMontoFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))))
+                        .addContainerGap(721, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addComponent(jLabel9))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(jLabel10)
+                                .addGap(27, 27, 27))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabelMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBoxMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel10)
-                        .addGap(27, 27, 27)
-                        .addComponent(jComboBoxMesas, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(389, 389, 389))
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabelMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(492, 691, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(jLabel6)
+                                .addGap(150, 150, 150)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jSpinnerCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(530, 530, 530)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jButtonAbrirMesa, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(jButtonOpcionTransferir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,22 +349,18 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                         .addGap(38, 38, 38)
                         .addComponent(jLabel9)
                         .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelMesa3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jComboBoxMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabelMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jComboBoxMesas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelMesa1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMesa3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMesa2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabelMesa5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelMesa4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -372,17 +384,14 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonCerrarMesa, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butNoReg)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)))
-                .addGap(8, 8, 8)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel14))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(butNoReg))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
@@ -411,16 +420,13 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jLabelMontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(110, 110, 110))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonCerrarMesa)
+                .addGap(67, 67, 67))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jComboBoxMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMesasActionPerformed
-//        mesa = (Mesa) jComboBoxMesas.getSelectedItem();
-//        mostrarPedidosMesa(mesa);
-    }//GEN-LAST:event_jComboBoxMesasActionPerformed
 
     private void jButtonAbrirMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAbrirMesaActionPerformed
         abrirMesa(mesa);
@@ -433,10 +439,6 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         hacerPedido(prod, cantidad, descripcion, mesa);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButtonCerrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarMesaActionPerformed
-        cerrarMesa(mesa);
-    }//GEN-LAST:event_jButtonCerrarMesaActionPerformed
-
     private void butNoRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butNoRegActionPerformed
         cerrarMesa(mesa, null);
     }//GEN-LAST:event_butNoRegActionPerformed
@@ -445,20 +447,12 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         // TODO add your handling code here:
     }//GEN-LAST:event_idClienteTextActionPerformed
 
-    private void idClienteText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idClienteText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idClienteText1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         detallesCliente(idClienteText1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTableMozosConectadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMozosConectadosMouseClicked
-
-    }//GEN-LAST:event_jTableMozosConectadosMouseClicked
-
     private void jButtonTransferir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTransferir1ActionPerformed
-        transferirMesa(mesa,mozo,seleccionarMozo(jTableMozosConectados.getSelectedRow()));
+        transferirMesa(mesa, mozo, seleccionarMozo(jTableMozosConectados.getSelectedRow()));
     }//GEN-LAST:event_jButtonTransferir1ActionPerformed
 
     private void jComboBoxMesasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMesasItemStateChanged
@@ -469,6 +463,10 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private void jButtonOpcionTransferirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOpcionTransferirActionPerformed
         transferenciaMesa();
     }//GEN-LAST:event_jButtonOpcionTransferirActionPerformed
+
+    private void jButtonCerrarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarMesaActionPerformed
+        cerrarMesa(mesa);
+    }//GEN-LAST:event_jButtonCerrarMesaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -492,6 +490,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -519,15 +518,117 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void cargarMesas(ArrayList<Mesa> mesasMozo) {
-        
+
         jComboBoxMesas.removeAllItems();
         for (Mesa me : mesasMozo) {
             jComboBoxMesas.addItem(me);
-            jLabelMesa1.setText("Mesa - " + me.getNumeroMesa());
-            jLabelMesa2.setText("Mesa - " + me.getNumeroMesa());
-            jLabelMesa3.setText("Mesa - " + me.getNumeroMesa());
-            jLabelMesa4.setText("Mesa - " + me.getNumeroMesa());
-            jLabelMesa5.setText("Mesa - " + me.getNumeroMesa());
+        }
+        mostrarDibujoMesas(mesasMozo);
+    }
+
+    public void mostrarDibujoMesas(ArrayList<Mesa> mesas) {
+        int cant = mesas.size();
+        switch (cant) {
+            case 1:
+                jLabelMesa1.setText("Mesa - " + mesas.get(0).getNumeroMesa());
+                if (mesas.get(0).isEstadoMesa()) {
+                    jLabelMesa1.setBackground(Color.red);
+                } else {
+                    jLabelMesa1.setBackground(Color.GREEN);
+                }
+                break;
+            case 2:
+                jLabelMesa1.setText("Mesa - " + mesas.get(0).getNumeroMesa());
+                jLabelMesa2.setText("Mesa - " + mesas.get(1).getNumeroMesa());
+                if (mesas.get(0).isEstadoMesa()) {
+                    jLabelMesa1.setBackground(Color.red);
+                } else {
+                    jLabelMesa1.setBackground(Color.GREEN);
+                }
+                if (mesas.get(1).isEstadoMesa()) {
+                    jLabelMesa2.setBackground(Color.red);
+                } else {
+                    jLabelMesa2.setBackground(Color.GREEN);
+                }
+                break;
+            case 3:
+                jLabelMesa1.setText("Mesa - " + mesas.get(0).getNumeroMesa());
+                jLabelMesa2.setText("Mesa - " + mesas.get(1).getNumeroMesa());
+                jLabelMesa3.setText("Mesa - " + mesas.get(2).getNumeroMesa());
+                if (mesas.get(0).isEstadoMesa()) {
+                    jLabelMesa1.setBackground(Color.red);
+                } else {
+                    jLabelMesa1.setBackground(Color.GREEN);
+                }
+                if (mesas.get(1).isEstadoMesa()) {
+                    jLabelMesa2.setBackground(Color.red);
+                } else {
+                    jLabelMesa2.setBackground(Color.GREEN);
+                }
+                if (mesas.get(2).isEstadoMesa()) {
+                    jLabelMesa3.setBackground(Color.red);
+                } else {
+                    jLabelMesa3.setBackground(Color.GREEN);
+                }
+                break;
+            case 4:
+                jLabelMesa1.setText("Mesa - " + mesas.get(0).getNumeroMesa());
+                jLabelMesa2.setText("Mesa - " + mesas.get(1).getNumeroMesa());
+                jLabelMesa3.setText("Mesa - " + mesas.get(2).getNumeroMesa());
+                jLabelMesa4.setText("Mesa - " + mesas.get(3).getNumeroMesa());
+                if (mesas.get(0).isEstadoMesa()) {
+                    jLabelMesa1.setBackground(Color.red);
+                } else {
+                    jLabelMesa1.setBackground(Color.GREEN);
+                }
+                if (mesas.get(1).isEstadoMesa()) {
+                    jLabelMesa2.setBackground(Color.red);
+                } else {
+                    jLabelMesa2.setBackground(Color.GREEN);
+                }
+                if (mesas.get(2).isEstadoMesa()) {
+                    jLabelMesa3.setBackground(Color.red);
+                } else {
+                    jLabelMesa3.setBackground(Color.GREEN);
+                }
+                if (mesas.get(3).isEstadoMesa()) {
+                    jLabelMesa4.setBackground(Color.red);
+                } else {
+                    jLabelMesa4.setBackground(Color.GREEN);
+                }
+                break;
+            case 5:
+                jLabelMesa1.setText("Mesa - " + mesas.get(0).getNumeroMesa());
+                jLabelMesa2.setText("Mesa - " + mesas.get(1).getNumeroMesa());
+                jLabelMesa3.setText("Mesa - " + mesas.get(2).getNumeroMesa());
+                jLabelMesa4.setText("Mesa - " + mesas.get(3).getNumeroMesa());
+                jLabelMesa5.setText("Mesa - " + mesas.get(4).getNumeroMesa());
+                if (mesas.get(0).isEstadoMesa()) {
+                    jLabelMesa1.setBackground(Color.red);
+                } else {
+                    jLabelMesa1.setBackground(Color.GREEN);
+                }
+                if (mesas.get(1).isEstadoMesa()) {
+                    jLabelMesa2.setBackground(Color.red);
+                } else {
+                    jLabelMesa2.setBackground(Color.GREEN);
+                }
+                if (mesas.get(2).isEstadoMesa()) {
+                    jLabelMesa3.setBackground(Color.red);
+                } else {
+                    jLabelMesa3.setBackground(Color.GREEN);
+                }
+                if (mesas.get(3).isEstadoMesa()) {
+                    jLabelMesa4.setBackground(Color.red);
+                } else {
+                    jLabelMesa4.setBackground(Color.GREEN);
+                }
+                if (mesas.get(4).isEstadoMesa()) {
+                    jLabelMesa5.setBackground(Color.red);
+                } else {
+                    jLabelMesa5.setBackground(Color.GREEN);
+                }
+                break;
         }
 
     }
@@ -551,12 +652,12 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
                 lista.setValueAt(p.getCantidad(), fila, 1);
                 lista.setValueAt(p.getProducto().getPrecio(), fila, 2);
                 lista.setValueAt(p.subTotal(), fila, 3);
-                if(p.getEstado()){
+                if (p.getEstado()) {
                     lista.setValueAt("Pedido Finalizado", fila, 4);
-                }else{
+                } else {
                     lista.setValueAt("Pedido Pendiente", fila, 4);
                 }
-                
+
                 fila++;
             }
             jTableServicio.setModel(lista);
@@ -605,10 +706,10 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         DecisionTransferencia tran = new DecisionTransferencia(this, false, trans);
         tran.setVisible(true);
     }
-    
+
     @Override
-    public void opcionPedidoFinalizado(Pedido unPedido){
-        PedidoFinalizado finalizado=new PedidoFinalizado(this,false,unPedido);
+    public void opcionPedidoFinalizado(Pedido unPedido) {
+        PedidoFinalizado finalizado = new PedidoFinalizado(this, false, unPedido);
         finalizado.setVisible(true);
     }
 
@@ -616,7 +717,15 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         int clienteId = Integer.valueOf(idCliente);
         cliente = controlador.buscarCliente(clienteId);
         controlador.mostrarDatosCliente(cliente);
-        controlador.cerrarMesa(mesa, cliente);
+    }
+
+    @Override
+    public void borrarDetalleCliente() {
+        jLabelNombreCliente.setText("");
+        jLabelMontoTotal.setText("");
+        jLabelBeneficio.setText("");
+        jLabelMontoFinal.setText("");
+        idClienteText1.setText("");
     }
 
     private Mozo seleccionarMozo(int pos) {
@@ -632,7 +741,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         if (seleccionado != null) {
             jLabelNombreCliente.setText(seleccionado.getNombre());
             jLabelMontoTotal.setText(mesa.getServicio().total() + "");
-            jLabelBeneficio.setText(seleccionado!=null?seleccionado.descripcionBeneficio():"");
+            jLabelBeneficio.setText(seleccionado != null ? seleccionado.descripcionBeneficio() : "");
             jLabelMontoFinal.setText(seleccionado.calculoTotalServicio(mesa.getServicio()) + "");
         } else {
             JOptionPane.showMessageDialog(this, "Cliente no existe.");
@@ -663,8 +772,8 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
     }
 
     @Override
-    public void transferirMesa(Mesa mesa,Mozo mozoOrigen ,Mozo mozoTransferir) {
-        controlador.transferirMesa(mesa,mozoOrigen,mozoTransferir);
+    public void transferirMesa(Mesa mesa, Mozo mozoOrigen, Mozo mozoTransferir) {
+        controlador.transferirMesa(mesa, mozoOrigen, mozoTransferir);
     }
 
     @Override

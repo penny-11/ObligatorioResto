@@ -67,15 +67,15 @@ public class Fachada extends Observable {
         cu.crearUsuarioGestor(gestor);
     }
 
-    public Servicio agregarServicio(Mesa unaMesa) {
-        return cser.agregarServicio(unaMesa);
+    public void agregarServicio(Mesa unaMesa) {
+        cser.agregarServicio(unaMesa);
     }
     public void agregarProducto(Producto prod1) {
         cs.agregar(prod1);
     }
 
-    public Servicio buscarServicio(Mesa unaMesa) {
-        return cser.buscarServicio(unaMesa);
+    public void actualizarServicio(Servicio unServicio) {
+        cser.actualizarServicio(unServicio);
     }
     public Cliente buscarCliente(int id) {
         return cser.buscarCliente(id);
@@ -102,12 +102,4 @@ public class Fachada extends Observable {
     public ArrayList<Mozo> getMozosConectados() {
         return cu.getMozosConectados();
     }
-    
-    public Producto buscarProducto(String productoNom ) {
-        return cs.buscarProducto(productoNom);
-    }
-    
-   public UnidadProcesadora buscarUP(String upNom){
-       return cs.buscarUP(upNom);
-   }
 }

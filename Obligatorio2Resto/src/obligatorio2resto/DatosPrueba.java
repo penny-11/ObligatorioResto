@@ -119,20 +119,24 @@ public class DatosPrueba {
         
         //PRODUCTOS
         
-        Producto prod1 = new Producto(1,"Hamburgesa", 250,30);
-        Producto prod2 = new Producto(2,"Tarta de pollo", 130,15);
-        Producto prod3 = new Producto(3,"Milanesa de carne", 180,60);
-        Producto prod4 = new Producto(1,"Milanesa de pollo", 220,20);
-        Producto prod5 = new Producto(1,"Ravioles", 400,40);
-        Producto prod6 = new Producto(1,"Daikiri", 420,20);
-        Producto prod7 = new Producto(1,"Fernet", 120,50);
-        Producto prod8 = new Producto(1,"Cerveza", 110,30);
-        Producto prod9 = new Producto(1,"Vino", 50,30);
+        Producto prod1 = new Producto("Hamburgesa", 250,30);
+        Producto prod2 = new Producto("Tarta de pollo", 130,15);
+        Producto prod3 = new Producto("Milanesa de carne", 180,60);
+        Producto prod4 = new Producto("Milanesa de pollo", 220,20);
+        Producto prod5 = new Producto("Ravioles", 400,40);
+        Producto prod6 = new Producto("Daikiri", 420,20);
+        Producto prod7 = new Producto("Fernet", 120,50);
+        Producto prod8 = new Producto("Cerveza", 110,30);
+        Producto prod9 = new Producto("Vino", 50,30);
+        Producto prod10=new Producto("Cafe", 50,30);
+        Producto prod11=new Producto("Agua", 50,30);
         
         prod6.setUnidadProcesadora(bar);
         prod7.setUnidadProcesadora(bar);
         prod8.setUnidadProcesadora(bar);
         prod9.setUnidadProcesadora(bar);
+        prod10.setUnidadProcesadora(bar);
+        prod11.setUnidadProcesadora(bar);
        
          
         prod1.setUnidadProcesadora(cocina);
@@ -150,6 +154,8 @@ public class DatosPrueba {
         logica.agregar(prod7);
         logica.agregar(prod8);
         logica.agregar(prod9);
+        logica.agregar(prod10);
+        logica.agregar(prod11);
         
         //SERVICIOS 
         

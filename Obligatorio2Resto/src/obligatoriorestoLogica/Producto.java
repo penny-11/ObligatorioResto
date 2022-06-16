@@ -16,8 +16,7 @@ public class Producto {
     private int stock;
     private UnidadProcesadora unidadProcesadora;
 
-    public Producto(int codigo, String nombre, float precio, int stock) {
-        this.codigo = codigo;
+    public Producto(String nombre, float precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;

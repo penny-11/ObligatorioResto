@@ -47,4 +47,6 @@ public interface InterfaceVistaMozo {
     
     public void mostrarDatos(Cliente seleccionado);
     
+    public void borrarDetalleCliente();
+    
 }

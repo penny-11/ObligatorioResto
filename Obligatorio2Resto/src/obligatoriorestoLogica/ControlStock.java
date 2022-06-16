@@ -18,7 +18,6 @@ public class ControlStock {
     private ArrayList <UnidadProcesadora> unidadesProcesadoras=new ArrayList();
     
     public ControlStock(){
-        //cargarUnidadesProcesadoras();
     }
     
     public void addUnidadProcesadora(UnidadProcesadora unidad){
@@ -44,25 +43,5 @@ public class ControlStock {
     }
      public ArrayList<UnidadProcesadora> getUnidadProcesadoras() {
         return unidadesProcesadoras;
-    }
-    
-    public Producto buscarProducto(String productoNom) {
-        for(Producto p: productos){
-            if(p.getNombre()==productoNom){
-                return p;
-            }
-        }
-        return null;
-    }
-    
-    public UnidadProcesadora buscarUP(String upNom) {
-        for(UnidadProcesadora up: unidadesProcesadoras){
-            if(up.equals(upNom)){
-                return up;
-            }
-        }
-        return null;
-    }
-
-    
+    } 
 }

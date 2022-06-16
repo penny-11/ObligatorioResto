@@ -57,19 +57,18 @@ public class ControlServicio{
         return null;
     }
     
-    public Servicio agregarServicio(Mesa unaMesa){
+    public void agregarServicio(Mesa unaMesa){
         Servicio unServicio=new Servicio(unaMesa,unaMesa.getMozo());
         servicios.add(unServicio);
-        return unServicio;
     }
     
-    public Servicio buscarServicio(Mesa unaMesa){
+    public void actualizarServicio(Servicio unServicio){
         for(Servicio se:servicios){
-            if(se.getMesa().getNumeroMesa()==unaMesa.getNumeroMesa() && se.getMesa().isEstadoMesa()){
-                return se;
+            if(unServicio.equals(se)){
+                se=unServicio;
+                break;
             }
         }
-        return null;
     }
     
 }

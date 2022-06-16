@@ -10,22 +10,24 @@ import java.util.ArrayList;
  *
  * @author tomas
  */
-public class Mozo extends Usuario{
+public class Mozo extends Usuario {
 
     private String telefono;
     private ArrayList<Mesa> mesas;
-   
+
     private Transferencia transferencia;
     private Pedido pedidoFinalizado;
-    
-    public enum Eventos{transferirMesa,aceptarTransferencia,rechazarTransferencia,pedidoFinalizado}
+
+    public enum Eventos {
+        transferirMesa, aceptarTransferencia, rechazarTransferencia, pedidoFinalizado
+    }
 
     public Mozo(String usuario, String password, String nombreCompleto, String telefono) {
         super(usuario, password, nombreCompleto);
         this.telefono = telefono;
-        this.mesas = new ArrayList(5); 
-        this.transferencia=null;
-        this.pedidoFinalizado=null;
+        this.mesas = new ArrayList(5);
+        this.transferencia = null;
+        this.pedidoFinalizado = null;
     }
 
     @Override
@@ -42,7 +44,7 @@ public class Mozo extends Usuario{
     public String getNombreCompleto() {
         return this.nombreCompleto;
     }
-    
+
     @Override
     public boolean isConectado() {
         return conectado;
@@ -72,15 +74,15 @@ public class Mozo extends Usuario{
     public void setTransferencia(Transferencia transferencia) {
         this.transferencia = transferencia;
     }
-    
-    public Pedido getPedidoFinalizado(){
+
+    public Pedido getPedidoFinalizado() {
         return this.pedidoFinalizado;
     }
-    
+
     public void abrirMesa(Mesa unaMesa) throws MesaException {
         if (!unaMesa.isEstadoMesa()) {
             unaMesa.addMozo(this);
-            Servicio serv=new Servicio(unaMesa,unaMesa.getMozo());
+            Servicio serv = new Servicio(unaMesa, unaMesa.getMozo());
             unaMesa.addServicio(serv);
             unaMesa.setEstadoMesa(true);
         } else {
@@ -90,10 +92,14 @@ public class Mozo extends Usuario{
 
     public void cerrarMesa(Mesa unaMesa, Cliente unCliente) throws MesaException {
         if (unaMesa.isEstadoMesa()) {
-            if (unCliente != null) {
-                unaMesa.addCliente(unCliente);
+            if (unaMesa.getServicio().verificarPendientes()) {
+                if (unCliente != null) {
+                    unaMesa.addCliente(unCliente);
+                }
+                unaMesa.setEstadoMesa(false);
+            }else{
+                throw new MesaException("La Mesa tiene pedidos pendientes aun.");
             }
-            unaMesa.setEstadoMesa(false);
         } else {
             throw new MesaException("La Mesa no esta abierta");
         }
@@ -107,26 +113,26 @@ public class Mozo extends Usuario{
         }
         return null;
     }
-    
-    public void transferirMesa(Transferencia trans){
-        this.transferencia=trans;
+
+    public void transferirMesa(Transferencia trans) {
+        this.transferencia = trans;
         avisar(Eventos.transferirMesa);
     }
 
     public void respuestaTransferencia(Transferencia trans, boolean state) {
-         trans.setEstado(state);
-         if(state){
-             trans.getMozoDestino().addMesa(trans.getMesa());
-             trans.getMozoOrigen().getMesas().remove(trans.getMesa());
-             avisar(Eventos.aceptarTransferencia);
-         }else{
-             avisar(Eventos.rechazarTransferencia);
-         }
+        trans.setEstado(state);
+        if (state) {
+            trans.getMozoDestino().addMesa(trans.getMesa());
+            trans.getMozoOrigen().getMesas().remove(trans.getMesa());
+            avisar(Eventos.aceptarTransferencia);
+        } else {
+            avisar(Eventos.rechazarTransferencia);
+        }
     }
-    
-    public void pedidoFinalizado(Pedido pedidoFinalizado){
-        this.pedidoFinalizado=pedidoFinalizado;
+
+    public void pedidoFinalizado(Pedido pedidoFinalizado) {
+        this.pedidoFinalizado = pedidoFinalizado;
         avisar(Eventos.pedidoFinalizado);
     }
-   
+
 }
