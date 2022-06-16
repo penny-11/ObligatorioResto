@@ -5,8 +5,6 @@
 package obligatorio2restoControladores;
 
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import obligatorio2Observador.Observable;
 import obligatorio2Observador.Observador;
 import obligatoriorestoLogica.Cliente;

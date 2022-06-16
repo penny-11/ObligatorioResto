@@ -5,7 +5,6 @@
 package obligatoriorestoLogica;
 
 import java.util.ArrayList;
-import obligatorio2Observador.Observable;
 
 /**
  *

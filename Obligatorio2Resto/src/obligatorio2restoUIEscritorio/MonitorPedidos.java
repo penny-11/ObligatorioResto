@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import obligatorio2restoControladores.ControladorMonitoreo;
 import obligatorio2restoControladores.InterfaceMonitorPedidos;
-import obligatoriorestoLogica.Bar;
 import obligatoriorestoLogica.Gestor;
 import obligatoriorestoLogica.Pedido;
 import obligatoriorestoLogica.UnidadProcesadora;

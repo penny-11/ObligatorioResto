@@ -7,8 +7,8 @@ package obligatorio2restoUIEscritorio;
 import java.awt.Frame;
 import obligatoriorestoLogica.Fachada;
 import obligatoriorestoLogica.Gestor;
-import obligatoriorestoLogica.UnidadProcesadora;
 import obligatoriorestoLogica.Usuario;
+import obligatoriorestoLogica.UsuarioException;
 
 /**
  *
@@ -21,7 +21,7 @@ public class LoginGestor extends LoginGeneral{
     }
     
     @Override
-    public Usuario Logear(String usuario, String pwd) {
+    public Usuario Logear(String usuario, String pwd) throws UsuarioException{
         return Fachada.getInstancia().loginGestor(usuario, pwd);
     }
 

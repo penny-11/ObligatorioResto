@@ -19,15 +19,22 @@ public class ControlUsuarios {
         Mozo mozo=(Mozo) verificarUsuario(u, p, usuariosMozo);
         if(mozo==null){
             throw new UsuarioException("Nombre de usuario y/o contraseña incorrectos");
-        }else if(mozo.isConectado()==true){
+        }else if(mozo.isConectado()){
             throw new UsuarioException("Ud. ya está logueado");
         }
         mozo.setConectado(true);
         return mozo;
     }
 
-    public Gestor loginGestor(String u, String p) {
-        return (Gestor) verificarUsuario(u, p, usuariosGestores);
+    public Gestor loginGestor(String u, String p) throws UsuarioException{
+        Gestor gestor=(Gestor) verificarUsuario(u, p, usuariosGestores);
+        if(gestor==null){
+            throw new UsuarioException("Nombre de usuario y/o contraseña incorrectos");
+        }else if(gestor.isConectado()){
+            throw new UsuarioException("Ud. ya está logueado");
+        }
+        gestor.setConectado(true);
+        return gestor;
     }
 
     private Usuario verificarUsuario(String u, String p, ArrayList usuarios) {
