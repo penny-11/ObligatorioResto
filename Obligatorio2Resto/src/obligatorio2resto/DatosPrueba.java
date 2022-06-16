@@ -93,6 +93,12 @@ public class DatosPrueba {
         Mesa mesa3 = new Mesa(3);
         Mesa mesa4 = new Mesa(4);
         Mesa mesa5 = new Mesa(5);
+        Mesa mesa6 = new Mesa(6);
+        Mesa mesa7 = new Mesa(7);
+        Mesa mesa8 = new Mesa(8);
+        Mesa mesa9 = new Mesa(9);
+        Mesa mesa10 = new Mesa(10);
+        Mesa mesa11 = new Mesa(11);
         
         
         
@@ -101,14 +107,26 @@ public class DatosPrueba {
         logica.agregarMesa(mesa3);
         logica.agregarMesa(mesa4);
         logica.agregarMesa(mesa5);
+        logica.agregarMesa(mesa6);
+        logica.agregarMesa(mesa7);
+        logica.agregarMesa(mesa8);
+        logica.agregarMesa(mesa9);
+        logica.agregarMesa(mesa10);
+        logica.agregarMesa(mesa11);
         
         mozo1.addMesa(mesa1);
         mozo1.addMesa(mesa3);
+        mozo1.addMesa(mesa7);
         
         mozo2.addMesa(mesa2);
         mozo2.addMesa(mesa5);
+        mozo2.addMesa(mesa11);
         
         mozo3.addMesa(mesa4);
+        mozo3.addMesa(mesa6);
+        mozo3.addMesa(mesa8);
+        mozo3.addMesa(mesa9);
+        mozo3.addMesa(mesa10);
         
         //USUARIOS MOZOS
         logica.agregarMozo(mozo1);
@@ -157,22 +175,6 @@ public class DatosPrueba {
         logica.agregar(prod10);
         logica.agregar(prod11);
         
-        //SERVICIOS 
-        
-        Servicio serv1 = new Servicio(mesa1,mozo1);
-        Servicio serv2 = new Servicio(mesa2,mozo3);
-        
-        
-        
-        
-        
-        
-        
-       
-        
-           
-        
-       
     }
     
 }
