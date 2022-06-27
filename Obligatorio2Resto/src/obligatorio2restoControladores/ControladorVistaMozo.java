@@ -128,4 +128,10 @@ public class ControladorVistaMozo implements Observador {
     public void mostrarProductos() {
         vistaMozo.mostrarProductos(sistema.getProductos());
     }
+    
+    public void salirSistema(){
+        mozo.quitar(this);
+        mozo.setConectado(false);
+        vistaMozo.salirSistema();
+    }
 }

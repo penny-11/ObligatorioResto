@@ -129,6 +129,11 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         jScrollPane1.setViewportView(jTableServicio);
 
         jButtonSalir.setText("Salir del Sistema");
+        jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalirActionPerformed(evt);
+            }
+        });
 
         jButtonAbrirMesa.setText("Abrir Mesa");
         jButtonAbrirMesa.addActionListener(new java.awt.event.ActionListener() {
@@ -466,6 +471,10 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
         cerrarMesa(mesa);
     }//GEN-LAST:event_jButtonCerrarMesaActionPerformed
 
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+       controlador.salirSistema();
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -691,7 +700,7 @@ public class VistaMozo extends javax.swing.JFrame implements InterfaceVistaMozo 
 
     @Override
     public void salirSistema() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.setVisible(false);
     }
 
     @Override

@@ -72,6 +72,7 @@ public class ControlUsuarios {
         ArrayList<Mozo> mozosConectados=new ArrayList();
         for(Mozo mo:usuariosMozo){
             if(mo.isConectado()){
+                count=0;
                 for(Mesa me:mo.getMesas()){
                     if(me!=null){
                         count++;
